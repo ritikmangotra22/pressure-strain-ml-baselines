@@ -1,0 +1,22 @@
+Traceback (most recent call last):
+  File "<string>", line 1, in <module>
+    import platform,sys,numpy,sklearn,torch,optuna,lightgbm,pandas;print('python',sys.version.split()[0]);print('platform',platform.platform(),platform.processor());[print(m.__name__,m.__version__) for m in (numpy,pandas,sklearn,lightgbm,optuna,torch)]
+    ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/Users/ritik/paper1/paper1-pressure-strain/venv/lib/python3.14/site-packages/lightgbm/__init__.py", line 11, in <module>
+    from .basic import Booster, Dataset, EvalResult, Sequence, register_logger
+  File "/Users/ritik/paper1/paper1-pressure-strain/venv/lib/python3.14/site-packages/lightgbm/basic.py", line 9, in <module>
+    from .libpath import _LIB  # isort: skip
+    ^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/Users/ritik/paper1/paper1-pressure-strain/venv/lib/python3.14/site-packages/lightgbm/libpath.py", line 49, in <module>
+    _LIB = ctypes.cdll.LoadLibrary(_find_lib_path()[0])
+  File "/Library/Frameworks/Python.framework/Versions/3.14/lib/python3.14/ctypes/__init__.py", line 554, in LoadLibrary
+    return self._dlltype(name)
+           ~~~~~~~~~~~~~^^^^^^
+  File "/Library/Frameworks/Python.framework/Versions/3.14/lib/python3.14/ctypes/__init__.py", line 433, in __init__
+    self._handle = self._load_library(name, mode, handle, winmode)
+                   ~~~~~~~~~~~~~~~~~~^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/Library/Frameworks/Python.framework/Versions/3.14/lib/python3.14/ctypes/__init__.py", line 475, in _load_library
+    return _dlopen(name, mode)
+OSError: dlopen(/Users/ritik/paper1/paper1-pressure-strain/venv/lib/python3.14/site-packages/lightgbm/lib/lib_lightgbm.dylib, 0x0006): Library not loaded: @rpath/libomp.dylib
+  Referenced from: <59CCDAC2-EBAE-32F7-ADF4-469B834532C9> /Users/ritik/paper1/paper1-pressure-strain/venv/lib/python3.14/site-packages/lightgbm/lib/lib_lightgbm.dylib
+  Reason: tried: '/opt/homebrew/opt/libomp/lib/libomp.dylib' (no such file), '/System/Volumes/Preboot/Cryptexes/OS/opt/homebrew/opt/libomp/lib/libomp.dylib' (no such file), '/opt/local/lib/libomp/libomp.dylib' (no such file), '/System/Volumes/Preboot/Cryptexes/OS/opt/local/lib/libomp/libomp.dylib' (no such file), '/opt/homebrew/opt/libomp/lib/libomp.dylib' (no such file), '/System/Volumes/Preboot/Cryptexes/OS/opt/homebrew/opt/libomp/lib/libomp.dylib' (no such file), '/opt/local/lib/libomp/libomp.dylib' (no such file), '/System/Volumes/Preboot/Cryptexes/OS/opt/local/lib/libomp/libomp.dylib' (no such file)

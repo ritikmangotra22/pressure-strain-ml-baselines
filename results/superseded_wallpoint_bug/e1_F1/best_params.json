@@ -1,0 +1,422 @@
+{
+  "ssg_published__LM_Channel_0180": {
+    "fit_info": {
+      "coef": {
+        "C1": 3.4,
+        "C1s": 1.8,
+        "C2": 4.2,
+        "C3": 0.8,
+        "C3s": 1.3,
+        "C4": 1.25,
+        "C5": 0.4
+      }
+    }
+  },
+  "ssg_refit__LM_Channel_0180": {
+    "fit_info": {
+      "coef": {
+        "C1": 3.005307079323888,
+        "C1s": -2.7563514457861173,
+        "C2": 6.374805610487365,
+        "C3": 1.0479533598928763,
+        "C3s": -0.4766607804360042,
+        "C4": 2.5141676757521125,
+        "C5": 2.0470139473709543
+      }
+    }
+  },
+  "lrr_published__LM_Channel_0180": {
+    "fit_info": {
+      "coef": {
+        "CR": 1.8,
+        "CP": 0.6
+      }
+    }
+  },
+  "lrr_refit__LM_Channel_0180": {
+    "fit_info": {
+      "coef": {
+        "CR": 0.604111807976404,
+        "CP": 0.761233343443955
+      }
+    }
+  },
+  "ridge__LM_Channel_0180": {
+    "alpha": 1.0147363889000365e-06,
+    "degree": 2
+  },
+  "rf__LM_Channel_0180": {
+    "n_estimators": 300,
+    "max_depth": 16,
+    "min_samples_leaf": 1,
+    "max_features": 1.0
+  },
+  "ssg_published__LM_Channel_0550": {
+    "fit_info": {
+      "coef": {
+        "C1": 3.4,
+        "C1s": 1.8,
+        "C2": 4.2,
+        "C3": 0.8,
+        "C3s": 1.3,
+        "C4": 1.25,
+        "C5": 0.4
+      }
+    }
+  },
+  "ssg_refit__LM_Channel_0550": {
+    "fit_info": {
+      "coef": {
+        "C1": 2.1347613487007426,
+        "C1s": -2.924141058030213,
+        "C2": 5.552363198091278,
+        "C3": 1.180523946174662,
+        "C3s": -0.6138004315874478,
+        "C4": 2.7095160321828846,
+        "C5": 2.4178292871205285
+      }
+    }
+  },
+  "lrr_published__LM_Channel_0550": {
+    "fit_info": {
+      "coef": {
+        "CR": 1.8,
+        "CP": 0.6
+      }
+    }
+  },
+  "lrr_refit__LM_Channel_0550": {
+    "fit_info": {
+      "coef": {
+        "CR": 0.1446591241731382,
+        "CP": 0.8433456305697841
+      }
+    }
+  },
+  "ridge__LM_Channel_0550": {
+    "alpha": 1.0041080243710637e-06,
+    "degree": 2
+  },
+  "rf__LM_Channel_0550": {
+    "n_estimators": 300,
+    "max_depth": 32,
+    "min_samples_leaf": 1,
+    "max_features": 1.0
+  },
+  "ssg_published__LM_Channel_1000": {
+    "fit_info": {
+      "coef": {
+        "C1": 3.4,
+        "C1s": 1.8,
+        "C2": 4.2,
+        "C3": 0.8,
+        "C3s": 1.3,
+        "C4": 1.25,
+        "C5": 0.4
+      }
+    }
+  },
+  "ssg_refit__LM_Channel_1000": {
+    "fit_info": {
+      "coef": {
+        "C1": 2.000883463167324,
+        "C1s": -2.8878434634289185,
+        "C2": 5.218039774265062,
+        "C3": 1.17823191565059,
+        "C3s": -0.6212643357723862,
+        "C4": 2.6926140249043033,
+        "C5": 2.41576619713237
+      }
+    }
+  },
+  "lrr_published__LM_Channel_1000": {
+    "fit_info": {
+      "coef": {
+        "CR": 1.8,
+        "CP": 0.6
+      }
+    }
+  },
+  "lrr_refit__LM_Channel_1000": {
+    "fit_info": {
+      "coef": {
+        "CR": 0.05370231474142103,
+        "CP": 0.8577808375907409
+      }
+    }
+  },
+  "ridge__LM_Channel_1000": {
+    "alpha": 4.546236505339149e-05,
+    "degree": 2
+  },
+  "rf__LM_Channel_1000": {
+    "n_estimators": 1000,
+    "max_depth": 8,
+    "min_samples_leaf": 1,
+    "max_features": 0.5
+  },
+  "ssg_published__LM_Channel_2000": {
+    "fit_info": {
+      "coef": {
+        "C1": 3.4,
+        "C1s": 1.8,
+        "C2": 4.2,
+        "C3": 0.8,
+        "C3s": 1.3,
+        "C4": 1.25,
+        "C5": 0.4
+      }
+    }
+  },
+  "ssg_refit__LM_Channel_2000": {
+    "fit_info": {
+      "coef": {
+        "C1": 1.9246040340975519,
+        "C1s": -2.855945895582537,
+        "C2": 5.105091328989543,
+        "C3": 1.1748401549955712,
+        "C3s": -0.6163282179488933,
+        "C4": 2.6802682362431507,
+        "C5": 2.4045332009914095
+      }
+    }
+  },
+  "lrr_published__LM_Channel_2000": {
+    "fit_info": {
+      "coef": {
+        "CR": 1.8,
+        "CP": 0.6
+      }
+    }
+  },
+  "lrr_refit__LM_Channel_2000": {
+    "fit_info": {
+      "coef": {
+        "CR": 0.005485657257751385,
+        "CP": 0.8625682777473997
+      }
+    }
+  },
+  "ridge__LM_Channel_2000": {
+    "alpha": 65.02551871359363,
+    "degree": 1
+  },
+  "rf__LM_Channel_2000": {
+    "n_estimators": 300,
+    "max_depth": 32,
+    "min_samples_leaf": 1,
+    "max_features": 1.0
+  },
+  "ssg_published__LM_Channel_5200": {
+    "fit_info": {
+      "coef": {
+        "C1": 3.4,
+        "C1s": 1.8,
+        "C2": 4.2,
+        "C3": 0.8,
+        "C3s": 1.3,
+        "C4": 1.25,
+        "C5": 0.4
+      }
+    }
+  },
+  "ssg_refit__LM_Channel_5200": {
+    "fit_info": {
+      "coef": {
+        "C1": 1.9330233983038452,
+        "C1s": -2.8616269242493844,
+        "C2": 4.98103108286267,
+        "C3": 1.1710059903534829,
+        "C3s": -0.5981727817680693,
+        "C4": 2.6625522054541886,
+        "C5": 2.3817001218137976
+      }
+    }
+  },
+  "lrr_published__LM_Channel_5200": {
+    "fit_info": {
+      "coef": {
+        "CR": 1.8,
+        "CP": 0.6
+      }
+    }
+  },
+  "lrr_refit__LM_Channel_5200": {
+    "fit_info": {
+      "coef": {
+        "CR": 0.0061440662475399565,
+        "CP": 0.8566060152209166
+      }
+    }
+  },
+  "ridge__LM_Channel_5200": {
+    "alpha": 4.840374099853906e-05,
+    "degree": 2
+  },
+  "rf__LM_Channel_5200": {
+    "n_estimators": 300,
+    "max_depth": 8,
+    "min_samples_leaf": 1,
+    "max_features": 1.0
+  },
+  "lgbm__LM_Channel_0180": {
+    "learning_rate": 0.11920924797988679,
+    "num_leaves": 16,
+    "min_child_samples": 10,
+    "subsample": 0.9939395004188554,
+    "reg_lambda": 0.029840798436537898,
+    "n_estimators": [
+      132,
+      176,
+      109,
+      138
+    ],
+    "fit_info": {
+      "n_estimators": [
+        132,
+        176,
+        109,
+        138
+      ]
+    }
+  },
+  "lgbm__LM_Channel_0550": {
+    "learning_rate": 0.14522847210225046,
+    "num_leaves": 8,
+    "min_child_samples": 7,
+    "subsample": 0.6039769319990685,
+    "reg_lambda": 0.06873289271270944,
+    "n_estimators": [
+      274,
+      82,
+      139,
+      284
+    ],
+    "fit_info": {
+      "n_estimators": [
+        274,
+        82,
+        139,
+        284
+      ]
+    }
+  },
+  "lgbm__LM_Channel_1000": {
+    "learning_rate": 0.16380916816198374,
+    "num_leaves": 20,
+    "min_child_samples": 48,
+    "subsample": 0.9643712281746524,
+    "reg_lambda": 0.23398139906067555,
+    "n_estimators": [
+      272,
+      68,
+      778,
+      83
+    ],
+    "fit_info": {
+      "n_estimators": [
+        272,
+        68,
+        778,
+        83
+      ]
+    }
+  },
+  "lgbm__LM_Channel_2000": {
+    "learning_rate": 0.18428633273876283,
+    "num_leaves": 16,
+    "min_child_samples": 8,
+    "subsample": 0.642097486242838,
+    "reg_lambda": 0.003114177052040275,
+    "n_estimators": [
+      62,
+      81,
+      104,
+      112
+    ],
+    "fit_info": {
+      "n_estimators": [
+        62,
+        81,
+        104,
+        112
+      ]
+    }
+  },
+  "lgbm__LM_Channel_5200": {
+    "learning_rate": 0.015525027832354703,
+    "num_leaves": 11,
+    "min_child_samples": 8,
+    "subsample": 0.9985139951551861,
+    "reg_lambda": 0.00719708694390081,
+    "n_estimators": [
+      591,
+      895,
+      857,
+      1074
+    ],
+    "fit_info": {
+      "n_estimators": [
+        591,
+        895,
+        857,
+        1074
+      ]
+    }
+  },
+  "mlp__LM_Channel_0180": {
+    "n_layers": 4,
+    "width": 64,
+    "activation": "silu",
+    "lr": 0.0028699820535970475,
+    "weight_decay": 2.2179215080665204e-05,
+    "epochs": 1796,
+    "fit_info": {
+      "epochs": 1796
+    }
+  },
+  "mlp__LM_Channel_0550": {
+    "n_layers": 5,
+    "width": 64,
+    "activation": "tanh",
+    "lr": 0.0013316005427592755,
+    "weight_decay": 2.489613205274112e-06,
+    "epochs": 814,
+    "fit_info": {
+      "epochs": 814
+    }
+  },
+  "mlp__LM_Channel_1000": {
+    "n_layers": 4,
+    "width": 64,
+    "activation": "silu",
+    "lr": 0.001058257812819622,
+    "weight_decay": 1.4871719036222506e-05,
+    "epochs": 1356,
+    "fit_info": {
+      "epochs": 1356
+    }
+  },
+  "mlp__LM_Channel_2000": {
+    "n_layers": 5,
+    "width": 64,
+    "activation": "tanh",
+    "lr": 0.0029575697276994508,
+    "weight_decay": 0.004715702691637836,
+    "epochs": 392,
+    "fit_info": {
+      "epochs": 392
+    }
+  },
+  "mlp__LM_Channel_5200": {
+    "n_layers": 3,
+    "width": 128,
+    "activation": "silu",
+    "lr": 0.0027449575980294212,
+    "weight_decay": 0.00018262552211934047,
+    "epochs": 761,
+    "fit_info": {
+      "epochs": 761
+    }
+  }
+}

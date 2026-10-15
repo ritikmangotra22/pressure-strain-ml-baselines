@@ -1,0 +1,45 @@
+    [tune mlp] trial 1/40 COMPLETE value=0.2103 elapsed=25s
+    [tune mlp] trial 2/40 COMPLETE value=0.2558 elapsed=48s
+    [tune mlp] trial 3/40 COMPLETE value=0.1735 elapsed=100s
+    [tune mlp] trial 4/40 COMPLETE value=0.1396 elapsed=108s
+    [tune mlp] trial 5/40 COMPLETE value=0.2034 elapsed=117s
+    [tune mlp] trial 6/40 COMPLETE value=0.1618 elapsed=124s
+    [tune mlp] trial 7/40 COMPLETE value=0.2477 elapsed=154s
+    [tune mlp] trial 8/40 COMPLETE value=0.1262 elapsed=177s
+    [tune mlp] trial 9/40 COMPLETE value=0.1491 elapsed=216s
+    [tune mlp] trial 10/40 COMPLETE value=0.1623 elapsed=234s
+    [tune mlp] trial 11/40 COMPLETE value=0.1538 elapsed=238s
+    [tune mlp] trial 12/40 COMPLETE value=0.1257 elapsed=252s
+    [tune mlp] trial 13/40 COMPLETE value=0.1407 elapsed=275s
+    [tune mlp] trial 14/40 COMPLETE value=0.1692 elapsed=285s
+    [tune mlp] trial 15/40 PRUNED value=0.4668 elapsed=287s
+    [tune mlp] trial 16/40 COMPLETE value=0.1252 elapsed=301s
+    [tune mlp] trial 17/40 COMPLETE value=0.1246 elapsed=313s
+    [tune mlp] trial 18/40 COMPLETE value=0.1201 elapsed=326s
+    [tune mlp] trial 19/40 PRUNED value=0.3910 elapsed=327s
+    [tune mlp] trial 20/40 COMPLETE value=0.1217 elapsed=339s
+    [tune mlp] trial 21/40 PRUNED value=0.3629 elapsed=340s
+    [tune mlp] trial 22/40 PRUNED value=0.3919 elapsed=341s
+    [tune mlp] trial 23/40 PRUNED value=0.3574 elapsed=341s
+    [tune mlp] trial 24/40 PRUNED value=0.3976 elapsed=342s
+    [tune mlp] trial 25/40 PRUNED value=0.2346 elapsed=344s
+    [tune mlp] trial 26/40 COMPLETE value=0.1305 elapsed=352s
+    [tune mlp] trial 27/40 PRUNED value=0.3915 elapsed=353s
+    [tune mlp] trial 28/40 PRUNED value=0.3983 elapsed=354s
+    [tune mlp] trial 29/40 PRUNED value=0.3933 elapsed=355s
+    [tune mlp] trial 30/40 COMPLETE value=0.1188 elapsed=373s
+    [tune mlp] trial 31/40 PRUNED value=0.2211 elapsed=375s
+    [tune mlp] trial 32/40 PRUNED value=0.2171 elapsed=379s
+    [tune mlp] trial 33/40 PRUNED value=0.4626 elapsed=379s
+    [tune mlp] trial 34/40 COMPLETE value=0.1199 elapsed=393s
+    [tune mlp] trial 35/40 PRUNED value=0.3918 elapsed=393s
+    [tune mlp] trial 36/40 PRUNED value=0.3647 elapsed=394s
+    [tune mlp] trial 37/40 PRUNED value=0.3906 elapsed=395s
+    [tune mlp] trial 38/40 PRUNED value=0.3978 elapsed=396s
+    [tune mlp] trial 39/40 PRUNED value=0.2161 elapsed=401s
+    [tune mlp] trial 40/40 PRUNED value=0.3608 elapsed=402s
+    [tune mlp] done: 40 trials, 19 pruned, best inner E_Pi=0.1188
+[LM_Channel_0550] mlp: E_Pi = 0.0508  (tune 402s)
+| model   | 550             |   mean_interp | mean_extrap   |
+|:--------|:----------------|--------------:|:--------------|
+| mlp     | 0.0508 ± 0.0165 |        0.0508 | —             |

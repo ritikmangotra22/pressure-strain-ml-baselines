@@ -1,0 +1,107 @@
+{
+  "lgbm__LM_Channel_0180": {
+    "learning_rate": 0.11920924797988679,
+    "num_leaves": 16,
+    "min_child_samples": 10,
+    "subsample": 0.9939395004188554,
+    "reg_lambda": 0.029840798436537898,
+    "n_estimators": [
+      132,
+      176,
+      109,
+      138
+    ],
+    "fit_info": {
+      "n_estimators": [
+        132,
+        176,
+        109,
+        138
+      ]
+    }
+  },
+  "lgbm__LM_Channel_0550": {
+    "learning_rate": 0.14522847210225046,
+    "num_leaves": 8,
+    "min_child_samples": 7,
+    "subsample": 0.6039769319990685,
+    "reg_lambda": 0.06873289271270944,
+    "n_estimators": [
+      274,
+      82,
+      139,
+      284
+    ],
+    "fit_info": {
+      "n_estimators": [
+        274,
+        82,
+        139,
+        284
+      ]
+    }
+  },
+  "lgbm__LM_Channel_1000": {
+    "learning_rate": 0.16380916816198374,
+    "num_leaves": 20,
+    "min_child_samples": 48,
+    "subsample": 0.9643712281746524,
+    "reg_lambda": 0.23398139906067555,
+    "n_estimators": [
+      272,
+      68,
+      778,
+      83
+    ],
+    "fit_info": {
+      "n_estimators": [
+        272,
+        68,
+        778,
+        83
+      ]
+    }
+  },
+  "lgbm__LM_Channel_2000": {
+    "learning_rate": 0.18428633273876283,
+    "num_leaves": 16,
+    "min_child_samples": 8,
+    "subsample": 0.642097486242838,
+    "reg_lambda": 0.003114177052040275,
+    "n_estimators": [
+      62,
+      81,
+      104,
+      112
+    ],
+    "fit_info": {
+      "n_estimators": [
+        62,
+        81,
+        104,
+        112
+      ]
+    }
+  },
+  "lgbm__LM_Channel_5200": {
+    "learning_rate": 0.015525027832354703,
+    "num_leaves": 11,
+    "min_child_samples": 8,
+    "subsample": 0.9985139951551861,
+    "reg_lambda": 0.00719708694390081,
+    "n_estimators": [
+      591,
+      895,
+      857,
+      1074
+    ],
+    "fit_info": {
+      "n_estimators": [
+        591,
+        895,
+        857,
+        1074
+      ]
+    }
+  }
+}

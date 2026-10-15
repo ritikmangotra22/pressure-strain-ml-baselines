@@ -1,0 +1,8 @@
+2000 exit 0
+5200 exit 0
+e2 exit 1
+0180 exit 0
+0550 exit 0
+1000 exit 0
+ALL_DONE
+e2 exit 0

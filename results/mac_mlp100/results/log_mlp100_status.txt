@@ -1,0 +1,7 @@
+16:02:12 e2 finished, exit code 0
+16:09:11 5200 finished, exit code 0
+16:10:29 1000 finished, exit code 0
+16:16:32 0180 finished, exit code 0
+16:18:01 2000 finished, exit code 0
+16:22:02 0550 finished, exit code 0
+16:22:02 ALL_DONE

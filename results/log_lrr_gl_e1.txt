@@ -1,0 +1,14 @@
+[LM_Channel_0180] lrr_gl_published: E_Pi = 0.8892  (tune 0s)
+[LM_Channel_0180] lrr_gl_refit: E_Pi = 0.6389  (tune 0s)
+[LM_Channel_0550] lrr_gl_published: E_Pi = 0.3287  (tune 0s)
+[LM_Channel_0550] lrr_gl_refit: E_Pi = 0.2283  (tune 0s)
+[LM_Channel_1000] lrr_gl_published: E_Pi = 0.2576  (tune 0s)
+[LM_Channel_1000] lrr_gl_refit: E_Pi = 0.2064  (tune 0s)
+[LM_Channel_2000] lrr_gl_published: E_Pi = 0.2395  (tune 0s)
+[LM_Channel_2000] lrr_gl_refit: E_Pi = 0.2059  (tune 0s)
+[LM_Channel_5200] lrr_gl_published: E_Pi = 0.2598  (tune 0s)
+[LM_Channel_5200] lrr_gl_refit: E_Pi = 0.2115  (tune 0s)
+| model            | 180             | 550             | 1000            | 2000            | 5200            |   mean_interp |   mean_extrap |
+|:-----------------|:----------------|:----------------|:----------------|:----------------|:----------------|--------------:|--------------:|
+| lrr_gl_published | 0.8892 ± 0.0000 | 0.3287 ± 0.0000 | 0.2576 ± 0.0000 | 0.2395 ± 0.0000 | 0.2598 ± 0.0000 |        0.2753 |        0.5745 |
+| lrr_gl_refit     | 0.6389 ± 0.0000 | 0.2283 ± 0.0000 | 0.2064 ± 0.0000 | 0.2059 ± 0.0000 | 0.2115 ± 0.0000 |        0.2135 |        0.4252 |

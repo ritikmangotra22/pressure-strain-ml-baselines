@@ -1,0 +1,157 @@
+{
+  "ridge__LM_Channel_0180": {
+    "alpha": 0.35970348009501907,
+    "degree": 2
+  },
+  "rf__LM_Channel_0180": {
+    "n_estimators": 300,
+    "max_depth": 16,
+    "min_samples_leaf": 1,
+    "max_features": 1.0
+  },
+  "lgbm__LM_Channel_0180": {
+    "learning_rate": 0.0331220173848712,
+    "num_leaves": 14,
+    "min_child_samples": 23,
+    "subsample": 0.8157311504625177,
+    "reg_lambda": 0.0019658583393543446,
+    "n_estimators": [
+      794,
+      566,
+      876,
+      1303
+    ],
+    "fit_info": {
+      "n_estimators": [
+        794,
+        566,
+        876,
+        1303
+      ]
+    }
+  },
+  "ridge__LM_Channel_0550": {
+    "alpha": 1.0041080243710637e-06,
+    "degree": 2
+  },
+  "rf__LM_Channel_0550": {
+    "n_estimators": 1000,
+    "max_depth": 32,
+    "min_samples_leaf": 2,
+    "max_features": 0.5
+  },
+  "lgbm__LM_Channel_0550": {
+    "learning_rate": 0.06507636219261245,
+    "num_leaves": 51,
+    "min_child_samples": 50,
+    "subsample": 0.6102635484138295,
+    "reg_lambda": 0.01448042847331597,
+    "n_estimators": [
+      708,
+      955,
+      1362,
+      637
+    ],
+    "fit_info": {
+      "n_estimators": [
+        708,
+        955,
+        1362,
+        637
+      ]
+    }
+  },
+  "ridge__LM_Channel_1000": {
+    "alpha": 6.634450512271743e-05,
+    "degree": 2
+  },
+  "rf__LM_Channel_1000": {
+    "n_estimators": 300,
+    "max_depth": 8,
+    "min_samples_leaf": 1,
+    "max_features": "sqrt"
+  },
+  "lgbm__LM_Channel_1000": {
+    "learning_rate": 0.08600106713988016,
+    "num_leaves": 38,
+    "min_child_samples": 48,
+    "subsample": 0.6057745882210244,
+    "reg_lambda": 0.0053477649232304345,
+    "n_estimators": [
+      269,
+      752,
+      414,
+      621
+    ],
+    "fit_info": {
+      "n_estimators": [
+        269,
+        752,
+        414,
+        621
+      ]
+    }
+  },
+  "ridge__LM_Channel_2000": {
+    "alpha": 65.02551871359363,
+    "degree": 1
+  },
+  "rf__LM_Channel_2000": {
+    "n_estimators": 300,
+    "max_depth": 16,
+    "min_samples_leaf": 5,
+    "max_features": 0.5
+  },
+  "lgbm__LM_Channel_2000": {
+    "learning_rate": 0.11284846445225623,
+    "num_leaves": 51,
+    "min_child_samples": 50,
+    "subsample": 0.6208650916955671,
+    "reg_lambda": 0.018228873971748064,
+    "n_estimators": [
+      373,
+      503,
+      397,
+      600
+    ],
+    "fit_info": {
+      "n_estimators": [
+        373,
+        503,
+        397,
+        600
+      ]
+    }
+  },
+  "ridge__LM_Channel_5200": {
+    "alpha": 5.5175065461999326e-05,
+    "degree": 2
+  },
+  "rf__LM_Channel_5200": {
+    "n_estimators": 300,
+    "max_depth": 16,
+    "min_samples_leaf": 1,
+    "max_features": 0.5
+  },
+  "lgbm__LM_Channel_5200": {
+    "learning_rate": 0.17972641919602236,
+    "num_leaves": 29,
+    "min_child_samples": 50,
+    "subsample": 0.6031341870956988,
+    "reg_lambda": 0.16961624861743185,
+    "n_estimators": [
+      166,
+      315,
+      355,
+      456
+    ],
+    "fit_info": {
+      "n_estimators": [
+        166,
+        315,
+        355,
+        456
+      ]
+    }
+  }
+}

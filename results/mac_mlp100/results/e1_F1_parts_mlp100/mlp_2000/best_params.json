@@ -1,0 +1,13 @@
+{
+  "mlp__LM_Channel_2000": {
+    "n_layers": 5,
+    "width": 128,
+    "activation": "tanh",
+    "lr": 0.0018909106048939537,
+    "weight_decay": 0.009274423748682512,
+    "epochs": 440,
+    "fit_info": {
+      "epochs": 440
+    }
+  }
+}

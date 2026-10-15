@@ -1,0 +1,29 @@
+                 E_Pi_train           E_Pi_inner_val           E_Pi_test           repro_abs_diff              
+                       mean       max           mean       max      mean       max           mean           max
+model                                                                                                          
+lgbm               0.005308  0.006569       0.095375  0.119663  0.084126  0.166330   4.621303e-17  9.714451e-17
+lrr_gl_published   0.380806  0.416301            NaN       NaN  0.394944  0.889179   3.330669e-17  5.551115e-17
+lrr_gl_refit       0.248171  0.265381            NaN       NaN  0.298186  0.638858   1.665335e-17  5.551115e-17
+lrr_published      0.425653  0.480896            NaN       NaN  0.435009  1.035969   2.220446e-17  5.551115e-17
+lrr_refit          0.254926  0.274284            NaN       NaN  0.298983  0.635617   4.996004e-17  8.326673e-17
+mlp                0.014534  0.027645       0.071069  0.112486  0.086885  0.320931   3.455569e-17  8.326673e-17
+rf                 0.006692  0.009560       0.106816  0.139693  0.092202  0.212972   4.295175e-17  8.326673e-17
+ridge              0.081213  0.335756       0.222230  0.376299  0.151406  0.301897   3.261280e-17  5.551115e-17
+ssg_published      0.427437  0.485571            NaN       NaN  0.432208  1.072687   2.775558e-17  8.326673e-17
+ssg_refit          0.167528  0.176775            NaN       NaN  0.200301  0.396016   3.330669e-17  8.326673e-17
+### Table 8c — Training, inner-validation and held-out test E_Π (means over folds and seeds)
+
+Training: the four training cases of each fold. Inner validation: the mean leave-one-out error of the selected configuration during tuning; it is used for model selection and is NaN for untuned models. Test: the held-out case. The last column is the exact-reproducibility check from refitting.
+
+| model            |   E_Pi_train |   E_Pi_inner_val |   E_Pi_test |   max |test refit − recorded| |
+|:-----------------|-------------:|-----------------:|------------:|------------------------------:|
+| ssg_published    |       0.4274 |         nan      |      0.4322 |                        0.0000 |
+| ssg_refit        |       0.1675 |         nan      |      0.2003 |                        0.0000 |
+| lrr_published    |       0.4257 |         nan      |      0.4350 |                        0.0000 |
+| lrr_refit        |       0.2549 |         nan      |      0.2990 |                        0.0000 |
+| lrr_gl_published |       0.3808 |         nan      |      0.3949 |                        0.0000 |
+| lrr_gl_refit     |       0.2482 |         nan      |      0.2982 |                        0.0000 |
+| ridge            |       0.0812 |           0.2222 |      0.1514 |                        0.0000 |
+| rf               |       0.0067 |           0.1068 |      0.0922 |                        0.0000 |
+| lgbm             |       0.0053 |           0.0954 |      0.0841 |                        0.0000 |
+| mlp              |       0.0145 |           0.0711 |      0.0869 |                        0.0000 |

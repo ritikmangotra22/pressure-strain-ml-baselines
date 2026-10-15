@@ -1,0 +1,10 @@
+{
+  "mlp": {
+    "n_layers": 5,
+    "width": 128,
+    "activation": "silu",
+    "lr": 0.0010605860501229397,
+    "weight_decay": 2.2123875753407077e-06,
+    "epochs": 1614
+  }
+}

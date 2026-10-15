@@ -1,0 +1,5 @@
+[LM_Channel_0180] mlp: E_Pi = 0.1425  (tune 1215s)
+Traceback (most recent call last):
+  File "/home/claude/paper1-pressure-strain/scripts/run_e1.py", line 174, in <module>
+  File "/home/claude/paper1-pressure-strain/scripts/run_e1.py", line 158, in main
+AttributeError: 'float' object has no attribute 'map'

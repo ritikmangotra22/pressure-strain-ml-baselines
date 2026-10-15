@@ -1,0 +1,13 @@
+{
+  "mlp__LM_Channel_5200": {
+    "n_layers": 4,
+    "width": 32,
+    "activation": "silu",
+    "lr": 0.0017569250677266601,
+    "weight_decay": 0.00016437933878821282,
+    "epochs": 1172,
+    "fit_info": {
+      "epochs": 1172
+    }
+  }
+}

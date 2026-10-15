@@ -1,0 +1,102 @@
+{
+  "lrr_gl_published__LM_Channel_0180": {
+    "fit_info": {
+      "coef": {
+        "CR": 1.8,
+        "CP": 0.6,
+        "Cref1": 0.5,
+        "D_Cref2xCP": 0.18
+      }
+    }
+  },
+  "lrr_gl_refit__LM_Channel_0180": {
+    "fit_info": {
+      "coef": {
+        "CR": 0.632450417385305,
+        "CP": 0.7845133815338213,
+        "Cref1": 0.022282289058445478,
+        "D_Cref2xCP": 0.03428844429205098
+      }
+    }
+  },
+  "lrr_gl_published__LM_Channel_0550": {
+    "fit_info": {
+      "coef": {
+        "CR": 1.8,
+        "CP": 0.6,
+        "Cref1": 0.5,
+        "D_Cref2xCP": 0.18
+      }
+    }
+  },
+  "lrr_gl_refit__LM_Channel_0550": {
+    "fit_info": {
+      "coef": {
+        "CR": -0.1322168313124385,
+        "CP": 0.9660653968743097,
+        "Cref1": -0.15935582337449236,
+        "D_Cref2xCP": 0.044219159791819604
+      }
+    }
+  },
+  "lrr_gl_published__LM_Channel_1000": {
+    "fit_info": {
+      "coef": {
+        "CR": 1.8,
+        "CP": 0.6,
+        "Cref1": 0.5,
+        "D_Cref2xCP": 0.18
+      }
+    }
+  },
+  "lrr_gl_refit__LM_Channel_1000": {
+    "fit_info": {
+      "coef": {
+        "CR": -0.2445311438263115,
+        "CP": 0.9890728371704771,
+        "Cref1": -0.18343047146033414,
+        "D_Cref2xCP": 0.046614514844787285
+      }
+    }
+  },
+  "lrr_gl_published__LM_Channel_2000": {
+    "fit_info": {
+      "coef": {
+        "CR": 1.8,
+        "CP": 0.6,
+        "Cref1": 0.5,
+        "D_Cref2xCP": 0.18
+      }
+    }
+  },
+  "lrr_gl_refit__LM_Channel_2000": {
+    "fit_info": {
+      "coef": {
+        "CR": -0.2909714289938446,
+        "CP": 0.9966789165946971,
+        "Cref1": -0.19058729586766163,
+        "D_Cref2xCP": 0.050795887988086735
+      }
+    }
+  },
+  "lrr_gl_published__LM_Channel_5200": {
+    "fit_info": {
+      "coef": {
+        "CR": 1.8,
+        "CP": 0.6,
+        "Cref1": 0.5,
+        "D_Cref2xCP": 0.18
+      }
+    }
+  },
+  "lrr_gl_refit__LM_Channel_5200": {
+    "fit_info": {
+      "coef": {
+        "CR": -0.24697071500175588,
+        "CP": 0.9835673601760109,
+        "Cref1": -0.17251185484890605,
+        "D_Cref2xCP": 0.058478500995152206
+      }
+    }
+  }
+}

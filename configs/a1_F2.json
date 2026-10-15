@@ -1,0 +1,36 @@
+{
+  "synthetic": false,
+  "data_dir": "data/raw/lee_moser_2015",
+  "labels": [
+    "0180",
+    "0550",
+    "1000",
+    "2000",
+    "5200"
+  ],
+  "feature_set": "F2",
+  "models": [
+    "ridge",
+    "rf",
+    "lgbm"
+  ],
+  "n_trials": 100,
+  "n_trials_per_model": {
+    "mlp": 40
+  },
+  "_note": "Ablation run for ridge, RF and LightGBM only (MLP omitted: compute budget, deviation D5).",
+  "seeds": [
+    0,
+    1,
+    2,
+    3,
+    4,
+    5,
+    6,
+    7,
+    8,
+    9
+  ],
+  "n_boot": 2000,
+  "out_dir": "results/ablations/a1_F2"
+}

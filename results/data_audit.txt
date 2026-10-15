@@ -1,0 +1,100 @@
+
+===== Re_tau label 0180: 96 points, y/delta 1.11e-16..0.991598, Re_tau = y+/y = 182.09
+k - 0.5(uu+vv+ww): max abs 1.7763568394002505e-15
+uu: |recomputed - balance col| max 1.665e-16 ; |balance|/eps median 1.792e-03 max 1.140e-02
+vv: |recomputed - balance col| max 8.677e-18 ; |balance|/eps median 3.143e-04 max 6.733e-03
+ww: |recomputed - balance col| max 1.388e-17 ; |balance|/eps median 7.045e-04 max 1.285e-02
+uv: |recomputed - balance col| max 1.431e-17 ; |balance|/eps median 9.695e-04 max 7.613e-03
+k: |recomputed - balance col| max 8.327e-17 ; |balance|/eps median 1.629e-03 max 8.119e-03
+eps_k - 0.5(eps11+eps22+eps33): max abs 8.326672684688674e-17 | eps>0 everywhere: True | eps_wall+ = 0.1777839416990691
+k-file production - 0.5*sum(normal): max abs 8.326672684688674e-17
+k-file pressure_strain - 0.5*sum(normal): max abs 2.0816681711721685e-17
+k-file pressure_transport - 0.5*sum(normal): max abs 5.204170427930421e-18
+trace Pi_ii: max abs 4.163e-17, max |tr|/||Pi|| 6.725e-16, typical ||Pi|| 4.890e-02
+pressure transport: uu max abs 0.000e+00 (zero by x-homogeneity); ww max abs 0.000e+00 (zero by z-homogeneity); vv max abs 2.253e-02
+P_uu / (-2 uv dU/dy) median 0.9999981436547639 | P_uv / (-vv dU/dy) median 0.9999969658873753 | P_vv, P_ww max abs 0.0 5.678894736451333e-07 | P_k / (-uv dU) median 0.9999960702544377
+dU/dy at wall 1.000000 | max |(dU/dy - uv) - (1 - y/delta)| 2.021e-03
+max |uw| 5.83e-03  max |vw| 1.29e-03  max|W| 7.56e-03
+signs for 15<y+<0.5Re_tau: Pi11<0 frac 1.000, Pi22>0 frac 1.000, Pi33>0 frac 1.000, Pi12>0 frac 1.000, uv<0 frac 1.000
+near wall y+<10: min Pi22 -0.0228 at y+ 3.15; Pi22 at wall 1.46e-19
+b trace max abs 5.83e-16; b11 range [0.123,0.559], b22 min -0.3333 (>= -1/3 required), Cauchy-Schwarz uv^2<=uu*vv: True
+
+===== Re_tau label 0550: 192 points, y/delta 0..0.995834, Re_tau = y+/y = 543.50
+k - 0.5(uu+vv+ww): max abs 1.3322676295501878e-15
+uu: |recomputed - balance col| max 1.665e-16 ; |balance|/eps median 3.007e-03 max 2.258e-02
+vv: |recomputed - balance col| max 1.040e-17 ; |balance|/eps median 5.912e-04 max 3.429e-03
+ww: |recomputed - balance col| max 8.327e-17 ; |balance|/eps median 8.476e-04 max 7.125e-03
+uv: |recomputed - balance col| max 8.327e-17 ; |balance|/eps median 1.008e-03 max 8.656e-03
+k: |recomputed - balance col| max 1.388e-16 ; |balance|/eps median 1.995e-03 max 1.064e-02
+eps_k - 0.5(eps11+eps22+eps33): max abs 6.938893903907228e-17 | eps>0 everywhere: True | eps_wall+ = 0.2316216216893049
+k-file production - 0.5*sum(normal): max abs 5.551115123125783e-17
+k-file pressure_strain - 0.5*sum(normal): max abs 1.734723475976807e-17
+k-file pressure_transport - 0.5*sum(normal): max abs 6.938893903907228e-18
+trace Pi_ii: max abs 3.469e-17, max |tr|/||Pi|| 5.516e-16, typical ||Pi|| 2.859e-02
+pressure transport: uu max abs 0.000e+00 (zero by x-homogeneity); ww max abs 0.000e+00 (zero by z-homogeneity); vv max abs 3.876e-02
+P_uu / (-2 uv dU/dy) median 1.0000040230206286 | P_uv / (-vv dU/dy) median 1.0000027443949833 | P_vv, P_ww max abs 0.0 1.689881486828481e-07 | P_k / (-uv dU) median 1.0000041132110407
+dU/dy at wall 1.000000 | max |(dU/dy - uv) - (1 - y/delta)| 2.036e-03
+max |uw| 9.11e-03  max |vw| 1.14e-03  max|W| 6.10e-03
+signs for 15<y+<0.5Re_tau: Pi11<0 frac 1.000, Pi22>0 frac 1.000, Pi33>0 frac 1.000, Pi12>0 frac 1.000, uv<0 frac 1.000
+near wall y+<10: min Pi22 -0.0391 at y+ 2.79; Pi22 at wall 4.71e-19
+b trace max abs 7.22e-16; b11 range [0.107,0.521], b22 min -0.3333 (>= -1/3 required), Cauchy-Schwarz uv^2<=uu*vv: True
+
+===== Re_tau label 1000: 256 points, y/delta 0..0.996890, Re_tau = y+/y = 1000.51
+k - 0.5(uu+vv+ww): max abs 1.7763568394002505e-15
+uu: |recomputed - balance col| max 1.110e-16 ; |balance|/eps median 2.713e-03 max 1.667e-02
+vv: |recomputed - balance col| max 1.042e-17 ; |balance|/eps median 6.808e-04 max 5.026e-03
+ww: |recomputed - balance col| max 8.327e-17 ; |balance|/eps median 1.328e-03 max 9.970e-03
+uv: |recomputed - balance col| max 8.327e-17 ; |balance|/eps median 1.250e-03 max 6.691e-03
+k: |recomputed - balance col| max 8.327e-17 ; |balance|/eps median 1.541e-03 max 8.939e-03
+eps_k - 0.5(eps11+eps22+eps33): max abs 5.551115123125783e-17 | eps>0 everywhere: True | eps_wall+ = 0.2517127002020434
+k-file production - 0.5*sum(normal): max abs 5.551115123125783e-17
+k-file pressure_strain - 0.5*sum(normal): max abs 3.122502256758253e-17
+k-file pressure_transport - 0.5*sum(normal): max abs 6.938893903907228e-18
+trace Pi_ii: max abs 6.245e-17, max |tr|/||Pi|| 1.243e-15, typical ||Pi|| 1.680e-02
+pressure transport: uu max abs 0.000e+00 (zero by x-homogeneity); ww max abs 0.000e+00 (zero by z-homogeneity); vv max abs 4.359e-02
+P_uu / (-2 uv dU/dy) median 1.0000004745056734 | P_uv / (-vv dU/dy) median 0.9999996993862449 | P_vv, P_ww max abs 0.0 6.930497582447928e-08 | P_k / (-uv dU) median 1.000000906436685
+dU/dy at wall 1.000000 | max |(dU/dy - uv) - (1 - y/delta)| 3.896e-04
+max |uw| 4.93e-03  max |vw| 4.66e-04  max|W| 8.62e-03
+signs for 15<y+<0.5Re_tau: Pi11<0 frac 1.000, Pi22>0 frac 1.000, Pi33>0 frac 1.000, Pi12>0 frac 1.000, uv<0 frac 1.000
+near wall y+<10: min Pi22 -0.0439 at y+ 2.86; Pi22 at wall 6.21e-19
+b trace max abs 5.27e-16; b11 range [0.129,0.512], b22 min -0.3333 (>= -1/3 required), Cauchy-Schwarz uv^2<=uu*vv: True
+
+===== Re_tau label 2000: 384 points, y/delta 0..0.997936, Re_tau = y+/y = 1994.76
+k - 0.5(uu+vv+ww): max abs 1.7763568394002505e-15
+uu: |recomputed - balance col| max 1.388e-16 ; |balance|/eps median 3.176e-03 max 1.649e-02
+vv: |recomputed - balance col| max 1.041e-17 ; |balance|/eps median 1.095e-03 max 7.752e-03
+ww: |recomputed - balance col| max 1.110e-16 ; |balance|/eps median 1.626e-03 max 1.109e-02
+uv: |recomputed - balance col| max 9.714e-17 ; |balance|/eps median 1.074e-03 max 9.284e-03
+k: |recomputed - balance col| max 9.714e-17 ; |balance|/eps median 1.729e-03 max 9.101e-03
+eps_k - 0.5(eps11+eps22+eps33): max abs 1.1102230246251565e-16 | eps>0 everywhere: True | eps_wall+ = 0.2705400508596466
+k-file production - 0.5*sum(normal): max abs 8.326672684688674e-17
+k-file pressure_strain - 0.5*sum(normal): max abs 4.163336342344337e-17
+k-file pressure_transport - 0.5*sum(normal): max abs 5.204170427930421e-18
+trace Pi_ii: max abs 8.327e-17, max |tr|/||Pi|| 9.861e-16, typical ||Pi|| 8.865e-03
+pressure transport: uu max abs 0.000e+00 (zero by x-homogeneity); ww max abs 0.000e+00 (zero by z-homogeneity); vv max abs 4.734e-02
+P_uu / (-2 uv dU/dy) median 1.0000000542231815 | P_uv / (-vv dU/dy) median 0.9999393954088065 | P_vv, P_ww max abs 0.0 9.66651356926123e-08 | P_k / (-uv dU) median 1.0000001195912813
+dU/dy at wall 1.000000 | max |(dU/dy - uv) - (1 - y/delta)| 1.300e-03
+max |uw| 7.00e-03  max |vw| 7.64e-04  max|W| 1.37e-02
+signs for 15<y+<0.5Re_tau: Pi11<0 frac 1.000, Pi22>0 frac 1.000, Pi33>0 frac 1.000, Pi12>0 frac 1.000, uv<0 frac 1.000
+near wall y+<10: min Pi22 -0.0478 at y+ 2.52; Pi22 at wall -2.61e-19
+b trace max abs 7.22e-16; b11 range [0.138,0.506], b22 min -0.3333 (>= -1/3 required), Cauchy-Schwarz uv^2<=uu*vv: True
+
+===== Re_tau label 5200: 768 points, y/delta 0..0.999002, Re_tau = y+/y = 5185.90
+k - 0.5(uu+vv+ww): max abs 1.7763568394002505e-15
+uu: |recomputed - balance col| max 1.388e-16 ; |balance|/eps median 2.786e-03 max 2.298e-02
+vv: |recomputed - balance col| max 1.388e-17 ; |balance|/eps median 1.187e-03 max 7.914e-03
+ww: |recomputed - balance col| max 8.327e-17 ; |balance|/eps median 1.730e-03 max 2.079e-02
+uv: |recomputed - balance col| max 9.021e-17 ; |balance|/eps median 1.298e-03 max 1.410e-02
+k: |recomputed - balance col| max 8.327e-17 ; |balance|/eps median 2.052e-03 max 1.981e-02
+eps_k - 0.5(eps11+eps22+eps33): max abs 8.326672684688674e-17 | eps>0 everywhere: True | eps_wall+ = 0.288909612499021
+k-file production - 0.5*sum(normal): max abs 5.551115123125783e-17
+k-file pressure_strain - 0.5*sum(normal): max abs 2.7755575615628914e-17
+k-file pressure_transport - 0.5*sum(normal): max abs 6.938893903907228e-18
+trace Pi_ii: max abs 5.551e-17, max |tr|/||Pi|| 9.687e-16, typical ||Pi|| 3.168e-03
+pressure transport: uu max abs 0.000e+00 (zero by x-homogeneity); ww max abs 0.000e+00 (zero by z-homogeneity); vv max abs 5.004e-02
+P_uu / (-2 uv dU/dy) median 1.0009603820770583 | P_uv / (-vv dU/dy) median 1.0009579604747874 | P_vv, P_ww max abs 0.0 2.304279299426824e-08 | P_k / (-uv dU) median 1.0009604291938403
+dU/dy at wall 1.000000 | max |(dU/dy - uv) - (1 - y/delta)| 2.327e-03
+max |uw| 1.17e-02  max |vw| 8.72e-04  max|W| 6.57e-03
+signs for 15<y+<0.5Re_tau: Pi11<0 frac 1.000, Pi22>0 frac 1.000, Pi33>0 frac 1.000, Pi12>0 frac 1.000, uv<0 frac 1.000
+near wall y+<10: min Pi22 -0.0504 at y+ 2.74; Pi22 at wall -1.32e-17
+b trace max abs 7.49e-16; b11 range [0.113,0.501], b22 min -0.3333 (>= -1/3 required), Cauchy-Schwarz uv^2<=uu*vv: True

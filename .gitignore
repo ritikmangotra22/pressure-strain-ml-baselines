@@ -1,0 +1,10 @@
+# Raw DNS data are not redistributed: download them with scripts/download_lm.py and scripts/download_hj.sh
+data/raw/lee_moser_2015/*.dat
+data/raw/hoyas_jimenez_2008/Re*/
+data/raw/hoyas_jimenez_2008/*.tar
+venv/
+.venv/
+__pycache__/
+*.pyc
+.pytest_cache/
+.DS_Store

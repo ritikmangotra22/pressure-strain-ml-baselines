@@ -1,0 +1,2 @@
+    [tune mlp] trial 1/40 COMPLETE value=0.1749 elapsed=31s
+    [tune mlp] trial 2/40 COMPLETE value=0.2136 elapsed=58s

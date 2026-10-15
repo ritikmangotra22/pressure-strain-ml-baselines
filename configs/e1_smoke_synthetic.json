@@ -1,0 +1,11 @@
+{
+  "synthetic": true,
+  "data_dir": "/tmp/claude-0/-home-claude/0a27b603-8f4f-5a21-ae1f-9677fb8aa0e6/scratchpad/synthetic_lm",
+  "labels": ["0180", "0550", "1000", "2000", "5200"],
+  "feature_set": "F1",
+  "models": ["ssg_published", "ssg_refit", "lrr_published", "lrr_refit", "ridge", "rf", "lgbm", "mlp"],
+  "n_trials": 3,
+  "seeds": [0, 1],
+  "n_boot": 200,
+  "out_dir": "/tmp/claude-0/-home-claude/0a27b603-8f4f-5a21-ae1f-9677fb8aa0e6/scratchpad/results_smoke_SYNTHETIC"
+}
