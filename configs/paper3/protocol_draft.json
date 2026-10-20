@@ -1,50 +1,182 @@
 {
   "_status": "DRAFT, not frozen. Values marked PILOT are set from results/paper3/pilot; values marked CONFIRM need author and supervisor sign-off before freezing as protocol_v1.json.",
-  "builds_on": {"paper2_tag": "paper2-v1.0", "paper2_commit": "11c1a4c", "paper2_code_unchanged": true},
-  "data": {
-    "train_tune": {"source": "Lee & Moser 2015", "cases": ["LM_Channel_0180", "LM_Channel_0550", "LM_Channel_1000", "LM_Channel_2000", "LM_Channel_5200"],
-                   "table": "results/e1_F1/processed_table.csv", "sha256": "aa7e316d68aacf5906a8045f627f2e6705c0c89b19fd242155064b3bf6780f11"},
-    "comparability_test": {"source": "Hoyas & Jimenez 2008", "status": "previously inspected in Paper 2",
-                           "table": "results/e2_parts/classical_ridge_rf_lgbm/processed_table_hj.csv",
-                           "sha256": "dc97f3350f4fe13a4cdbe437e5e1d3bab767826e75892bd8865dfdf9c54f30ed"},
-    "confirmatory_test": {"source": "Moser, Kim & Mansour 1999", "cases": ["Re_tau 395", "Re_tau 590"],
-                          "status": "PENDING download; budgets uubal/vvbal/wwbal/uvbal with separate p-strain column confirmed on the source listing",
-                          "rule": "processed and hashed before any model is evaluated on it; loaded only by scripts/paper3/confirmatory_test.py after the selection rule and selected configurations are committed and tagged"}
+  "builds_on": {
+    "paper2_tag": "paper2-v1.0",
+    "paper2_commit": "11c1a4c",
+    "paper2_code_unchanged": true
   },
-  "inputs": {"target": "Pi/eps", "time_scale": "max(k/eps, C_T sqrt(nu/eps)), C_T searched", "upper_half_unused": true},
+  "data": {
+    "train_tune": {
+      "source": "Lee & Moser 2015",
+      "cases": [
+        "LM_Channel_0180",
+        "LM_Channel_0550",
+        "LM_Channel_1000",
+        "LM_Channel_2000",
+        "LM_Channel_5200"
+      ],
+      "table": "results/e1_F1/processed_table.csv",
+      "sha256": "aa7e316d68aacf5906a8045f627f2e6705c0c89b19fd242155064b3bf6780f11"
+    },
+    "comparability_test": {
+      "source": "Hoyas & Jimenez 2008",
+      "status": "previously inspected in Paper 2",
+      "table": "results/e2_parts/classical_ridge_rf_lgbm/processed_table_hj.csv",
+      "sha256": "dc97f3350f4fe13a4cdbe437e5e1d3bab767826e75892bd8865dfdf9c54f30ed"
+    },
+    "confirmatory_test": {
+      "source": "Moser, Kim & Mansour 1999",
+      "cases": [
+        "Re_tau 395",
+        "Re_tau 590"
+      ],
+      "status": "PENDING download; budgets uubal/vvbal/wwbal/uvbal with separate p-strain column confirmed on the source listing",
+      "rule": "processed and hashed before any model is evaluated on it; loaded only by scripts/paper3/confirmatory_test.py after the selection rule and selected configurations are committed and tagged"
+    }
+  },
+  "inputs": {
+    "target": "Pi/eps",
+    "time_scale": "max(k/eps, C_T sqrt(nu/eps)), C_T searched",
+    "upper_half_unused": true
+  },
   "arms": {
-    "A": {"architectures": ["M4"], "description": "Paper 2 fully structured model"},
-    "B": {"architectures": ["M1", "M2", "M3", "M4"], "description": "architecture searched"}
+    "A": {
+      "architectures": [
+        "M4"
+      ],
+      "description": "Paper 2 fully structured model"
+    },
+    "B": {
+      "architectures": [
+        "M1",
+        "M2",
+        "M3",
+        "M4"
+      ],
+      "description": "architecture searched"
+    }
   },
   "search_space": {
-    "n_layers": {"type": "int", "range": [2, 5]},
-    "width": {"type": "categorical", "values": [32, 64, 128]},
-    "activation": {"type": "categorical", "values": ["tanh", "silu"]},
-    "lr": {"type": "float_log", "range": [1e-4, 3e-3]},
-    "weight_decay": {"type": "float_log", "range": [1e-6, 1e-2]},
-    "dropout": {"type": "float", "range": [0.0, 0.2]},
-    "c_t": {"type": "categorical", "values": [3.0, 6.0, 10.0]},
-    "n_basis": {"type": "categorical", "values": [3, 8], "conditional_on": "arch in [M2, M4]"},
-    "inv_set": {"type": "categorical", "values": ["four", "five", "six"], "conditional_on": "arch in [M2, M4]"},
-    "arch": {"type": "categorical", "values": ["M1", "M2", "M3", "M4"], "arm": "B only"},
-    "not_searched": {"batch_size": "full batch, as Papers 1-2", "epochs": "early stopping on inner validation, patience 200, max 5000"}
+    "n_layers": {
+      "type": "int",
+      "range": [
+        2,
+        5
+      ]
+    },
+    "width": {
+      "type": "categorical",
+      "values": [
+        32,
+        64,
+        128
+      ]
+    },
+    "activation": {
+      "type": "categorical",
+      "values": [
+        "tanh",
+        "silu"
+      ]
+    },
+    "lr": {
+      "type": "float_log",
+      "range": [
+        0.0001,
+        0.003
+      ]
+    },
+    "weight_decay": {
+      "type": "float_log",
+      "range": [
+        1e-06,
+        0.01
+      ]
+    },
+    "dropout": {
+      "type": "float",
+      "range": [
+        0.0,
+        0.2
+      ]
+    },
+    "c_t": {
+      "type": "categorical",
+      "values": [
+        3.0,
+        6.0,
+        10.0
+      ]
+    },
+    "n_basis": {
+      "type": "categorical",
+      "values": [
+        3,
+        8
+      ],
+      "conditional_on": "arch in [M2, M4]"
+    },
+    "inv_set": {
+      "type": "categorical",
+      "values": [
+        "four",
+        "five",
+        "six"
+      ],
+      "conditional_on": "arch in [M2, M4]"
+    },
+    "arch": {
+      "type": "categorical",
+      "values": [
+        "M1",
+        "M2",
+        "M3",
+        "M4"
+      ],
+      "arm": "B only"
+    },
+    "not_searched": {
+      "batch_size": "full batch, as Papers 1-2",
+      "epochs": "early stopping on inner validation, patience 200, max 5000"
+    }
   },
   "objectives": {
     "f_err": "mean over inner leave-one-Re_tau-out folds of E_Pi on the held-out inner case",
-    "f_gen": "max over the same inner folds",
+    "f_gen": "CONFIRM option: pilot found Re_tau=180 is the worst inner fold in 24/26 configs (see results/paper3/pilot/SUMMARY.md)",
     "f_phys_A": "0.5 * rti_viol_mean / ref_rti + 0.5 * coef_norm / ref_coef_norm; ref = Paper 2 run-1 M4 refitted under this protocol; ref_rti floor CONFIRM",
     "f_phys_B": "trace_rel_mean + rot_excess (20 random rotations)",
     "f_cost": "matrix-multiply FLOPs per point, torch.utils.flop_counter.FlopCounterMode, float64, one point",
-    "seeds_per_candidate": "PILOT",
+    "seeds_per_candidate": "1 proposed (pilot: seed SD is 1-3% of the spread between configurations); CONFIRM",
     "aggregation": "mean over seeds; seed SD stored"
   },
   "strategies": {
-    "budget_evaluations": "PILOT (planned 200)",
-    "optimizer_seeds": [3001, 3002, 3003, 3004, 3005],
-    "random": {"sampler": "uniform over search_space"},
-    "tpe": {"objective": "f_err", "n_startup": 10, "pruning": false},
-    "nsga2": {"population": "PILOT (planned 40)", "crossover": "SBX", "mutation": "polynomial", "constraints": "failed fits infeasible"},
-    "qnehvi": {"n_sobol_init": 20, "batch_q": 4, "reference_point": "CONFIRM: 1.1 x worst feasible value of each objective among the Sobol initial points"},
+    "budget_evaluations": 200,
+    "optimizer_seeds": [
+      3001,
+      3002,
+      3003,
+      3004,
+      3005
+    ],
+    "random": {
+      "sampler": "uniform over search_space"
+    },
+    "tpe": {
+      "objective": "f_err",
+      "n_startup": 10,
+      "pruning": false
+    },
+    "nsga2": {
+      "population": 40,
+      "crossover": "SBX",
+      "mutation": "polynomial",
+      "constraints": "failed fits infeasible"
+    },
+    "qnehvi": {
+      "n_sobol_init": 20,
+      "batch_q": 4,
+      "reference_point": "CONFIRM: 1.1 x worst feasible value of each objective among the Sobol initial points"
+    },
     "pruning": "off for all strategies"
   },
   "selection_rule": {
@@ -53,7 +185,12 @@
     "tpe_choice": "lowest f_err (Paper 2 procedure)",
     "refit": "all five LM cases, epochs = median inner best epoch, seeds 0-9"
   },
-  "statistics": {"bootstrap": "Paper 2 paired hierarchical bootstrap, 4000 replicates, resampling optimizer seeds, refit seeds and 10% moving blocks",
-                 "consistent": "resolved, larger than the optimizer-seed range of both strategies, same sign on both confirmatory cases"},
-  "compute": {"platform": "Linux x86-64, 2 cores, Python 3.13.16, one thread per job", "seconds_per_evaluation": "PILOT"}
+  "statistics": {
+    "bootstrap": "Paper 2 paired hierarchical bootstrap, 4000 replicates, resampling optimizer seeds, refit seeds and 10% moving blocks",
+    "consistent": "resolved, larger than the optimizer-seed range of both strategies, same sign on both confirmatory cases"
+  },
+  "compute": {
+    "platform": "Linux x86-64, 2 cores, Python 3.13.16, one thread per job",
+    "seconds_per_evaluation": "pilot: 97 s mean with 2 seeds (9.7 s per fit); about 49 s with 1 seed"
+  }
 }

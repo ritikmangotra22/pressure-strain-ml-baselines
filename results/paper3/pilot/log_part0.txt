@@ -1,1 +1,13 @@
 [17:15:37] id=0 M4 status=ok f_err=0.0811 f_gen=0.2104 wall=87s
+[17:20:35] id=2 M4 status=ok f_err=0.0818 f_gen=0.1705 wall=299s
+[17:21:07] id=4 M4 status=ok f_err=0.0957 f_gen=0.2310 wall=32s
+[17:21:54] id=6 M4 status=ok f_err=0.0671 f_gen=0.1600 wall=47s
+[17:22:38] id=8 M4 status=ok f_err=0.0950 f_gen=0.2342 wall=44s
+[17:23:57] id=10 M4 status=ok f_err=0.2203 f_gen=0.6566 wall=79s
+[17:25:15] id=12 M4 status=ok f_err=0.0979 f_gen=0.2390 wall=79s
+[17:25:49] id=14 M4 status=ok f_err=0.0978 f_gen=0.2362 wall=34s
+[17:27:53] id=16 M4 status=ok f_err=0.0723 f_gen=0.1743 wall=124s
+[17:28:34] id=18 M4 status=ok f_err=0.1047 f_gen=0.2002 wall=41s
+[17:30:20] id=20 M1 status=ok f_err=0.2039 f_gen=0.4713 wall=105s
+[17:32:00] id=22 M2 status=ok f_err=0.2015 f_gen=0.4794 wall=100s
+[17:33:19] id=24 M3 status=ok f_err=0.1767 f_gen=0.5128 wall=79s
