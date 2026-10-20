@@ -142,12 +142,13 @@
   },
   "objectives": {
     "f_err": "mean over inner leave-one-Re_tau-out folds of E_Pi on the held-out inner case",
-    "f_gen": "CONFIRM option: pilot found Re_tau=180 is the worst inner fold in 24/26 configs (see results/paper3/pilot/SUMMARY.md)",
-    "f_phys_A": "0.5 * rti_viol_mean / ref_rti + 0.5 * coef_norm / ref_coef_norm; ref = Paper 2 run-1 M4 refitted under this protocol; ref_rti floor CONFIRM",
+    "f_gen": "max over the five inner folds of E_Pi(fold) / E_Pi_M0(fold), E_Pi_M0 = mean over seeds 0-4 (decided 20 Oct 2026). Largest on folds where M0 is most accurate (Re_tau 1000, 2000: about 0.02)",
+    "f_phys_A": "0.5 * rti / max(rti_M0, 1e-4) + 0.5 * coef_norm / coef_norm_M0 (rti_M0 = 0.00599, coef_norm_M0 = 3.578)",
     "f_phys_B": "trace_rel_mean + rot_excess (20 random rotations)",
     "f_cost": "matrix-multiply FLOPs per point, torch.utils.flop_counter.FlopCounterMode, float64, one point",
-    "seeds_per_candidate": "1 proposed (pilot: seed SD is 1-3% of the spread between configurations); CONFIRM",
-    "aggregation": "mean over seeds; seed SD stored"
+    "seeds_per_candidate": 1,
+    "aggregation": "mean over seeds; seed SD stored",
+    "noise_level_for_ties": "seed SD of M0 f_err over seeds 0-4 (0.0073), because one seed per candidate gives no per-candidate SD"
   },
   "strategies": {
     "budget_evaluations": 200,
@@ -173,15 +174,17 @@
       "constraints": "failed fits infeasible"
     },
     "qnehvi": {
-      "n_sobol_init": 20,
-      "batch_q": 4,
-      "reference_point": "CONFIRM: 1.1 x worst feasible value of each objective among the Sobol initial points"
+      "implementation": "optuna_integration.BoTorchSampler with qnehvi_candidates_func passed explicitly (Optuna default for 4 objectives is plain EHVI)",
+      "n_startup": 20,
+      "startup_sampler": "scrambled Sobol (QMCSampler)",
+      "batch": "sequential, q = 1 (changed from q = 4: one trial at a time keeps all strategies on the same evaluation schedule)",
+      "reference_point": "BoTorch default inferred from observed data; CONFIRM"
     },
     "pruning": "off for all strategies"
   },
   "selection_rule": {
     "feasibility": "f_phys <= M0 value and f_cost <= 2 x M0 value; Arm B also trace_rel_mean <= 1e-3 and rot_excess <= 0.01 (CONFIRM)",
-    "choice": "lowest f_gen among feasible; ties within one seed SD -> lower f_cost",
+    "choice": "lowest f_gen among feasible; ties within the M0 seed SD (0.0073 on f_err) -> lower f_cost",
     "tpe_choice": "lowest f_err (Paper 2 procedure)",
     "refit": "all five LM cases, epochs = median inner best epoch, seeds 0-9"
   },
@@ -191,6 +194,52 @@
   },
   "compute": {
     "platform": "Linux x86-64, 2 cores, Python 3.13.16, one thread per job",
-    "seconds_per_evaluation": "pilot: 97 s mean with 2 seeds (9.7 s per fit); about 49 s with 1 seed"
-  }
+    "seconds_per_evaluation": "pilot: 97 s mean with 2 seeds (9.7 s per fit); about 49 s with 1 seed",
+    "optimizer_overhead": "qNEHVI about 22 s per proposal at 26 trials (synthetic test); grows with trials; measured and reported separately (RQ4)"
+  },
+  "reference_M0": {
+    "config": {
+      "arch": "M4",
+      "n_layers": 4,
+      "width": 128,
+      "activation": "silu",
+      "lr": 0.002878422901396672,
+      "weight_decay": 0.000534768755565388,
+      "dropout": 0.0,
+      "c_t": 6.0,
+      "n_basis": 8,
+      "inv_set": "six"
+    },
+    "source": "results/paper2/main/M4/run1/E2/selected.json",
+    "reproduction": "seed 0 inner f_err 0.05648547099762058 equals Paper 2 inner_val_E_Pi exactly",
+    "inner_fold_E_Pi_mean_seeds0to4": {
+      "LM_Channel_0180": 0.15246111492939046,
+      "LM_Channel_0550": 0.039959607540023576,
+      "LM_Channel_1000": 0.02201856422531317,
+      "LM_Channel_2000": 0.024321254493768037,
+      "LM_Channel_5200": 0.07670392441047742
+    },
+    "rti_mean": 0.005992283376896975,
+    "coef_norm_mean": 3.5777931688470375,
+    "f_cost_flops": 103278,
+    "f_err_seed_range": [
+      0.056452,
+      0.072434
+    ],
+    "note": "Paper 2 TPE tuned with seed 0 only; seed 0 is the best of seeds 0-4 (winner's-curse evidence)"
+  },
+  "software": {
+    "botorch": "0.18.1",
+    "gpytorch": "1.15.2",
+    "optuna": "5.0.0",
+    "optuna_integration": "5.0.0",
+    "torch": "2.14.1"
+  },
+  "_open_items": [
+    "MKM 395/590 download, processing and hash",
+    "supervisor sign-off on scope (no geometry/regime transfer; J_U and J_R only)",
+    "feasibility thresholds in selection_rule",
+    "qNEHVI reference point",
+    "RTI floor 1e-4"
+  ]
 }
