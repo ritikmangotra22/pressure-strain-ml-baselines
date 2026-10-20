@@ -1,0 +1,15 @@
+effect,sign,interp_folds_resolved_not_tuning_dominated,consistent,interp_folds_available
+inv,lowers error,0,False,3
+inv,raises error,0,False,3
+con,lowers error,0,False,3
+con,raises error,0,False,3
+int,lowers error,0,False,3
+int,raises error,0,False,3
+M1_M2,lowers error,0,False,3
+M1_M2,raises error,1,False,3
+M1_M3,lowers error,0,False,3
+M1_M3,raises error,1,False,3
+M2_M4,lowers error,0,False,3
+M2_M4,raises error,0,False,3
+M3_M4,lowers error,0,False,3
+M3_M4,raises error,0,False,3

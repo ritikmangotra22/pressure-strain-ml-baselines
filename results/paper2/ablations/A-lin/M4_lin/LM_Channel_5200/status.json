@@ -1,0 +1,16 @@
+{
+  "job": "A-lin__M4_lin__LM_Channel_5200",
+  "done": true,
+  "parent": "M4__run1__LM_Channel_5200",
+  "variant": {
+    "name": "M4_lin",
+    "lambda_tr": 0.0,
+    "augment": 0,
+    "scheme": "durbin",
+    "inv_set": "P1"
+  },
+  "runtime_s": 24.0,
+  "refit_failures": [],
+  "code_version": "af8d235b9b547dfc",
+  "finished": "Sun Oct 18 11:37:31 2026"
+}

@@ -1,0 +1,38 @@
+============================= test session starts ==============================
+platform darwin -- Python 3.13.16, pytest-9.1.1, pluggy-1.7.0 -- /Users/ritik/pressure-strain-ml-baselines/venv/bin/python
+cachedir: .pytest_cache
+rootdir: /Users/ritik/pressure-strain-ml-baselines
+collecting ... collected 20 items
+
+tests/test_core.py::test_channel_basis_matches_general_tensor_form[ssg] PASSED [  5%]
+tests/test_core.py::test_channel_basis_matches_general_tensor_form[lrr] PASSED [ 10%]
+tests/test_core.py::test_ssg_matches_openfoam_convention_including_rotation_sign PASSED [ 15%]
+tests/test_core.py::test_published_coefficients PASSED                   [ 20%]
+tests/test_core.py::test_classical_models_are_trace_free PASSED          [ 25%]
+tests/test_core.py::test_frobenius_counts_offdiagonal_twice PASSED       [ 30%]
+tests/test_core.py::test_e_pi_zero_for_perfect_prediction PASSED         [ 35%]
+tests/test_core.py::test_leakage_guard PASSED                            [ 40%]
+tests/test_core.py::test_lrr_ip_equals_ssg_form_with_mapped_coefficients PASSED [ 45%]
+tests/test_core.py::test_gl_wall_reflection_matches_general_tensor_form_and_is_trace_free PASSED [ 50%]
+tests/test_core.py::test_tuning_never_touches_the_held_out_case PASSED   [ 55%]
+tests/test_data.py::test_lm_case_validates_and_features_match_definitions[0180] PASSED [ 60%]
+tests/test_data.py::test_lm_case_validates_and_features_match_definitions[0550] PASSED [ 65%]
+tests/test_data.py::test_lm_case_validates_and_features_match_definitions[1000] PASSED [ 70%]
+tests/test_data.py::test_lm_case_validates_and_features_match_definitions[2000] PASSED [ 75%]
+tests/test_data.py::test_lm_case_validates_and_features_match_definitions[5200] PASSED [ 80%]
+tests/test_data.py::test_hj_case_validates[180] PASSED                   [ 85%]
+tests/test_data.py::test_hj_case_validates[550] PASSED                   [ 90%]
+tests/test_data.py::test_hj_case_validates[950] PASSED                   [ 95%]
+tests/test_data.py::test_hj_case_validates[2000] PASSED                  [100%]
+
+=============================== warnings summary ===============================
+tests/test_data.py::test_lm_case_validates_and_features_match_definitions[0180]
+tests/test_data.py::test_lm_case_validates_and_features_match_definitions[0550]
+tests/test_data.py::test_lm_case_validates_and_features_match_definitions[1000]
+tests/test_data.py::test_lm_case_validates_and_features_match_definitions[2000]
+tests/test_data.py::test_lm_case_validates_and_features_match_definitions[5200]
+  /Users/ritik/pressure-strain-ml-baselines/tests/test_data.py:30: Pandas4Warning: Starting with pandas version 4.0 all arguments of sum will be keyword-only.
+    np.testing.assert_allclose(t[["Pi11", "Pi22", "Pi33"]].sum(1), 0, atol=1e-12)   # DNS trace is round-off
+
+-- Docs: https://docs.pytest.org/en/stable/how-to/capture-warnings.html
+======================== 20 passed, 5 warnings in 7.54s ========================

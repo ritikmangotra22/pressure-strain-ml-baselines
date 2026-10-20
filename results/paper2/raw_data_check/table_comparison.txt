@@ -1,0 +1,10 @@
+== LM: rows rebuilt 1691 vs frozen 1691
+   same columns: True | only in rebuilt: [] | only in frozen: []
+   same case order: True
+   III_b        max abs 9.975e-17  max rel 2.167e-14  (row 887)
+   largest relative difference over all numeric columns: 2.167e-14
+== HJ: rows rebuilt 684 vs frozen 684
+   same columns: True | only in rebuilt: [] | only in frozen: []
+   same case order: True
+   III_b        max abs 1.110e-16  max rel 1.474e-15  (row 186)
+   largest relative difference over all numeric columns: 1.474e-15

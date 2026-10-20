@@ -1,0 +1,5 @@
+{
+ "asoft_min_train_trace_rel_mean_any_lambda": 6.306829862298101e-05,
+ "asoft_any_lambda_meets_1e-3": true,
+ "params_match_logged": true
+}

@@ -1,0 +1,18 @@
+--- run_protocol_d0ee1435baa53e33.py
++++ run_protocol_af8d235b9b547dfc.py
+@@ -276,8 +276,14 @@
+     ap.add_argument("--start-budget-min", type=float, default=55)
+     ap.add_argument("--pilot", action="store_true")
+     ap.add_argument("--next", choices=["main", "ablations"])
++    ap.add_argument("--drain", choices=["main", "ablations"])
++    ap.add_argument("--max-min", type=float, default=95)
+     a = ap.parse_args()
+-    if a.next:
++    if a.drain:   # claim jobs one after another (locks make parallel drains safe); none started after max-min
++        t0 = time.time()
++        while (time.time() - t0) / 60 < a.max_min and next_job(a.drain):
++            pass
++    elif a.next:
+         next_job(a.next)
+     elif a.pilot:
+         pilot()

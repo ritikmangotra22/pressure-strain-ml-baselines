@@ -1,0 +1,16 @@
+{
+  "job": "A-inv-4__M4__LM_Channel_1000",
+  "done": true,
+  "parent": "M4__run1__LM_Channel_1000",
+  "variant": {
+    "name": "M4",
+    "lambda_tr": 0.0,
+    "augment": 0,
+    "scheme": "durbin",
+    "inv_set": "four"
+  },
+  "runtime_s": 34.2,
+  "refit_failures": [],
+  "code_version": "af8d235b9b547dfc",
+  "finished": "Sun Oct 18 11:22:29 2026"
+}

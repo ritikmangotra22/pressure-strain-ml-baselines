@@ -1,0 +1,20 @@
+{
+  "n_layers": 4,
+  "width": 128,
+  "activation": "tanh",
+  "lr": 0.002163891053364635,
+  "weight_decay": 4.639418404083533e-06,
+  "epochs": 515,
+  "inner_val_E_Pi": 0.10464880425694986,
+  "tune_seconds": 914.2,
+  "sampler_seed": 2028,
+  "train_cases": [
+    "LM_Channel_0180",
+    "LM_Channel_0550",
+    "LM_Channel_1000",
+    "LM_Channel_5200"
+  ],
+  "test_cases": [
+    "LM_Channel_2000"
+  ]
+}

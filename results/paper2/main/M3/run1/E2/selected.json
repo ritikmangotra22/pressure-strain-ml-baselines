@@ -1,0 +1,24 @@
+{
+  "n_layers": 5,
+  "width": 64,
+  "activation": "tanh",
+  "lr": 0.0023678049395218035,
+  "weight_decay": 1.8587703194575559e-06,
+  "epochs": 545,
+  "inner_val_E_Pi": 0.07920126980379162,
+  "tune_seconds": 2856.2,
+  "sampler_seed": 2026,
+  "train_cases": [
+    "LM_Channel_0180",
+    "LM_Channel_0550",
+    "LM_Channel_1000",
+    "LM_Channel_2000",
+    "LM_Channel_5200"
+  ],
+  "test_cases": [
+    "HJ_Channel_0180",
+    "HJ_Channel_0550",
+    "HJ_Channel_0950",
+    "HJ_Channel_2000"
+  ]
+}

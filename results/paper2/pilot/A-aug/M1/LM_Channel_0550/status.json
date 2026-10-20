@@ -1,0 +1,16 @@
+{
+  "job": "A-aug__M1__LM_Channel_0550",
+  "done": true,
+  "parent": "M1__run1__LM_Channel_0550",
+  "variant": {
+    "name": "M1",
+    "lambda_tr": 0.0,
+    "augment": 8,
+    "scheme": "durbin",
+    "inv_set": "P1"
+  },
+  "runtime_s": 25.9,
+  "refit_failures": [],
+  "code_version": "e547cdf35c1f9042",
+  "finished": "Sat Oct 17 16:48:04 2026"
+}

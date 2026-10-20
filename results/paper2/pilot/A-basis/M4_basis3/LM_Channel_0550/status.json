@@ -1,0 +1,16 @@
+{
+  "job": "A-basis__M4_basis3__LM_Channel_0550",
+  "done": true,
+  "parent": "M4__run1__LM_Channel_0550",
+  "variant": {
+    "name": "M4_basis3",
+    "lambda_tr": 0.0,
+    "augment": 0,
+    "scheme": "durbin",
+    "inv_set": "P1"
+  },
+  "runtime_s": 16.0,
+  "refit_failures": [],
+  "code_version": "e547cdf35c1f9042",
+  "finished": "Sat Oct 17 16:46:42 2026"
+}

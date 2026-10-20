@@ -1,0 +1,20 @@
+{
+  "job": "M4__run1__LM_Channel_0180",
+  "done": true,
+  "pilot": false,
+  "runtime_s": 2866.3,
+  "tune_s": 2785.5,
+  "n_trials": 100,
+  "refit_failures": [],
+  "code_version": "d0ee1435baa53e33",
+  "torch": "2.14.1+cu130",
+  "precision": {
+    "initialisation": "float32_cast: layers created in float32 under torch.manual_seed(seed), then cast",
+    "training": "float32 (decision 4)",
+    "inputs_and_basis": "computed in float64 from the tables, cast to float32 for training",
+    "property_tests": "float64, trained weights cast to float64",
+    "final_evaluation_metrics": "float64, trained weights cast to float64",
+    "float32_float64_consistency_check": "max relative Frobenius difference of predictions <= 1e-4 for every trained model"
+  },
+  "finished": "Sat Oct 17 19:37:05 2026"
+}

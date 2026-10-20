@@ -1,0 +1,58 @@
+--- run_protocol_e547cdf35c1f9042.py
++++ run_protocol_d0ee1435baa53e33.py
+@@ -220,6 +220,42 @@
+     print(f"queue {kind}: {len(left)} jobs pending", flush=True)
+ 
+ 
++def next_job(kind):
++    """Claim and run the next pending job that no other process is running (lock = RUNNING file
++    holding a live pid). Used to run each job as its own background task."""
++    import os
++    jobs = pending(kind)
++    if kind == "ablations":
++        jobs = [j for j in jobs if (OUT_MAIN / {"A-soft": "M3", "A-basis": "M4", "A-lin": "M4", "A-aug": "M1"}.get(
++            j.split("__")[0], j.split("__")[1]) / "run1" / j.split("__")[2] / "status.json").exists()]
++    for j in jobs:
++        d = job_dir(j)
++        lock = d / "RUNNING"
++        if lock.exists():
++            try:
++                os.kill(int(lock.read_text()), 0)
++                continue                       # another live process owns it
++            except (OSError, ValueError):
++                pass                           # stale lock: owner died; rerun from scratch
++        if d.exists() and any(d.iterdir()):    # leftovers of an interrupted run: archive, never reuse
++            arch = ROOT / "results/paper2/failed_runs" / f"{j}__interrupted_{int(time.time())}"
++            arch.parent.mkdir(parents=True, exist_ok=True)
++            d.rename(arch)
++            (arch / "FAILED_RUN.json").write_text(json.dumps({"job": j, "reason": "interrupted before completion; rerun from scratch", "archived": time.ctime()}))
++        d.mkdir(parents=True, exist_ok=True)
++        lock.write_text(str(os.getpid()))
++        print(f"[{time.strftime('%H:%M:%S')}] start {j}", flush=True)
++        t0 = time.time()
++        try:
++            run_job(j)
++            print(f"[{time.strftime('%H:%M:%S')}] end {j} ok ({(time.time() - t0) / 60:.1f} min)", flush=True)
++        finally:
++            lock.unlink(missing_ok=True)
++        return j
++    print("no pending job", flush=True)
++    return None
++
++
+ def pilot():
+     for m in MODELS:
+         run_job(f"{m}__run1__LM_Channel_0550", pilot=True)
+@@ -239,8 +275,11 @@
+     ap.add_argument("--parallel", type=int, default=2)
+     ap.add_argument("--start-budget-min", type=float, default=55)
+     ap.add_argument("--pilot", action="store_true")
++    ap.add_argument("--next", choices=["main", "ablations"])
+     a = ap.parse_args()
+-    if a.pilot:
++    if a.next:
++        next_job(a.next)
++    elif a.pilot:
+         pilot()
+     elif a.job:
+         run_job(a.job)

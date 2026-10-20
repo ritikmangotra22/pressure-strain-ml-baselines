@@ -1,0 +1,16 @@
+{
+  "job": "A-scale__M2__LM_Channel_1000",
+  "done": true,
+  "parent": "M2__run1__LM_Channel_1000",
+  "variant": {
+    "name": "M2",
+    "lambda_tr": 0.0,
+    "augment": 0,
+    "scheme": "k/eps",
+    "inv_set": "P1"
+  },
+  "runtime_s": 33.9,
+  "refit_failures": [],
+  "code_version": "af8d235b9b547dfc",
+  "finished": "Sun Oct 18 11:20:27 2026"
+}

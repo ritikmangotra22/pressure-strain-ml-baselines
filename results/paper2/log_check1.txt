@@ -1,0 +1,50 @@
+M1 seed=0 {'n_layers': 2, 'width': 32, 'activation': 'tanh'}: eq_max=4.04e+00 trace=1.40e+00 iso=8.50e-01 asym=0.0e+00
+M1 seed=1 {'n_layers': 2, 'width': 32, 'activation': 'tanh'}: eq_max=3.46e+00 trace=1.58e+00 iso=6.63e-01 asym=0.0e+00
+M1 seed=2 {'n_layers': 2, 'width': 32, 'activation': 'tanh'}: eq_max=5.54e+00 trace=1.03e+00 iso=6.04e-01 asym=0.0e+00
+M1 seed=0 {'n_layers': 5, 'width': 128, 'activation': 'silu'}: eq_max=1.51e+00 trace=1.13e+00 iso=1.76e-01 asym=0.0e+00
+M1 seed=1 {'n_layers': 5, 'width': 128, 'activation': 'silu'}: eq_max=3.01e+00 trace=5.71e-01 iso=3.83e-02 asym=0.0e+00
+M1 seed=2 {'n_layers': 5, 'width': 128, 'activation': 'silu'}: eq_max=1.83e+00 trace=8.47e-01 iso=1.41e-01 asym=0.0e+00
+M2 seed=0 {'n_layers': 2, 'width': 32, 'activation': 'tanh'}: eq_max=2.03e-14 trace=1.73e+00 iso=2.57e-01 asym=4.4e-16
+M2 seed=1 {'n_layers': 2, 'width': 32, 'activation': 'tanh'}: eq_max=2.53e-14 trace=1.73e+00 iso=2.67e-01 asym=1.1e-16
+M2 seed=2 {'n_layers': 2, 'width': 32, 'activation': 'tanh'}: eq_max=1.08e-13 trace=1.71e+00 iso=2.29e-01 asym=4.4e-16
+M2 seed=0 {'n_layers': 5, 'width': 128, 'activation': 'silu'}: eq_max=1.37e-15 trace=1.69e+00 iso=4.20e-02 asym=2.2e-16
+M2 seed=1 {'n_layers': 5, 'width': 128, 'activation': 'silu'}: eq_max=7.52e-15 trace=1.73e+00 iso=4.92e-02 asym=5.6e-17
+M2 seed=2 {'n_layers': 5, 'width': 128, 'activation': 'silu'}: eq_max=3.13e-15 trace=1.73e+00 iso=1.13e-02 asym=1.1e-16
+M3 seed=0 {'n_layers': 2, 'width': 32, 'activation': 'tanh'}: eq_max=4.33e+00 trace=1.95e-16 iso=0.00e+00 asym=0.0e+00
+M3 seed=1 {'n_layers': 2, 'width': 32, 'activation': 'tanh'}: eq_max=5.94e+00 trace=4.19e-16 iso=0.00e+00 asym=0.0e+00
+M3 seed=2 {'n_layers': 2, 'width': 32, 'activation': 'tanh'}: eq_max=2.66e+00 trace=2.13e-16 iso=0.00e+00 asym=0.0e+00
+M3 seed=0 {'n_layers': 5, 'width': 128, 'activation': 'silu'}: eq_max=8.66e+00 trace=1.86e-16 iso=0.00e+00 asym=0.0e+00
+M3 seed=1 {'n_layers': 5, 'width': 128, 'activation': 'silu'}: eq_max=2.32e+01 trace=8.16e-17 iso=0.00e+00 asym=0.0e+00
+M3 seed=2 {'n_layers': 5, 'width': 128, 'activation': 'silu'}: eq_max=6.39e+00 trace=5.09e-17 iso=0.00e+00 asym=0.0e+00
+M4 seed=0 {'n_layers': 2, 'width': 32, 'activation': 'tanh'}: eq_max=7.58e-15 trace=3.14e-16 iso=0.00e+00 asym=8.9e-16
+M4 seed=1 {'n_layers': 2, 'width': 32, 'activation': 'tanh'}: eq_max=1.16e-13 trace=3.91e-16 iso=0.00e+00 asym=2.2e-16
+M4 seed=2 {'n_layers': 2, 'width': 32, 'activation': 'tanh'}: eq_max=8.22e-15 trace=3.44e-16 iso=0.00e+00 asym=1.1e-16
+M4 seed=0 {'n_layers': 5, 'width': 128, 'activation': 'silu'}: eq_max=3.14e-15 trace=4.41e-16 iso=0.00e+00 asym=5.6e-17
+M4 seed=1 {'n_layers': 5, 'width': 128, 'activation': 'silu'}: eq_max=5.96e-15 trace=4.35e-16 iso=0.00e+00 asym=5.6e-17
+M4 seed=2 {'n_layers': 5, 'width': 128, 'activation': 'silu'}: eq_max=1.36e-15 trace=2.04e-16 iso=0.00e+00 asym=2.8e-17
+{
+  "acceptance": {
+    "M2 equivariant (<= 1e-10)": true,
+    "M4 equivariant (<= 1e-10)": true,
+    "M3 trace-free (<= 1e-12)": true,
+    "M4 trace-free (<= 1e-12)": true,
+    "M3 isotropic limit (<= 1e-12)": true,
+    "M4 isotropic limit (<= 1e-12)": true,
+    "M1 fails equivariance in every run (> 0.001)": true,
+    "all outputs symmetric (<= 1e-14)": true
+  },
+  "complementary": {
+    "M2 NOT trace-free in every run": true,
+    "M2 NOT isotropic-limit exact in every run": true,
+    "M3 NOT equivariant in every run": true,
+    "M1 NOT trace-free / NOT iso-limit in every run": true
+  },
+  "PASS": true,
+  "max_relative_invariant_change_under_transforms": 7.494670947965657e-12
+}
+        eq_max  trace_rel_max  iso_limit_max  asym_max
+model                                                 
+M1    5.54e+00       1.58e+00       8.50e-01  0.00e+00
+M2    1.08e-13       1.73e+00       2.67e-01  4.44e-16
+M3    2.32e+01       4.19e-16       0.00e+00  0.00e+00
+M4    1.16e-13       4.41e-16       0.00e+00  8.88e-16

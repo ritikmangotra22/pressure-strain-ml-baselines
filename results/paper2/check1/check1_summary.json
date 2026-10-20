@@ -1,0 +1,105 @@
+{
+  "n_points": 2375,
+  "n_runs_per_model": 6,
+  "max_relative_invariant_change_under_transforms": 7.494670947965657e-12,
+  "max_over_runs": {
+    "eq_max": {
+      "M1": 5.5377435422153045,
+      "M2": 1.0784070098129187e-13,
+      "M3": 23.240106789237583,
+      "M4": 1.155013748627105e-13
+    },
+    "trace_rel_max": {
+      "M1": 1.5825007805771723,
+      "M2": 1.7320276267879873,
+      "M3": 4.193694511150843e-16,
+      "M4": 4.414093126063974e-16
+    },
+    "iso_limit_max": {
+      "M1": 0.8499590723977166,
+      "M2": 0.2673984350631703,
+      "M3": 0.0,
+      "M4": 0.0
+    },
+    "asym_max": {
+      "M1": 0.0,
+      "M2": 4.440892098500626e-16,
+      "M3": 0.0,
+      "M4": 8.881784197001252e-16
+    }
+  },
+  "min_over_runs": {
+    "eq_max": {
+      "M1": 1.5092186817215694,
+      "M2": 1.3686860625751791e-15,
+      "M3": 2.658087356724692,
+      "M4": 1.3606819595301267e-15
+    },
+    "trace_rel_max": {
+      "M1": 0.5708515683698384,
+      "M2": 1.6907761318700576,
+      "M3": 5.0919456962998737e-17,
+      "M4": 2.043776417087938e-16
+    },
+    "iso_limit_max": {
+      "M1": 0.03828496586914771,
+      "M2": 0.01133192370303841,
+      "M3": 0.0,
+      "M4": 0.0
+    }
+  },
+  "acceptance": {
+    "M2 equivariant (<= 1e-10)": true,
+    "M4 equivariant (<= 1e-10)": true,
+    "M3 trace-free (<= 1e-12)": true,
+    "M4 trace-free (<= 1e-12)": true,
+    "M3 isotropic limit (<= 1e-12)": true,
+    "M4 isotropic limit (<= 1e-12)": true,
+    "M1 fails equivariance in every run (> 0.001)": true,
+    "all outputs symmetric (<= 1e-14)": true
+  },
+  "complementary": {
+    "M2 NOT trace-free in every run": true,
+    "M2 NOT isotropic-limit exact in every run": true,
+    "M3 NOT equivariant in every run": true,
+    "M1 NOT trace-free / NOT iso-limit in every run": true
+  },
+  "PASS": true,
+  "runtime_s": 50.8,
+  "config": {
+    "_purpose": "Paper 2, Section H item 1: architectural unit tests of untrained M1-M4 on real DNS states",
+    "time_scale": "durbin",
+    "C_T": 6.0,
+    "n_random_rotations": 200,
+    "rotation_seed": 12345,
+    "z_rotations_deg": [
+      15,
+      45,
+      90
+    ],
+    "seeds": [
+      0,
+      1,
+      2
+    ],
+    "architectures": [
+      {
+        "n_layers": 2,
+        "width": 32,
+        "activation": "tanh"
+      },
+      {
+        "n_layers": 5,
+        "width": 128,
+        "activation": "silu"
+      }
+    ],
+    "criteria": {
+      "eq_tol": 1e-10,
+      "trace_tol": 1e-12,
+      "iso_tol": 1e-12,
+      "m1_fail_eq": 0.001
+    },
+    "out_dir": "results/paper2/check1"
+  }
+}

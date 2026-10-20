@@ -1,0 +1,23 @@
+[
+ {
+  "job": "M1/run1/LM_Channel_0180",
+  "recorded_code_version": "e547cdf35c1f9042",
+  "current_code_version": "af8d235b9b547dfc",
+  "max_abs_pred_diff_seed0": 2.220446049250313e-16,
+  "bitwise_identical": false
+ },
+ {
+  "job": "M2/run1/LM_Channel_0180",
+  "recorded_code_version": "e547cdf35c1f9042",
+  "current_code_version": "af8d235b9b547dfc",
+  "max_abs_pred_diff_seed0": 2.220446049250313e-16,
+  "bitwise_identical": false
+ },
+ {
+  "job": "M4/run2/LM_Channel_1000",
+  "recorded_code_version": "d0ee1435baa53e33",
+  "current_code_version": "af8d235b9b547dfc",
+  "max_abs_pred_diff_seed0": 2.220446049250313e-16,
+  "bitwise_identical": false
+ }
+]

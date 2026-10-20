@@ -1,0 +1,335 @@
+{
+  "part_A_subsets_rank3_everywhere": {
+    "LM": {
+      "count": 39,
+      "subsets": [
+        [
+          1,
+          2,
+          3
+        ],
+        [
+          1,
+          2,
+          4
+        ],
+        [
+          1,
+          2,
+          5
+        ],
+        [
+          1,
+          2,
+          6
+        ],
+        [
+          1,
+          2,
+          7
+        ],
+        [
+          1,
+          2,
+          8
+        ],
+        [
+          1,
+          3,
+          4
+        ],
+        [
+          1,
+          3,
+          5
+        ],
+        [
+          1,
+          3,
+          6
+        ],
+        [
+          1,
+          3,
+          7
+        ],
+        [
+          1,
+          3,
+          8
+        ],
+        [
+          1,
+          4,
+          5
+        ],
+        [
+          1,
+          4,
+          6
+        ],
+        [
+          1,
+          4,
+          7
+        ],
+        [
+          1,
+          4,
+          8
+        ],
+        [
+          1,
+          5,
+          6
+        ],
+        [
+          1,
+          6,
+          7
+        ],
+        [
+          1,
+          6,
+          8
+        ],
+        [
+          2,
+          3,
+          4
+        ],
+        [
+          2,
+          3,
+          5
+        ],
+        [
+          2,
+          3,
+          6
+        ],
+        [
+          2,
+          3,
+          7
+        ],
+        [
+          2,
+          3,
+          8
+        ],
+        [
+          2,
+          4,
+          5
+        ],
+        [
+          2,
+          4,
+          6
+        ],
+        [
+          2,
+          4,
+          7
+        ],
+        [
+          2,
+          4,
+          8
+        ],
+        [
+          2,
+          5,
+          6
+        ],
+        [
+          2,
+          6,
+          7
+        ],
+        [
+          2,
+          6,
+          8
+        ],
+        [
+          3,
+          4,
+          5
+        ],
+        [
+          3,
+          4,
+          7
+        ],
+        [
+          3,
+          4,
+          8
+        ],
+        [
+          3,
+          5,
+          6
+        ],
+        [
+          3,
+          6,
+          7
+        ],
+        [
+          3,
+          6,
+          8
+        ],
+        [
+          4,
+          5,
+          6
+        ],
+        [
+          4,
+          6,
+          7
+        ],
+        [
+          4,
+          6,
+          8
+        ]
+      ]
+    },
+    "HJ": {
+      "count": 0,
+      "subsets": []
+    }
+  },
+  "B1_swap_identity": [
+    {
+      "db": "LM",
+      "n": 1691,
+      "P S P^T == S (max diff)": 0.0,
+      "P W P^T == -W (max diff)": 0.0,
+      "four invariants: max |I(swap) - I| / max|I|": 0.0,
+      "tr(bSW): min |I(swap)-I| / |I| where |b11-b22|>1e-3": 2.0,
+      "swapped states realizable": 1691,
+      "states with |b11-b22| <= 1e-3": 0
+    },
+    {
+      "db": "HJ",
+      "n": 684,
+      "P S P^T == S (max diff)": 0.0,
+      "P W P^T == -W (max diff)": 0.0,
+      "four invariants: max |I(swap) - I| / max|I|": 0.0,
+      "tr(bSW): min |I(swap)-I| / |I| where |b11-b22|>1e-3": 2.0,
+      "swapped states realizable": 684,
+      "states with |b11-b22| <= 1e-3": 0
+    }
+  ],
+  "B2_twin_search": [
+    {
+      "states": "synthetic",
+      "invariant_set": "four",
+      "n_states": 150,
+      "twins_found": 150,
+      "of_which_b11_b22_swap": 54
+    },
+    {
+      "states": "synthetic",
+      "invariant_set": "E4",
+      "n_states": 150,
+      "twins_found": 0,
+      "of_which_b11_b22_swap": 0
+    },
+    {
+      "states": "synthetic",
+      "invariant_set": "E4+bW2",
+      "n_states": 150,
+      "twins_found": 0,
+      "of_which_b11_b22_swap": 0
+    },
+    {
+      "states": "DNS_LM",
+      "invariant_set": "four",
+      "n_states": 150,
+      "twins_found": 150,
+      "of_which_b11_b22_swap": 40
+    },
+    {
+      "states": "DNS_LM",
+      "invariant_set": "E4",
+      "n_states": 150,
+      "twins_found": 0,
+      "of_which_b11_b22_swap": 0
+    },
+    {
+      "states": "DNS_LM",
+      "invariant_set": "E4+bW2",
+      "n_states": 150,
+      "twins_found": 0,
+      "of_which_b11_b22_swap": 0
+    }
+  ],
+  "B3_degenerate_set": [
+    {
+      "db": "LM",
+      "max|III_b - formula|": 1.1796119636642288e-16,
+      "min |q|": 0.7732571060652313,
+      "q range": [
+        0.7732571060652313,
+        0.9974492589566616
+      ],
+      "sign changes of q along profiles": 0,
+      "min |s|": 0.024706299189148295
+    },
+    {
+      "db": "HJ",
+      "max|III_b - formula|": 1.1102230246251565e-16,
+      "min |q|": 0.7854946541618006,
+      "q range": [
+        0.7854946541618006,
+        0.9964769927560648
+      ],
+      "sign changes of q along profiles": 0,
+      "min |s|": 0.02923279660405903
+    }
+  ],
+  "B3_example": {
+    "state_a": [
+      0.020710678118654763,
+      0.12071067811865477,
+      -0.05,
+      5.0
+    ],
+    "state_b": [
+      -0.12071067811865477,
+      -0.020710678118654763,
+      -0.05,
+      5.0
+    ],
+    "realizable": [
+      true,
+      true
+    ],
+    "E4 invariants equal": true,
+    "tr(bW^2) a, b": [
+      -0.8838834764831847,
+      0.8838834764831847
+    ]
+  },
+  "runtime_s": 178.9,
+  "config": {
+    "_purpose": "Paper 2, Section H item 2: basis adequacy and invariant uniqueness on the released DNS tables",
+    "C_T": 6.0,
+    "C_T_sensitivity": [
+      3.0,
+      6.0,
+      10.0
+    ],
+    "n_twin_states": 150,
+    "twin_starts": 25,
+    "twin_seed": 2,
+    "out_dir": "results/paper2/check2"
+  }
+}

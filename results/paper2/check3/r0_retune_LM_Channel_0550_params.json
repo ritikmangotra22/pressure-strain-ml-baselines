@@ -1,0 +1,15 @@
+{
+  "params": {
+    "n_layers": 5,
+    "width": 128,
+    "activation": "tanh",
+    "lr": 0.0017251733496584144,
+    "weight_decay": 0.000501945783397711,
+    "epochs": 271
+  },
+  "dtype": "float32",
+  "inner_val_E_Pi": 0.11149834149353423,
+  "n_trials": 100,
+  "n_pruned": 45,
+  "tune_time_s": 1046.3
+}

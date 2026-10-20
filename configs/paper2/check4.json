@@ -1,0 +1,9 @@
+{
+  "_purpose": "Paper 2 design decision 1: verification of the sixth invariant tr(b W*^2)",
+  "C_T": 6.0,
+  "seed": 4,
+  "n_twin_states": 150,
+  "twin_starts": 25,
+  "twin_seed": 40,
+  "out_dir": "results/paper2/decision1"
+}

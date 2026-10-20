@@ -1,0 +1,15 @@
+{
+  "params": {
+    "n_layers": 4,
+    "width": 64,
+    "activation": "silu",
+    "lr": 0.0029676619336972652,
+    "weight_decay": 1.8833835853859055e-05,
+    "epochs": 1998
+  },
+  "dtype": "float32",
+  "inner_val_E_Pi": 0.017062965375537264,
+  "n_trials": 100,
+  "n_pruned": 47,
+  "tune_time_s": 1966.9
+}

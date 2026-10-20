@@ -1,0 +1,146 @@
+[16:48:40] start M1__run1__LM_Channel_0180
+[16:48:40] start M2__run1__LM_Channel_0180
+[17:33:30] end M1__run1__LM_Channel_0180 rc=0 (44.8 min)
+[17:33:35] start M3__run1__LM_Channel_0180
+[17:59:40] end M2__run1__LM_Channel_0180 rc=0 (71.0 min)
+[18:49:11] start M3__run1__LM_Channel_0180
+[18:49:19] start M4__run1__LM_Channel_0180
+[19:37:05] end M4__run1__LM_Channel_0180 ok (47.8 min)
+[19:37:14] start M1__run1__LM_Channel_0550
+[20:01:31] end M1__run1__LM_Channel_0550 ok (24.3 min)
+[20:01:41] start M2__run1__LM_Channel_0550
+[20:13:58] end M3__run1__LM_Channel_0180 ok (84.8 min)
+[20:14:07] start M3__run1__LM_Channel_0550
+[20:17:06] end M2__run1__LM_Channel_0550 ok (15.4 min)
+[20:17:13] start M4__run1__LM_Channel_0550
+[20:17:31] start M4__run1__LM_Channel_0550
+[20:32:31] end M3__run1__LM_Channel_0550 ok (18.4 min)
+[20:32:41] start M1__run1__LM_Channel_1000
+[20:36:31] end M4__run1__LM_Channel_0550 ok (19.0 min)
+[20:36:40] start M2__run1__LM_Channel_1000
+[20:50:52] end M1__run1__LM_Channel_1000 ok (18.2 min)
+[20:51:01] start M3__run1__LM_Channel_1000
+[20:57:19] end M2__run1__LM_Channel_1000 ok (20.7 min)
+[20:57:29] start M4__run1__LM_Channel_1000
+[21:09:39] end M3__run1__LM_Channel_1000 ok (18.6 min)
+[21:09:49] start M1__run1__LM_Channel_2000
+[21:15:13] end M4__run1__LM_Channel_1000 ok (17.7 min)
+[21:15:22] start M2__run1__LM_Channel_2000
+[21:24:41] end M1__run1__LM_Channel_2000 ok (14.9 min)
+[21:24:50] start M3__run1__LM_Channel_2000
+[21:31:05] end M2__run1__LM_Channel_2000 ok (15.7 min)
+[21:31:14] start M4__run1__LM_Channel_2000
+[21:42:01] end M3__run1__LM_Channel_2000 ok (17.2 min)
+[21:42:10] start M1__run1__LM_Channel_5200
+[21:48:40] end M4__run1__LM_Channel_2000 ok (17.4 min)
+[21:48:49] start M2__run1__LM_Channel_5200
+[21:56:28] end M1__run1__LM_Channel_5200 ok (14.3 min)
+[21:56:38] start M3__run1__LM_Channel_5200
+[22:18:01] end M3__run1__LM_Channel_5200 ok (21.4 min)
+[22:18:13] start M4__run1__LM_Channel_5200
+[22:20:19] end M2__run1__LM_Channel_5200 ok (31.5 min)
+[22:20:28] start M1__run1__E2
+[22:28:44] end M4__run1__LM_Channel_5200 ok (10.5 min)
+[22:28:55] start M2__run1__E2
+[22:55:13] end M2__run1__E2 ok (26.3 min)
+[22:55:22] start M3__run1__E2
+[23:04:03] end M1__run1__E2 ok (43.6 min)
+[23:04:12] start M4__run1__E2
+[23:36:20] end M4__run1__E2 ok (32.1 min)
+[23:36:30] start M1__run2__LM_Channel_0180
+[23:43:41] end M3__run1__E2 ok (48.3 min)
+[23:43:52] start M2__run2__LM_Channel_0180
+[00:14:59] end M1__run2__LM_Channel_0180 ok (38.5 min)
+[00:15:09] start M3__run2__LM_Channel_0180
+[00:37:30] end M2__run2__LM_Channel_0180 ok (53.6 min)
+[00:37:40] start M4__run2__LM_Channel_0180
+[01:33:59] end M4__run2__LM_Channel_0180 ok (56.3 min)
+[01:34:10] start M1__run2__LM_Channel_0550
+[01:59:07] end M1__run2__LM_Channel_0550 ok (24.9 min)
+[01:59:21] start M2__run2__LM_Channel_0550
+[02:06:20] end M3__run2__LM_Channel_0180 ok (111.2 min)
+[02:06:37] start M3__run2__LM_Channel_0550
+[02:12:54] end M2__run2__LM_Channel_0550 ok (13.6 min)
+[02:13:03] start M4__run2__LM_Channel_0550
+[02:33:55] end M4__run2__LM_Channel_0550 ok (20.9 min)
+[02:34:04] start M1__run2__LM_Channel_1000
+[02:39:44] end M3__run2__LM_Channel_0550 ok (33.1 min)
+[02:39:54] start M2__run2__LM_Channel_1000
+[02:52:05] end M2__run2__LM_Channel_1000 ok (12.2 min)
+[02:52:14] start M3__run2__LM_Channel_1000
+[02:58:48] end M1__run2__LM_Channel_1000 ok (24.7 min)
+[02:58:57] start M4__run2__LM_Channel_1000
+[03:06:19] end M3__run2__LM_Channel_1000 ok (14.1 min)
+[03:06:28] start M1__run2__LM_Channel_2000
+[03:14:43] end M4__run2__LM_Channel_1000 ok (15.8 min)
+[03:14:52] start M2__run2__LM_Channel_2000
+[03:21:42] end M1__run2__LM_Channel_2000 ok (15.2 min)
+[03:21:51] start M3__run2__LM_Channel_2000
+[03:26:02] end M2__run2__LM_Channel_2000 ok (11.2 min)
+[03:26:11] start M4__run2__LM_Channel_2000
+[03:37:55] end M4__run2__LM_Channel_2000 ok (11.7 min)
+[03:38:04] start M1__run2__LM_Channel_5200
+[03:38:39] end M3__run2__LM_Channel_2000 ok (16.8 min)
+[03:38:48] start M2__run2__LM_Channel_5200
+[03:49:28] end M2__run2__LM_Channel_5200 ok (10.7 min)
+[03:49:38] start M3__run2__LM_Channel_5200
+[03:50:55] end M1__run2__LM_Channel_5200 ok (12.8 min)
+[03:51:05] start M4__run2__LM_Channel_5200
+[04:02:46] end M4__run2__LM_Channel_5200 ok (11.7 min)
+[04:02:56] start M1__run2__E2
+[04:06:58] end M3__run2__LM_Channel_5200 ok (17.3 min)
+[04:07:07] start M2__run2__E2
+[04:29:53] end M2__run2__E2 ok (22.8 min)
+[04:30:02] start M3__run2__E2
+[04:42:10] end M1__run2__E2 ok (39.2 min)
+[04:42:18] start M4__run2__E2
+[04:58:46] end M3__run2__E2 ok (28.7 min)
+[04:58:54] start M1__run3__LM_Channel_0180
+[05:12:06] end M4__run2__E2 ok (29.8 min)
+[05:12:17] start M2__run3__LM_Channel_0180
+[05:49:54] end M1__run3__LM_Channel_0180 ok (51.0 min)
+[05:50:07] start M3__run3__LM_Channel_0180
+[06:00:54] end M2__run3__LM_Channel_0180 ok (48.6 min)
+[06:01:04] start M4__run3__LM_Channel_0180
+[07:14:59] end M4__run3__LM_Channel_0180 ok (73.9 min)
+[07:45:03] end M3__run3__LM_Channel_0180 ok (114.9 min)
+[07:45:13] start M1__run3__LM_Channel_0550
+[07:45:23] start M2__run3__LM_Channel_0550
+[07:57:47] end M2__run3__LM_Channel_0550 ok (12.4 min)
+[07:57:57] start M3__run3__LM_Channel_0550
+[08:15:29] end M1__run3__LM_Channel_0550 ok (30.3 min)
+[08:15:38] start M4__run3__LM_Channel_0550
+[08:25:23] end M4__run3__LM_Channel_0550 ok (9.7 min)
+[08:25:32] start M1__run3__LM_Channel_1000
+[08:37:22] end M1__run3__LM_Channel_1000 ok (11.8 min)
+[08:37:23] end M3__run3__LM_Channel_0550 ok (39.4 min)
+[08:37:32] start M2__run3__LM_Channel_1000
+[08:37:41] start M3__run3__LM_Channel_1000
+[08:51:26] end M3__run3__LM_Channel_1000 ok (13.7 min)
+[08:51:28] end M2__run3__LM_Channel_1000 ok (13.9 min)
+[08:51:35] start M4__run3__LM_Channel_1000
+[08:51:45] start M1__run3__LM_Channel_2000
+[09:04:20] end M4__run3__LM_Channel_1000 ok (12.7 min)
+[09:04:29] start M2__run3__LM_Channel_2000
+[09:07:30] end M1__run3__LM_Channel_2000 ok (15.8 min)
+[09:07:39] start M3__run3__LM_Channel_2000
+[09:16:36] end M2__run3__LM_Channel_2000 ok (12.1 min)
+[09:16:46] start M4__run3__LM_Channel_2000
+[09:20:42] end M3__run3__LM_Channel_2000 ok (13.1 min)
+[09:20:53] start M1__run3__LM_Channel_5200
+[09:29:30] end M4__run3__LM_Channel_2000 ok (12.7 min)
+[09:29:40] start M2__run3__LM_Channel_5200
+[09:40:28] end M2__run3__LM_Channel_5200 ok (10.8 min)
+[09:40:38] start M3__run3__LM_Channel_5200
+[09:44:34] end M1__run3__LM_Channel_5200 ok (23.7 min)
+[09:44:44] start M4__run3__LM_Channel_5200
+[09:54:17] end M3__run3__LM_Channel_5200 ok (13.7 min)
+[09:54:28] start M1__run3__E2
+[09:55:19] end M4__run3__LM_Channel_5200 ok (10.6 min)
+[09:55:30] start M2__run3__E2
+[10:16:31] end M1__run3__E2 ok (22.1 min)
+[10:16:42] start M3__run3__E2
+[10:20:17] end M2__run3__E2 ok (24.8 min)
+[10:20:27] start M4__run3__E2
+[10:37:23] end M3__run3__E2 ok (20.7 min)
+[10:50:13] end M4__run3__E2 ok (29.8 min)

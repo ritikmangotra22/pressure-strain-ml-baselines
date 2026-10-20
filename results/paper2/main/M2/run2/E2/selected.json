@@ -1,0 +1,24 @@
+{
+  "n_layers": 4,
+  "width": 64,
+  "activation": "silu",
+  "lr": 0.0025101886079129856,
+  "weight_decay": 0.002514270242212777,
+  "epochs": 730,
+  "inner_val_E_Pi": 0.05865349713739486,
+  "tune_seconds": 1326.1,
+  "sampler_seed": 2027,
+  "train_cases": [
+    "LM_Channel_0180",
+    "LM_Channel_0550",
+    "LM_Channel_1000",
+    "LM_Channel_2000",
+    "LM_Channel_5200"
+  ],
+  "test_cases": [
+    "HJ_Channel_0180",
+    "HJ_Channel_0550",
+    "HJ_Channel_0950",
+    "HJ_Channel_2000"
+  ]
+}

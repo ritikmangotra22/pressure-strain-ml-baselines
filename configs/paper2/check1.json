@@ -1,0 +1,15 @@
+{
+  "_purpose": "Paper 2, Section H item 1: architectural unit tests of untrained M1-M4 on real DNS states",
+  "time_scale": "durbin",
+  "C_T": 6.0,
+  "n_random_rotations": 200,
+  "rotation_seed": 12345,
+  "z_rotations_deg": [15, 45, 90],
+  "seeds": [0, 1, 2],
+  "architectures": [
+    {"n_layers": 2, "width": 32, "activation": "tanh"},
+    {"n_layers": 5, "width": 128, "activation": "silu"}
+  ],
+  "criteria": {"eq_tol": 1e-10, "trace_tol": 1e-12, "iso_tol": 1e-12, "m1_fail_eq": 1e-3},
+  "out_dir": "results/paper2/check1"
+}

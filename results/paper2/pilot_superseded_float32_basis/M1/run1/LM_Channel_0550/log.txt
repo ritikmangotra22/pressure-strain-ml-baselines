@@ -1,0 +1,5 @@
+job M1__run1__LM_Channel_0550 start Sat Oct 17 16:19:52 2026 code 86dc45dc128df66c
+  trial 1/3 COMPLETE value=0.2689 elapsed=21s
+  trial 2/3 COMPLETE value=0.2950 elapsed=33s
+  trial 3/3 COMPLETE value=0.2822 elapsed=70s
+job M1__run1__LM_Channel_0550 done in 74.1 s

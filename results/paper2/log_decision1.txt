@@ -1,0 +1,260 @@
+A done
+B, C done
+D: degenerate-set states with a twin, E4: 99/150
+D: degenerate-set states with a twin, E4+bW2: 0/150
+{
+ "A_definitions": {
+  "LM": {
+   "tr_S2": 0.0,
+   "tr_bS": 0.0,
+   "tr_bSW": 1.4210854715202004e-14,
+   "tr_bW2": 3.197442310920451e-14
+  },
+  "HJ": {
+   "tr_S2": 0.0,
+   "tr_bS": 0.0,
+   "tr_bSW": 1.4210854715202004e-14,
+   "tr_bW2": 2.3092638912203256e-14
+  },
+  "general_identity_max_abs_err": 1.3322676295501878e-15
+ },
+ "B_dimensions": {
+  "LM": {
+   "max_rel_change_under_unit_rescaling": 1.5841348270587261e-12
+  },
+  "HJ": {
+   "max_rel_change_under_unit_rescaling": 1.6551185477876333e-13
+  }
+ },
+ "C_transformations": {
+  "LM": {
+   "dns_max_rel_change": 6.404508199032151e-12,
+   "general_states_max_rel_change": 1.6013937099847114e-12,
+   "n_transforms": 102
+  },
+  "HJ": {
+   "dns_max_rel_change": 3.820944698146139e-13,
+   "general_states_max_rel_change": 5.652466116076814e-12,
+   "n_transforms": 102
+  }
+ },
+ "D_uniqueness": {
+  "LM_durbin": {
+   "n_points_g_gt_0": 1691,
+   "n_points_g_eq_0": 0,
+   "max_abs_reconstruction_error": 1.1102230246251565e-16,
+   "max_err_y_plus_lt_1": 1.1102230246251565e-16,
+   "min_g": 0.0120796600757856,
+   "g_at_first_point_median": 11.962124295808792
+  },
+  "LM_k/eps": {
+   "n_points_g_gt_0": 1691,
+   "n_points_g_eq_0": 0,
+   "max_abs_reconstruction_error": 1.1102230246251565e-16,
+   "max_err_y_plus_lt_1": 1.1102230246251565e-16,
+   "min_g": 2.9488493186681133e-06,
+   "g_at_first_point_median": 3.825594663883165e-06
+  },
+  "HJ_durbin": {
+   "n_points_g_gt_0": 680,
+   "n_points_g_eq_0": 4,
+   "max_abs_reconstruction_error": 1.1102230246251565e-16,
+   "max_err_y_plus_lt_1": 1.1102230246251565e-16,
+   "min_g": 0.0553098140620798,
+   "g_at_first_point_median": 12.282623826737838
+  },
+  "HJ_k/eps": {
+   "n_points_g_gt_0": 680,
+   "n_points_g_eq_0": 4,
+   "max_abs_reconstruction_error": 1.1102230246251565e-16,
+   "max_err_y_plus_lt_1": 5.551115123125783e-17,
+   "min_g": 0.0004897070138556,
+   "g_at_first_point_median": 0.0029282732528741
+  },
+  "twins_on_degenerate_set": {
+   "n_states": 150,
+   "E4": 99,
+   "E4+bW2": 0
+  }
+ },
+ "E_conditioning": {
+  "LM_durbin": {
+   "corr_with_tr_bW2": {
+    "tr_b2": -0.8425,
+    "tr_b3": -0.9282,
+    "tr_S2": -0.9513,
+    "tr_bS": 0.3121,
+    "tr_bSW": 0.9659,
+    "tr_bW2": 1.0,
+    "Re_t": 0.2932
+   },
+   "cond_E4_plus_Re_t": 110.18076852126418,
+   "cond_E4bW2_plus_Re_t": 279.5255208405175,
+   "VIF_all_inputs_E4bW2": {
+    "tr_b2": 118.2,
+    "tr_b3": 109.97,
+    "tr_S2": 5433.54,
+    "tr_bS": 31.32,
+    "tr_bSW": 9698.53,
+    "tr_bW2": 824.78,
+    "Re_t": 1.45
+   },
+   "range_tr_bW2": [
+    -20.029659607143106,
+    -2.009984515856265e-06
+   ],
+   "median_abs_viscous": {
+    "tr_b2": 0.30714675338681385,
+    "tr_b3": 0.04304202910415561,
+    "tr_S2": 82.78695074292614,
+    "tr_bS": 0.06467503228336793,
+    "tr_bSW": 31.96303441104002,
+    "tr_bW2": 4.283742502819141
+   },
+   "median_abs_all": {
+    "tr_b2": 0.11354782112052562,
+    "tr_b3": 0.01132632590906323,
+    "tr_S2": 7.3708256791808715,
+    "tr_bS": 0.4749411104759246,
+    "tr_bSW": 1.3834989236985664,
+    "tr_bW2": 0.28096725515607557
+   }
+  },
+  "LM_k/eps": {
+   "corr_with_tr_bW2": {
+    "tr_b2": -0.7179,
+    "tr_b3": -0.8369,
+    "tr_S2": -0.9892,
+    "tr_bS": 0.4351,
+    "tr_bSW": 0.9956,
+    "tr_bW2": 1.0,
+    "Re_t": 0.2315
+   },
+   "cond_E4_plus_Re_t": 80.47250954946806,
+   "cond_E4bW2_plus_Re_t": 237.0503692543809,
+   "VIF_all_inputs_E4bW2": {
+    "tr_b2": 13.56,
+    "tr_b3": 20.51,
+    "tr_S2": 3967.59,
+    "tr_bS": 17.55,
+    "tr_bSW": 7222.02,
+    "tr_bW2": 655.05,
+    "Re_t": 1.58
+   },
+   "range_tr_bW2": [
+    -20.029659607143106,
+    -5.37097174626388e-14
+   ],
+   "median_abs_viscous": {
+    "tr_b2": 0.30714675338681385,
+    "tr_b3": 0.04304202910415561,
+    "tr_S2": 0.1539478835669091,
+    "tr_bS": 0.0027157406366191007,
+    "tr_bSW": 0.057069112828435534,
+    "tr_bW2": 0.008260971882921672
+   },
+   "median_abs_all": {
+    "tr_b2": 0.11354782112052562,
+    "tr_b3": 0.01132632590906323,
+    "tr_S2": 7.1942902421625945,
+    "tr_bS": 0.4749411104759246,
+    "tr_bSW": 1.331976658666873,
+    "tr_bW2": 0.2731608627207146
+   }
+  },
+  "HJ_durbin": {
+   "corr_with_tr_bW2": {
+    "tr_b2": -0.8605,
+    "tr_b3": -0.9327,
+    "tr_S2": -0.9573,
+    "tr_bS": 0.3431,
+    "tr_bSW": 0.9701,
+    "tr_bW2": 1.0,
+    "Re_t": 0.3567
+   },
+   "cond_E4_plus_Re_t": 117.45485947533608,
+   "cond_E4bW2_plus_Re_t": 389.1694703128795,
+   "VIF_all_inputs_E4bW2": {
+    "tr_b2": 164.21,
+    "tr_b3": 147.62,
+    "tr_S2": 10164.33,
+    "tr_bS": 47.02,
+    "tr_bSW": 18434.34,
+    "tr_bW2": 1507.52,
+    "Re_t": 1.74
+   },
+   "range_tr_bW2": [
+    -19.231659872735825,
+    0.0
+   ],
+   "median_abs_viscous": {
+    "tr_b2": 0.31839398502020155,
+    "tr_b3": 0.048852586674009865,
+    "tr_S2": 88.1861421942341,
+    "tr_bS": 0.10331635287514537,
+    "tr_bSW": 34.97678138412169,
+    "tr_bW2": 5.227456573452184
+   },
+   "median_abs_all": {
+    "tr_b2": 0.110377849189158,
+    "tr_b3": 0.01064996678420949,
+    "tr_S2": 6.79958129788836,
+    "tr_bS": 0.46775070411305236,
+    "tr_bSW": 1.2619295751893997,
+    "tr_bW2": 0.24724169743871335
+   }
+  },
+  "HJ_k/eps": {
+   "corr_with_tr_bW2": {
+    "tr_b2": -0.7365,
+    "tr_b3": -0.8443,
+    "tr_S2": -0.9921,
+    "tr_bS": 0.4648,
+    "tr_bSW": 0.9968,
+    "tr_bW2": 1.0,
+    "Re_t": 0.2772
+   },
+   "cond_E4_plus_Re_t": 95.32659917009097,
+   "cond_E4bW2_plus_Re_t": 300.62918960394643,
+   "VIF_all_inputs_E4bW2": {
+    "tr_b2": 17.48,
+    "tr_b3": 25.89,
+    "tr_S2": 6307.35,
+    "tr_bS": 21.72,
+    "tr_bSW": 11384.54,
+    "tr_bW2": 976.36,
+    "Re_t": 1.99
+   },
+   "range_tr_bW2": [
+    -19.231659872735825,
+    0.0
+   ],
+   "median_abs_viscous": {
+    "tr_b2": 0.31839398502020155,
+    "tr_b3": 0.048852586674009865,
+    "tr_S2": 0.7767627197887831,
+    "tr_bS": 0.009689747132635734,
+    "tr_bSW": 0.29466754516784177,
+    "tr_bW2": 0.03656630596427482
+   },
+   "median_abs_all": {
+    "tr_b2": 0.110377849189158,
+    "tr_b3": 0.01064996678420949,
+    "tr_S2": 6.583407748818933,
+    "tr_bS": 0.46775070411305236,
+    "tr_bSW": 1.196113103943388,
+    "tr_bW2": 0.23733373251951714
+   }
+  }
+ },
+ "runtime_s": 413.1,
+ "config": {
+  "_purpose": "Paper 2 design decision 1: verification of the sixth invariant tr(b W*^2)",
+  "C_T": 6.0,
+  "seed": 4,
+  "n_twin_states": 150,
+  "twin_starts": 25,
+  "twin_seed": 40,
+  "out_dir": "results/paper2/decision1"
+ }
+}

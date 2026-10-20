@@ -1,0 +1,77 @@
+{
+  "_status": "PROTOCOL v1.0 - frozen 2026-10-17 before any M1-M4 training. Items marked APPROVAL_REQUIRED must be approved by the author before training starts. Any later change is a recorded deviation.",
+  "data": {
+    "train_and_E1": {"table": "results/e1_F1/processed_table.csv", "sha256": "aa7e316d68aacf5906a8045f627f2e6705c0c89b19fd242155064b3bf6780f11", "n_points": 1691},
+    "E2_external": {"table": "results/e2_parts/classical_ridge_rf_lgbm/processed_table_hj.csv", "sha256": "dc97f3350f4fe13a4cdbe437e5e1d3bab767826e75892bd8865dfdf9c54f30ed", "n_points": 684},
+    "raw_data_reverification": "APPROVAL_REQUIRED/OPEN: rerun Paper 1 tests/test_data.py and rebuild both tables from raw files on a machine with server access; tables must match the sha256 above"
+  },
+  "folds": {
+    "E1": ["LM_Channel_0180", "LM_Channel_0550", "LM_Channel_1000", "LM_Channel_2000", "LM_Channel_5200"],
+    "interpolation": ["LM_Channel_0550", "LM_Channel_1000", "LM_Channel_2000"],
+    "extrapolation": ["LM_Channel_0180", "LM_Channel_5200"],
+    "inner_selection": "leave-one-Re_tau-out over the four training cases of each outer fold",
+    "E2": "tune by leave-one-out over all five LM cases, refit on all five, test on the four HJ cases"
+  },
+  "inputs": {
+    "time_scale": {"scheme": "durbin", "C_T": 6.0, "note": "tau = max(k/eps, C_T sqrt(nu/eps)); C_T = 6 is the v2-f value (Durbin 1995) per a secondary source; primary-source confirmation OPEN"},
+    "M1_M3_inputs": "16 Cartesian inputs: b_ij (6 independent), tau*dU_i/dx_j (9), Re_t; standardised with training-fold statistics (zero-variance columns: sd = 1)",
+    "M2_M4_inputs": "invariant set P1 = [tr b^2, tr b^3, tr S*^2, tr bS*, tr bS*W*, tr bW*^2] + Re_t; standardised with training-fold statistics",
+    "target": "Pi_ij/eps, full symmetric tensor; loss and metrics in Frobenius form (off-diagonal counted twice)",
+    "weights": "grid-spacing weights, each Re_tau case sums to one (Paper 1 Section 7.4)"
+  },
+  "models": {
+    "M1": {"representation": "MLP -> 6 symmetric components", "invariant": false, "hard_constraints": []},
+    "M2": {"representation": "sum_{n=0..8} g_n(I) B_n, B_0 = identity, B_1..8 = raw (non-deviatoric) products", "invariant": true, "hard_constraints": []},
+    "M3": {"representation": "dev[MLP(x) - MLP(x_iso)]", "invariant": false, "hard_constraints": ["zero trace", "isotropic limit"]},
+    "M4": {"representation": "sum_{n=1..8} g_n(I) T_n, deviatoric basis", "invariant": true, "hard_constraints": ["zero trace", "isotropic limit"]},
+    "shared": {"symmetry": "exact in all models", "hidden_activation_choices": ["tanh", "silu"]}
+  },
+  "precision": {
+    "initialisation": "float32_cast: layers created in float32 under torch.manual_seed(seed), then cast",
+    "training": "float32 (decision 4)",
+    "inputs_and_basis": "computed in float64 from the tables, cast to float32 for training",
+    "property_tests": "float64, trained weights cast to float64",
+    "final_evaluation_metrics": "float64, trained weights cast to float64",
+    "float32_float64_consistency_check": "max relative Frobenius difference of predictions <= 1e-4 for every trained model"
+  },
+  "training": {
+    "optimiser": "AdamW, full batch",
+    "early_stopping_inner": {"patience": 200, "max_epochs": 5000},
+    "final_refit_epochs": "median of the inner-fold early-stopping epochs of the selected trial",
+    "seeds_final_refit": [0, 1, 2, 3, 4, 5, 6, 7, 8, 9],
+    "seed_during_tuning": 0,
+    "threads": 1
+  },
+  "tuning": {
+    "search_space": {"n_layers": [2, 5], "width": [32, 64, 128], "activation": ["tanh", "silu"], "lr": [1e-4, 3e-3, "log"], "weight_decay": [1e-6, 1e-2, "log"]},
+    "sampler": "Optuna TPE", "pruner": "MedianPruner(n_startup_trials=10, n_warmup_steps=0)",
+    "trials_per_run": 100,
+    "independent_runs_per_model_and_fold": 3,
+    "tuner_sampler_seeds": [2026, 2027, 2028],
+    "same_budget_and_space_for_M1_to_M4": true,
+    "selection_criterion": "mean inner leave-one-out E_Pi (grid weights); test data never used",
+    "primary_estimate": "mean over 3 tuning runs x 10 seeds of test E_Pi",
+    "secondary_estimate": "the run with the lowest inner E_Pi of the three (reported, not used for claims)"
+  },
+  "statistics": {
+    "effects": "Delta_inv, Delta_con, Delta_int per fold (Section F.5)",
+    "uncertainty": "hierarchical bootstrap, 4000 replicates: resample tuning runs (3), seeds within run (10), moving blocks of test points (10 % of profile), the same resample applied to all four models (paired)",
+    "resolved_if": "95 % interval excludes zero",
+    "tuning_dominated_if": "|Delta| <= range of fold means across the 3 tuning runs of any model entering Delta; then reported descriptively",
+    "consistent_effect_if": "same sign and resolved on at least 2 of 3 interpolation folds; extrapolation folds reported separately",
+    "no_absolute_accuracy_targets": true
+  },
+  "ablations": {
+    "hyperparameters": "those selected by tuning run 1 (sampler seed 2026) of the parent model; no re-tuning; 10 seeds; E1 folds",
+    "A-soft": "M3 with projection replaced by trace penalty, lambda in [1e-3,1e-2,1e-1,1,10,100]",
+    "A-scale": "k/eps instead of the Durbin time scale, all four models",
+    "A-basis": "M4 with a 3-element basis spanning everywhere on LM (chosen before training: T1, T2, T3)",
+    "A-inv-5": "M2/M4 with the five-invariant set E4",
+    "A-inv-4": "M2/M4 with the four-invariant set",
+    "A-lin": "M4 with gradient-dependent coefficients restricted to be linear in grad U",
+    "A-aug": "M1 trained on 8 random rotations of every training sample (M1 hyperparameters)",
+    "R0": "completed in Section H check 3"
+  },
+  "tolerances_exact": {"equivariance_rel": 1e-10, "trace_rel": 1e-12, "isotropic_limit_abs": 1e-12, "symmetry_abs": 1e-14},
+  "compute": {"hardware": "2-core Intel Xeon 2.1 GHz, 8 GB, CPU only", "jobs_in_parallel": 2}
+}

@@ -1,0 +1,13 @@
+{
+  "_purpose": "Paper 2 design decisions 2 and 4: initialisation and precision (no training; forward/backward timing only)",
+  "C_T": 6.0,
+  "inv_set": "P1",
+  "seeds": [0, 1, 2],
+  "architectures": [
+    {"n_layers": 4, "width": 64, "activation": "silu"},
+    {"n_layers": 5, "width": 128, "activation": "tanh"}
+  ],
+  "timing_epochs": 100,
+  "timing_repeats": 3,
+  "out_dir": "results/paper2/decision2"
+}

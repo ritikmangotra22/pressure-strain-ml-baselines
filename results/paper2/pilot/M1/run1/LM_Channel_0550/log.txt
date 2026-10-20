@@ -1,0 +1,5 @@
+job M1__run1__LM_Channel_0550 start Sat Oct 17 16:36:10 2026 code e547cdf35c1f9042
+  trial 1/3 COMPLETE value=0.2689 elapsed=22s
+  trial 2/3 COMPLETE value=0.2950 elapsed=33s
+  trial 3/3 COMPLETE value=0.2822 elapsed=72s
+job M1__run1__LM_Channel_0550 done in 77.9 s

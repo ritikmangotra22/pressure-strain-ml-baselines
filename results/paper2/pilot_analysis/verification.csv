@@ -1,0 +1,6 @@
+job,max_abs_recomputed_minus_reported,n_files,split_ok
+M1/run1/LM_Channel_0550,5.551115123125783e-17,2,True
+M2/run1/LM_Channel_0550,8.326672684688674e-17,2,True
+M3/run1/LM_Channel_0550,5.551115123125783e-17,2,True
+M4/run1/E2,9.020562075079397e-17,8,True
+M4/run1/LM_Channel_0550,4.163336342344337e-17,2,True

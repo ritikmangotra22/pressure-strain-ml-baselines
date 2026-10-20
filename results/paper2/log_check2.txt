@@ -1,0 +1,377 @@
+A: LM k/eps C_T=6.0 done
+A: LM durbin C_T=6.0 done
+A: HJ k/eps C_T=6.0 done
+A: HJ durbin C_T=6.0 done
+A: LM durbin C_T=3.0 done
+A: LM durbin C_T=10.0 done
+A: HJ durbin C_T=3.0 done
+A: HJ durbin C_T=10.0 done
+B2: synthetic four: 150/150 twins (54 are the swap)
+B2: synthetic E4: 0/150 twins (0 are the swap)
+B2: synthetic E4+bW2: 0/150 twins (0 are the swap)
+B2: DNS_LM four: 150/150 twins (40 are the swap)
+B2: DNS_LM E4: 0/150 twins (0 are the swap)
+B2: DNS_LM E4+bW2: 0/150 twins (0 are the swap)
+    db  scheme  C_T   region     n  min_rank  max_res_free    max_g       max_g_case  max_g_yplus  n_g_gt_100                      yplus_range_g_gt_100  wmean_res_box10  wmean_res_box100
+0   LM   k/eps  NaN  viscous    83         3      1.69e-12 2.76e+05  LM_Channel_2000      0.00243          16  (0.0024282401845387, 0.0926641664372782)           0.0349            0.0104
+1   LM   k/eps  NaN   buffer   121         3      7.07e-15     1.71  LM_Channel_5200         29.7           0                                      None         1.22e-15          1.22e-15
+2   LM   k/eps  NaN      log   484         3      2.44e-15     2.84  LM_Channel_0550         75.5           0                                      None          6.7e-16           6.7e-16
+3   LM   k/eps  NaN    outer  1003         3      5.89e-15      133  LM_Channel_1000          997           2    (180.5584715562184, 997.3997931475188)         0.000447          6.26e-16
+4   LM   k/eps  NaN      all  1691         3      1.69e-12 2.76e+05  LM_Channel_2000      0.00243          18   (0.0024282401845387, 997.3997931475188)         0.000664          9.15e-05
+5   LM  durbin    6  viscous    83         3      1.34e-14     2.09  LM_Channel_5200         2.16           0                                      None         4.29e-15          4.29e-15
+6   LM  durbin    6   buffer   121         3      5.54e-15     1.71  LM_Channel_5200         29.7           0                                      None         1.15e-15          1.15e-15
+7   LM  durbin    6      log   484         3      2.44e-15     2.84  LM_Channel_0550         75.5           0                                      None          6.7e-16           6.7e-16
+8   LM  durbin    6    outer  1003         3      5.89e-15      133  LM_Channel_1000          997           2    (180.5584715562184, 997.3997931475188)         0.000447          6.26e-16
+9   LM  durbin    6      all  1691         3      1.34e-14      133  LM_Channel_1000          997           2    (180.5584715562184, 997.3997931475188)         0.000356          6.89e-16
+10  HJ   k/eps  NaN  viscous    37         3      8.52e-05 1.55e+03  HJ_Channel_0950       0.0312           2                 (0.03123017, 0.041143835)           0.0244           0.00287
+11  HJ   k/eps  NaN   buffer    59         3      4.06e-07     1.66  HJ_Channel_0950         29.9           0                                      None         8.49e-08          8.49e-08
+12  HJ   k/eps  NaN      log   161         3      8.91e-07     2.82  HJ_Channel_0550         74.3           0                                      None         2.42e-07          2.42e-07
+13  HJ   k/eps  NaN    outer   427         2      1.46e-05      834  HJ_Channel_0180          186           3                    (186.33725, 933.96667)          0.00135           0.00059
+14  HJ   k/eps  NaN      all   684         2      8.52e-05 1.55e+03  HJ_Channel_0950       0.0312           5                   (0.03123017, 933.96667)          0.00137          0.000506
+15  HJ  durbin    6  viscous    37         3      8.52e-05     2.04  HJ_Channel_2000         2.01           0                                      None          1.6e-06           1.6e-06
+16  HJ  durbin    6   buffer    59         3      4.06e-07     1.66  HJ_Channel_0950         29.9           0                                      None         8.49e-08          8.49e-08
+17  HJ  durbin    6      log   161         3      8.91e-07     2.82  HJ_Channel_0550         74.3           0                                      None         2.42e-07          2.42e-07
+18  HJ  durbin    6    outer   427         2      1.46e-05      834  HJ_Channel_0180          186           3                    (186.33725, 933.96667)          0.00135           0.00059
+19  HJ  durbin    6      all   684         2      8.52e-05      834  HJ_Channel_0180          186           3                    (186.33725, 933.96667)          0.00108          0.000472
+20  LM  durbin    3  viscous    83         3      1.62e-14      3.1  LM_Channel_5200         3.34           0                                      None         4.65e-15          4.65e-15
+21  LM  durbin    3   buffer   121         3      7.07e-15     1.71  LM_Channel_5200         29.7           0                                      None         1.22e-15          1.22e-15
+22  LM  durbin    3      log   484         3      2.44e-15     2.84  LM_Channel_0550         75.5           0                                      None          6.7e-16           6.7e-16
+23  LM  durbin    3    outer  1003         3      5.89e-15      133  LM_Channel_1000          997           2    (180.5584715562184, 997.3997931475188)         0.000447          6.26e-16
+24  LM  durbin    3      all  1691         3      1.62e-14      133  LM_Channel_1000          997           2    (180.5584715562184, 997.3997931475188)         0.000356          6.96e-16
+25  LM  durbin   10  viscous    83         3      1.11e-14     1.55  LM_Channel_5200          1.6           0                                      None         3.79e-15          3.79e-15
+26  LM  durbin   10   buffer   121         3      1.15e-14     1.71  LM_Channel_5200         29.7           0                                      None         1.18e-15          1.18e-15
+27  LM  durbin   10      log   484         3      2.44e-15     2.84  LM_Channel_0550         75.5           0                                      None          6.7e-16           6.7e-16
+28  LM  durbin   10    outer  1003         3      5.89e-15      133  LM_Channel_1000          997           2    (180.5584715562184, 997.3997931475188)         0.000445          6.25e-16
+29  LM  durbin   10      all  1691         3      1.15e-14      133  LM_Channel_1000          997           2    (180.5584715562184, 997.3997931475188)         0.000355          6.84e-16
+30  HJ  durbin    3  viscous    37         3      8.52e-05     2.97  HJ_Channel_2000         2.79           0                                      None          1.6e-06           1.6e-06
+31  HJ  durbin    3   buffer    59         3      4.06e-07     1.66  HJ_Channel_0950         29.9           0                                      None         8.49e-08          8.49e-08
+32  HJ  durbin    3      log   161         3      8.91e-07     2.82  HJ_Channel_0550         74.3           0                                      None         2.42e-07          2.42e-07
+33  HJ  durbin    3    outer   427         2      1.46e-05      834  HJ_Channel_0180          186           3                    (186.33725, 933.96667)          0.00135           0.00059
+34  HJ  durbin    3      all   684         2      8.52e-05      834  HJ_Channel_0180          186           3                    (186.33725, 933.96667)          0.00108          0.000472
+35  HJ  durbin   10  viscous    37         3      8.52e-05      1.5  HJ_Channel_2000         1.33           0                                      None          1.6e-06           1.6e-06
+36  HJ  durbin   10   buffer    59         3      4.06e-07     1.66  HJ_Channel_0950         29.9           0                                      None         8.49e-08          8.49e-08
+37  HJ  durbin   10      log   161         3      8.91e-07     2.82  HJ_Channel_0550         74.3           0                                      None         2.42e-07          2.42e-07
+38  HJ  durbin   10    outer   427         2      1.46e-05      834  HJ_Channel_0180          186           3                    (186.33725, 933.96667)          0.00135           0.00059
+39  HJ  durbin   10      all   684         2      8.52e-05      834  HJ_Channel_0180          186           3                    (186.33725, 933.96667)          0.00108          0.000472
+{
+ "part_A_subsets_rank3_everywhere": {
+  "LM": {
+   "count": 39,
+   "subsets": [
+    [
+     1,
+     2,
+     3
+    ],
+    [
+     1,
+     2,
+     4
+    ],
+    [
+     1,
+     2,
+     5
+    ],
+    [
+     1,
+     2,
+     6
+    ],
+    [
+     1,
+     2,
+     7
+    ],
+    [
+     1,
+     2,
+     8
+    ],
+    [
+     1,
+     3,
+     4
+    ],
+    [
+     1,
+     3,
+     5
+    ],
+    [
+     1,
+     3,
+     6
+    ],
+    [
+     1,
+     3,
+     7
+    ],
+    [
+     1,
+     3,
+     8
+    ],
+    [
+     1,
+     4,
+     5
+    ],
+    [
+     1,
+     4,
+     6
+    ],
+    [
+     1,
+     4,
+     7
+    ],
+    [
+     1,
+     4,
+     8
+    ],
+    [
+     1,
+     5,
+     6
+    ],
+    [
+     1,
+     6,
+     7
+    ],
+    [
+     1,
+     6,
+     8
+    ],
+    [
+     2,
+     3,
+     4
+    ],
+    [
+     2,
+     3,
+     5
+    ],
+    [
+     2,
+     3,
+     6
+    ],
+    [
+     2,
+     3,
+     7
+    ],
+    [
+     2,
+     3,
+     8
+    ],
+    [
+     2,
+     4,
+     5
+    ],
+    [
+     2,
+     4,
+     6
+    ],
+    [
+     2,
+     4,
+     7
+    ],
+    [
+     2,
+     4,
+     8
+    ],
+    [
+     2,
+     5,
+     6
+    ],
+    [
+     2,
+     6,
+     7
+    ],
+    [
+     2,
+     6,
+     8
+    ],
+    [
+     3,
+     4,
+     5
+    ],
+    [
+     3,
+     4,
+     7
+    ],
+    [
+     3,
+     4,
+     8
+    ],
+    [
+     3,
+     5,
+     6
+    ],
+    [
+     3,
+     6,
+     7
+    ],
+    [
+     3,
+     6,
+     8
+    ],
+    [
+     4,
+     5,
+     6
+    ],
+    [
+     4,
+     6,
+     7
+    ],
+    [
+     4,
+     6,
+     8
+    ]
+   ]
+  },
+  "HJ": {
+   "count": 0,
+   "subsets": []
+  }
+ },
+ "B1_swap_identity": [
+  {
+   "db": "LM",
+   "n": 1691,
+   "P S P^T == S (max diff)": 0.0,
+   "P W P^T == -W (max diff)": 0.0,
+   "four invariants: max |I(swap) - I| / max|I|": 0.0,
+   "tr(bSW): min |I(swap)-I| / |I| where |b11-b22|>1e-3": 2.0,
+   "swapped states realizable": 1691,
+   "states with |b11-b22| <= 1e-3": 0
+  },
+  {
+   "db": "HJ",
+   "n": 684,
+   "P S P^T == S (max diff)": 0.0,
+   "P W P^T == -W (max diff)": 0.0,
+   "four invariants: max |I(swap) - I| / max|I|": 0.0,
+   "tr(bSW): min |I(swap)-I| / |I| where |b11-b22|>1e-3": 2.0,
+   "swapped states realizable": 684,
+   "states with |b11-b22| <= 1e-3": 0
+  }
+ ],
+ "B2_twin_search": [
+  {
+   "states": "synthetic",
+   "invariant_set": "four",
+   "n_states": 150,
+   "twins_found": 150,
+   "of_which_b11_b22_swap": 54
+  },
+  {
+   "states": "synthetic",
+   "invariant_set": "E4",
+   "n_states": 150,
+   "twins_found": 0,
+   "of_which_b11_b22_swap": 0
+  },
+  {
+   "states": "synthetic",
+   "invariant_set": "E4+bW2",
+   "n_states": 150,
+   "twins_found": 0,
+   "of_which_b11_b22_swap": 0
+  },
+  {
+   "states": "DNS_LM",
+   "invariant_set": "four",
+   "n_states": 150,
+   "twins_found": 150,
+   "of_which_b11_b22_swap": 40
+  },
+  {
+   "states": "DNS_LM",
+   "invariant_set": "E4",
+   "n_states": 150,
+   "twins_found": 0,
+   "of_which_b11_b22_swap": 0
+  },
+  {
+   "states": "DNS_LM",
+   "invariant_set": "E4+bW2",
+   "n_states": 150,
+   "twins_found": 0,
+   "of_which_b11_b22_swap": 0
+  }
+ ],
+ "B3_degenerate_set": [
+  {
+   "db": "LM",
+   "max|III_b - formula|": 1.1796119636642288e-16,
+   "min |q|": 0.7732571060652313,
+   "q range": [
+    0.7732571060652313,
+    0.9974492589566616
+   ],
+   "sign changes of q along profiles": 0,
+   "min |s|": 0.024706299189148295
+  },
+  {
+   "db": "HJ",
+   "max|III_b - formula|": 1.1102230246251565e-16,
+   "min |q|": 0.7854946541618006,
+   "q range": [
+    0.7854946541618006,
+    0.9964769927560648
+   ],
+   "sign changes of q along profiles": 0,
+   "min |s|": 0.02923279660405903
+  }
+ ],
+ "B3_example": {
+  "state_a": [
+   0.020710678118654763,
+   0.12071067811865477,
+   -0.05,
+   5.0
+  ],
+  "state_b": [
+   -0.12071067811865477,
+   -0.020710678118654763,
+   -0.05,
+   5.0
+  ],
+  "realizable": [
+   true,
+   true
+  ],
+  "E4 invariants equal": true,
+  "tr(bW^2) a, b": [
+   -0.8838834764831847,
+   0.8838834764831847
+  ]
+ },
+ "runtime_s": 178.9
+}

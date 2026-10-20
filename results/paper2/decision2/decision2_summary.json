@@ -1,0 +1,198 @@
+{
+  "init_all_repeat_identical": true,
+  "init_all_equal_float32_build": true,
+  "native_float64_min_param_diff": 0.46986559978238196,
+  "precision_max_by_model": {
+    "f64_eq_max": {
+      "M1": 2.115048550252148,
+      "M2": 1.488777130209643e-14,
+      "M3": 6.902154792722522,
+      "M4": 4.6969577859470944e-14
+    },
+    "f64_trace_rel_max": {
+      "M1": 1.2995617890575542,
+      "M2": 1.7319625982968472,
+      "M3": 3.6115242593317257e-16,
+      "M4": 4.508588916221758e-16
+    },
+    "f64_iso_max": {
+      "M1": 0.26429160334293683,
+      "M2": 0.26410408591691653,
+      "M3": 0.0,
+      "M4": 0.0
+    },
+    "f32_eq_max": {
+      "M1": 2.1150479316711426,
+      "M2": 9.078502444026526e-06,
+      "M3": 6.902153968811035,
+      "M4": 1.8028491467703134e-05
+    },
+    "f32_trace_rel_max": {
+      "M1": 1.2995617389678955,
+      "M2": 1.7319626808166504,
+      "M3": 2.0055338723068417e-07,
+      "M4": 2.1667086969046068e-07
+    },
+    "f32_iso_max": {
+      "M1": 0.2642916142940521,
+      "M2": 0.26410406827926636,
+      "M3": 0.0,
+      "M4": 0.0
+    },
+    "f32_vs_f64_pred_rel_max": {
+      "M1": 6.422493667798457e-07,
+      "M2": 5.244539353078686e-06,
+      "M3": 6.5339400904157794e-06,
+      "M4": 7.162333291944138e-06
+    }
+  },
+  "timing_ratio_f64_over_f32": [
+    {
+      "model": "M1",
+      "n_layers": 4,
+      "width": 64,
+      "ratio": 1.69
+    },
+    {
+      "model": "M1",
+      "n_layers": 5,
+      "width": 128,
+      "ratio": 2.14
+    },
+    {
+      "model": "M2",
+      "n_layers": 4,
+      "width": 64,
+      "ratio": 1.55
+    },
+    {
+      "model": "M2",
+      "n_layers": 5,
+      "width": 128,
+      "ratio": 1.66
+    },
+    {
+      "model": "M3",
+      "n_layers": 4,
+      "width": 64,
+      "ratio": 1.87
+    },
+    {
+      "model": "M3",
+      "n_layers": 5,
+      "width": 128,
+      "ratio": 1.91
+    },
+    {
+      "model": "M4",
+      "n_layers": 4,
+      "width": 64,
+      "ratio": 1.5
+    },
+    {
+      "model": "M4",
+      "n_layers": 5,
+      "width": 128,
+      "ratio": 1.35
+    },
+    {
+      "model": "R0",
+      "n_layers": 4,
+      "width": 64,
+      "ratio": 2.0
+    },
+    {
+      "model": "R0",
+      "n_layers": 5,
+      "width": 128,
+      "ratio": 2.3
+    }
+  ],
+  "timing_ratio_to_R0_float32": [
+    {
+      "model": "M1",
+      "n_layers": 4,
+      "width": 64,
+      "ratio": 1.32
+    },
+    {
+      "model": "M2",
+      "n_layers": 4,
+      "width": 64,
+      "ratio": 2.31
+    },
+    {
+      "model": "M3",
+      "n_layers": 4,
+      "width": 64,
+      "ratio": 2.24
+    },
+    {
+      "model": "M4",
+      "n_layers": 4,
+      "width": 64,
+      "ratio": 2.32
+    },
+    {
+      "model": "R0",
+      "n_layers": 4,
+      "width": 64,
+      "ratio": 1.0
+    },
+    {
+      "model": "M1",
+      "n_layers": 5,
+      "width": 128,
+      "ratio": 1.03
+    },
+    {
+      "model": "M2",
+      "n_layers": 5,
+      "width": 128,
+      "ratio": 1.3
+    },
+    {
+      "model": "M3",
+      "n_layers": 5,
+      "width": 128,
+      "ratio": 1.68
+    },
+    {
+      "model": "M4",
+      "n_layers": 5,
+      "width": 128,
+      "ratio": 1.32
+    },
+    {
+      "model": "R0",
+      "n_layers": 5,
+      "width": 128,
+      "ratio": 1.0
+    }
+  ],
+  "config": {
+    "_purpose": "Paper 2 design decisions 2 and 4: initialisation and precision (no training; forward/backward timing only)",
+    "C_T": 6.0,
+    "inv_set": "P1",
+    "seeds": [
+      0,
+      1,
+      2
+    ],
+    "architectures": [
+      {
+        "n_layers": 4,
+        "width": 64,
+        "activation": "silu"
+      },
+      {
+        "n_layers": 5,
+        "width": 128,
+        "activation": "tanh"
+      }
+    ],
+    "timing_epochs": 100,
+    "timing_repeats": 3,
+    "out_dir": "results/paper2/decision2"
+  }
+}

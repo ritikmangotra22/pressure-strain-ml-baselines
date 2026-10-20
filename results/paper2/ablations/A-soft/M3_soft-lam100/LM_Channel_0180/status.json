@@ -1,0 +1,16 @@
+{
+  "job": "A-soft__M3_soft-lam100__LM_Channel_0180",
+  "done": true,
+  "parent": "M3__run1__LM_Channel_0180",
+  "variant": {
+    "name": "M3_soft",
+    "lambda_tr": 100.0,
+    "augment": 0,
+    "scheme": "durbin",
+    "inv_set": "P1"
+  },
+  "runtime_s": 135.9,
+  "refit_failures": [],
+  "code_version": "af8d235b9b547dfc",
+  "finished": "Sun Oct 18 10:52:16 2026"
+}

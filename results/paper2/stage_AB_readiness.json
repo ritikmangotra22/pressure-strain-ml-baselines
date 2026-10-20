@@ -1,0 +1,28 @@
+{
+  "date": "Sat Oct 17 16:48:33 2026",
+  "stage_A": {
+    "protocol_file": "configs/paper2/protocol_v1.json (unchanged since freeze)",
+    "approval": "author's instruction of 17 Oct 2026 21:44 IST to execute the frozen protocol, read as approval of decisions 1-4, the A-basis subset (T1-T3) and the input-representation caveat",
+    "tests": "44 passed (tests/paper2), incl. 6 pipeline tests: settings match protocol, common search space, held-out case never seen in tuning (spy), scalers/target scale from training only, deterministic float32 fit, exact properties of a trained M4",
+    "data_sha256": {
+      "LM": "aa7e316d...6780f11 (match)",
+      "HJ": "dc97f335...4f30ed (match)"
+    },
+    "discrepancy_found_and_fixed_before_main_training": "training loop computed invariants and basis tensors in float32 each epoch; protocol requires float64 computation cast to float32. Fixed by precomputing in float64 (cached path equals direct forward to 9e-16). First pilot archived as results/paper2/pilot_superseded_float32_basis",
+    "implementation_notes": {
+      "target_scale": "targets divided by s = sqrt(sum w ||Pi/eps||_F^2 / 4) of the training cases (Paper 1/R0 convention); predictions multiplied back",
+      "loss": "sum_n w_n ||f_n - Pi_n/s||_F^2 over the full 3x3 tensor, w normalised to sum 1; A-soft adds lambda * sum_n w_n (tr f_n)^2",
+      "early_stopping_loss": "data term on the inner validation case, float32, patience 200, max 5000 epochs",
+      "selection_metric": "inner-validation E_Pi of the full tensor, float64 with weights cast",
+      "primary_metric": "E_Pi of the full symmetric tensor (13/23 components included: DNS value 0); Paper 1's 4-component metrics also stored",
+      "non_finite_policy": "a fit whose loss becomes non-finite stops; during tuning the trial is recorded as FAIL and scored +inf for every model alike; a final refit that fails is retried once with identical settings and then recorded as failed",
+      "A_aug": "8 random rotations of every training sample (inputs and targets rotated), original frame not included; scalers fitted on the augmented inputs; rotation draws seeded by the training seed",
+      "A_soft": "M3 without dev(.); isotropic-limit subtraction kept"
+    },
+    "code_version": "e547cdf35c1f9042"
+  },
+  "stage_B": {
+    "pilot_dir": "results/paper2/pilot (3 trials, 2 seeds, fold 550 + one E2 job + 7 ablation types) - NOT evidence",
+    "result": "all jobs ran without failures; exact properties held; recomputed E_Pi equals reported to 1e-16; analysis script runs"
+  }
+}

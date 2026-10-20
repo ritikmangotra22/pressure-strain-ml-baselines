@@ -1,0 +1,10 @@
+{
+ "job": "M4__run1__LM_Channel_5200",
+ "recorded_code_version": "d0ee1435baa53e33",
+ "replay_code_version": "af8d235b9b547dfc",
+ "trials_identical_excl_elapsed": true,
+ "selected_identical_excl_tune_seconds": true,
+ "max_E_Pi_diff": 0.0,
+ "max_metric_diff": 0.0,
+ "max_prediction_diff": 0
+}

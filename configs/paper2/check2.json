@@ -1,0 +1,9 @@
+{
+  "_purpose": "Paper 2, Section H item 2: basis adequacy and invariant uniqueness on the released DNS tables",
+  "C_T": 6.0,
+  "C_T_sensitivity": [3.0, 6.0, 10.0],
+  "n_twin_states": 150,
+  "twin_starts": 25,
+  "twin_seed": 2,
+  "out_dir": "results/paper2/check2"
+}
