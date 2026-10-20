@@ -254,3 +254,32 @@ def evaluate_candidate(c: dict, train_cases: dict[str, PL.Split], seeds=(0, 1)) 
     fitted, _ = fit(c, PL.prepare(any_case.df, "durbin", c["c_t"]), seed=0, epochs=1)
     out["f_cost_flops"] = flops_per_point(fitted, PL.prepare(any_case.df, "durbin", c["c_t"]))
     return out
+
+
+# ------------------------------------------------------------------ final objective vector
+CASES_LM = ["LM_Channel_0180", "LM_Channel_0550", "LM_Channel_1000", "LM_Channel_2000", "LM_Channel_5200"]
+RTI_FLOOR = 1e-4   # used if the M0 reference has (near-)zero return-to-isotropy violation; CONFIRM
+
+
+def objective_vector(r: dict, ref: dict, arm: str) -> dict:
+    """Map a candidate result (evaluate_candidate) to the four minimised objectives.
+
+    f_err  mean inner E_Pi (unchanged, Paper 2's tuning objective)
+    f_gen  max over inner folds of E_Pi(fold) / E_Pi_ref(fold)   [decision of 20 Oct 2026:
+           relative to the M0 reference, because the absolute max is the Re_tau = 180 fold in
+           24/26 pilot configurations]
+    f_phys arm A: 0.5 rti / max(rti_ref, floor) + 0.5 coef_norm / coef_norm_ref
+           arm B: trace_rel_mean + rot_excess
+    f_cost matrix-multiply FLOPs per point
+    Infeasible (failed fit) -> None.
+    """
+    if r.get("status") != "ok":
+        return None
+    errs = r["inner_errors_seed0"]          # with one seed per candidate this is the candidate's error
+    ref_e = [ref["fold_E_Pi_mean"][c] for c in CASES_LM]
+    f_gen = float(max(e / q for e, q in zip(errs, ref_e)))
+    if arm == "A":
+        f_phys = 0.5 * r["rti"] / max(ref["rti_mean"], RTI_FLOOR) + 0.5 * r["coef_norm"] / ref["coef_norm_mean"]
+    else:
+        f_phys = r["trace_rel_mean"] + r["rot_excess"]
+    return {"f_err": float(np.mean(errs)), "f_gen": f_gen, "f_phys": float(f_phys), "f_cost": float(r["f_cost_flops"])}
