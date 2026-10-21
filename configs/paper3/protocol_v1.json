@@ -1,0 +1,316 @@
+{
+  "_status": "FROZEN 21 Oct 2026 before any main search run. Changes after this date go to deviations[] with date and reason.",
+  "builds_on": {
+    "paper2_tag": "paper2-v1.0",
+    "paper2_commit": "11c1a4c",
+    "paper2_code_unchanged": true
+  },
+  "data": {
+    "train_tune": {
+      "source": "Lee & Moser 2015",
+      "cases": [
+        "LM_Channel_0180",
+        "LM_Channel_0550",
+        "LM_Channel_1000",
+        "LM_Channel_2000",
+        "LM_Channel_5200"
+      ],
+      "table": "results/e1_F1/processed_table.csv",
+      "sha256": "aa7e316d68aacf5906a8045f627f2e6705c0c89b19fd242155064b3bf6780f11"
+    },
+    "comparability_test": {
+      "source": "Hoyas & Jimenez 2008",
+      "status": "previously inspected in Paper 2",
+      "table": "results/e2_parts/classical_ridge_rf_lgbm/processed_table_hj.csv",
+      "sha256": "dc97f3350f4fe13a4cdbe437e5e1d3bab767826e75892bd8865dfdf9c54f30ed"
+    },
+    "confirmatory_test": {
+      "source": "Moser, Kim & Mansour 1999",
+      "cases": [
+        "Re_tau 395",
+        "Re_tau 590"
+      ],
+      "status": "downloaded 21 Oct 2026, validated, hashed; no model evaluated on it",
+      "rule": "processed and hashed before any model is evaluated on it; loaded only by scripts/paper3/confirmatory_test.py after the selection rule and selected configurations are committed and tagged",
+      "archive": "chandata.tar.gz from https://turbulence.oden.utexas.edu/data/MKM/",
+      "archive_sha256": "1d8be14cb38660ca5f6be4522f5c01d1fabcb434350c693c2f498c404bf02ed2",
+      "table": "results/paper3/mkm_data/processed_table_mkm.csv",
+      "sha256": "f13dd1d097bc77c47b68e57d50661fe70f1b8ced24bc284cb500718fbb3353d7",
+      "n_points": 256,
+      "re_tau_actual": {
+        "MKM_Channel_0395": 392.24,
+        "MKM_Channel_0590": 587.19
+      },
+      "convention_check": "MKM 180 vs LM 180 (training case): median differences 0.2-4 % of range, max 17 % (Pi12); no sign or unit error",
+      "guard": "tests/paper3/test_mkm_guard.py"
+    }
+  },
+  "inputs": {
+    "target": "Pi/eps",
+    "time_scale": "max(k/eps, C_T sqrt(nu/eps)), C_T searched",
+    "upper_half_unused": true
+  },
+  "arms": {
+    "A": {
+      "architectures": [
+        "M4"
+      ],
+      "description": "Paper 2 fully structured model"
+    },
+    "B": {
+      "architectures": [
+        "M1",
+        "M2",
+        "M3",
+        "M4"
+      ],
+      "description": "architecture searched"
+    }
+  },
+  "search_space": {
+    "n_layers": {
+      "type": "int",
+      "range": [
+        2,
+        5
+      ]
+    },
+    "width": {
+      "type": "categorical",
+      "values": [
+        32,
+        64,
+        128
+      ]
+    },
+    "activation": {
+      "type": "categorical",
+      "values": [
+        "tanh",
+        "silu"
+      ]
+    },
+    "lr": {
+      "type": "float_log",
+      "range": [
+        0.0001,
+        0.003
+      ]
+    },
+    "weight_decay": {
+      "type": "float_log",
+      "range": [
+        1e-06,
+        0.01
+      ]
+    },
+    "dropout": {
+      "type": "float",
+      "range": [
+        0.0,
+        0.2
+      ]
+    },
+    "c_t": {
+      "type": "categorical",
+      "values": [
+        3.0,
+        6.0,
+        10.0
+      ]
+    },
+    "n_basis": {
+      "type": "categorical",
+      "values": [
+        3,
+        8
+      ],
+      "conditional_on": "arch in [M2, M4]"
+    },
+    "inv_set": {
+      "type": "categorical",
+      "values": [
+        "four",
+        "five",
+        "six"
+      ],
+      "conditional_on": "arch in [M2, M4]"
+    },
+    "arch": {
+      "type": "categorical",
+      "values": [
+        "M1",
+        "M2",
+        "M3",
+        "M4"
+      ],
+      "arm": "B only"
+    },
+    "not_searched": {
+      "batch_size": "full batch, as Papers 1-2",
+      "epochs": "early stopping on inner validation, patience 200, max 5000"
+    }
+  },
+  "objectives": {
+    "f_err": "mean over inner leave-one-Re_tau-out folds of E_Pi on the held-out inner case",
+    "f_gen": "max over the five inner folds of E_Pi(fold) / E_Pi_M0(fold), E_Pi_M0 = mean over seeds 0-4 (decided 20 Oct 2026). Largest on folds where M0 is most accurate (Re_tau 1000, 2000: about 0.02)",
+    "f_phys_A": "0.5 * rti / max(rti_M0, 1e-4) + 0.5 * coef_norm / coef_norm_M0 (rti_M0 = 0.00599, coef_norm_M0 = 3.578; floor 1e-4 approved 21 Oct 2026)",
+    "f_phys_B": "trace_rel_mean + rot_excess (20 random rotations)",
+    "f_cost": "matrix-multiply FLOPs per point, torch.utils.flop_counter.FlopCounterMode, float64, one point",
+    "seeds_per_candidate": 1,
+    "aggregation": "mean over seeds; seed SD stored",
+    "noise_level_for_ties": "seed SD of M0 f_err over seeds 0-4 (0.0073), because one seed per candidate gives no per-candidate SD"
+  },
+  "strategies": {
+    "budget_evaluations": 200,
+    "optimizer_seeds": [
+      3001,
+      3002,
+      3003,
+      3004,
+      3005
+    ],
+    "random": {
+      "sampler": "uniform over search_space"
+    },
+    "tpe": {
+      "objective": "f_err",
+      "n_startup": 10,
+      "pruning": false
+    },
+    "nsga2": {
+      "population": 40,
+      "crossover": "SBX",
+      "mutation": "polynomial",
+      "constraints": "failed fits infeasible"
+    },
+    "qnehvi": {
+      "implementation": "optuna_integration.BoTorchSampler with qnehvi_candidates_func passed explicitly (Optuna default for 4 objectives is plain EHVI)",
+      "n_startup": 20,
+      "startup_sampler": "scrambled Sobol (QMCSampler)",
+      "batch": "sequential, q = 1 (changed from q = 4: one trial at a time keeps all strategies on the same evaluation schedule)",
+      "reference_point": "BoTorch/Optuna default inferred from observed data (approved 21 Oct 2026)"
+    },
+    "pruning": "off for all strategies"
+  },
+  "selection_rule": {
+    "feasibility": "f_phys <= M0 value (Arm A: 1.0 by construction) and f_cost <= 2 x M0 (206556 FLOPs); Arm B also trace_rel_mean <= 1e-3 and rot_excess <= 0.01 (approved 21 Oct 2026)",
+    "choice": "lowest f_gen among feasible; ties within the M0 seed SD (0.0073 on f_err) -> lower f_cost",
+    "tpe_choice": "lowest f_err (Paper 2 procedure)",
+    "refit": "all five LM cases, epochs = median inner best epoch, seeds 0-9"
+  },
+  "statistics": {
+    "bootstrap": "Paper 2 paired hierarchical bootstrap, 4000 replicates, resampling optimizer seeds, refit seeds and 10% moving blocks",
+    "consistent": "resolved, larger than the optimizer-seed range of both strategies, same sign on both confirmatory cases"
+  },
+  "compute": {
+    "platform": "Linux x86-64, 2 cores, Python 3.13.16, one thread per job",
+    "seconds_per_evaluation": "pilot: 97 s mean with 2 seeds (9.7 s per fit); about 49 s with 1 seed",
+    "optimizer_overhead": "qNEHVI about 22 s per proposal at 26 trials (synthetic test); grows with trials; measured and reported separately (RQ4)"
+  },
+  "reference_M0": {
+    "config": {
+      "arch": "M4",
+      "n_layers": 4,
+      "width": 128,
+      "activation": "silu",
+      "lr": 0.002878422901396672,
+      "weight_decay": 0.000534768755565388,
+      "dropout": 0.0,
+      "c_t": 6.0,
+      "n_basis": 8,
+      "inv_set": "six"
+    },
+    "source": "results/paper2/main/M4/run1/E2/selected.json",
+    "reproduction": "seed 0 inner f_err 0.05648547099762058 equals Paper 2 inner_val_E_Pi exactly",
+    "inner_fold_E_Pi_mean_seeds0to4": {
+      "LM_Channel_0180": 0.15246111492939046,
+      "LM_Channel_0550": 0.039959607540023576,
+      "LM_Channel_1000": 0.02201856422531317,
+      "LM_Channel_2000": 0.024321254493768037,
+      "LM_Channel_5200": 0.07670392441047742
+    },
+    "rti_mean": 0.005992283376896975,
+    "coef_norm_mean": 3.5777931688470375,
+    "f_cost_flops": 103278,
+    "f_err_seed_range": [
+      0.056452,
+      0.072434
+    ],
+    "note": "Paper 2 TPE tuned with seed 0 only; seed 0 is the best of seeds 0-4 (winner's-curse evidence)"
+  },
+  "software": {
+    "botorch": "0.18.1",
+    "gpytorch": "1.15.2",
+    "optuna": "5.0.0",
+    "optuna_integration": "5.0.0",
+    "torch": "2.14.1"
+  },
+  "approvals": {
+    "author": {
+      "name": "Ritik",
+      "date": "2026-10-21",
+      "scope": "all decisions in this file, including scope exclusions, feasibility thresholds, qNEHVI reference point and RTI floor"
+    },
+    "supervisor": {
+      "name": "Sukanta Ghosh",
+      "status": "PENDING - to be recorded here with date when obtained",
+      "scope_items": [
+        "no geometry or flow-regime transfer (proposal Cases C, D)",
+        "CFD-level objectives J_U and J_R only (no J_P, J_sep)"
+      ]
+    }
+  },
+  "scope": {
+    "in": [
+      "Reynolds-number transfer in plane channel flow (Lee & Moser inner folds; Hoyas & Jimenez comparability; Moser-Kim-Mansour confirmatory)",
+      "a priori multi-objective selection (Arms A and B)",
+      "a posteriori 1D RSM channel solve of selected models (Stage 2); solver-in-the-loop NSGA-II (Stage 3) with J_U, J_R"
+    ],
+    "out": [
+      "geometry transfer",
+      "flow-regime transfer",
+      "pressure and separation CFD objectives"
+    ]
+  },
+  "jobs": {
+    "primary": {
+      "arm_A": [
+        "random",
+        "tpe",
+        "nsga2",
+        "qnehvi"
+      ],
+      "arm_B": [
+        "random",
+        "nsga2",
+        "qnehvi"
+      ],
+      "seeds": [
+        3001,
+        3002,
+        3003,
+        3004,
+        3005
+      ],
+      "n_eval": 200,
+      "total_jobs": 35
+    },
+    "later_stages": [
+      "secondary E1 interpolation folds (TPE, NSGA-II)",
+      "ablations A2 (no f_gen), A3 (weighted sum), A4 (no f_phys)",
+      "R0 classical references",
+      "refit and single confirmatory test",
+      "Stage 2/3 solver"
+    ]
+  },
+  "execution": {
+    "storage": "one Optuna SQLite study per job (results/paper3/search/<job>/study.db)",
+    "sessions": "background runs are limited to 2 h; a worker stops starting new trials after 100 min and the job resumes from its study in the next session",
+    "interrupted_trials": "a trial left RUNNING by a killed session is marked FAIL with user attr interrupted=true, excluded from the 200-evaluation budget and from analysis, and listed in the job log",
+    "resume_seed": "sampler seed on a resumed session = optimizer_seed * 1000 + number of trials already in the study (deterministic given the resume points; recorded in sessions.jsonl)",
+    "failed_fits": "non-finite training -> trial FAIL, counted in the budget, infeasible",
+    "threads": "one torch thread per job; two jobs in parallel on 2 cores"
+  },
+  "deviations": []
+}
