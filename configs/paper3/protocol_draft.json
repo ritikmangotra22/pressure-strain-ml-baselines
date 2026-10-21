@@ -30,8 +30,19 @@
         "Re_tau 395",
         "Re_tau 590"
       ],
-      "status": "PENDING download; budgets uubal/vvbal/wwbal/uvbal with separate p-strain column confirmed on the source listing",
-      "rule": "processed and hashed before any model is evaluated on it; loaded only by scripts/paper3/confirmatory_test.py after the selection rule and selected configurations are committed and tagged"
+      "status": "downloaded 21 Oct 2026, validated, hashed; no model evaluated on it",
+      "rule": "processed and hashed before any model is evaluated on it; loaded only by scripts/paper3/confirmatory_test.py after the selection rule and selected configurations are committed and tagged",
+      "archive": "chandata.tar.gz from https://turbulence.oden.utexas.edu/data/MKM/",
+      "archive_sha256": "1d8be14cb38660ca5f6be4522f5c01d1fabcb434350c693c2f498c404bf02ed2",
+      "table": "results/paper3/mkm_data/processed_table_mkm.csv",
+      "sha256": "f13dd1d097bc77c47b68e57d50661fe70f1b8ced24bc284cb500718fbb3353d7",
+      "n_points": 256,
+      "re_tau_actual": {
+        "MKM_Channel_0395": 392.24,
+        "MKM_Channel_0590": 587.19
+      },
+      "convention_check": "MKM 180 vs LM 180 (training case): median differences 0.2-4 % of range, max 17 % (Pi12); no sign or unit error",
+      "guard": "tests/paper3/test_mkm_guard.py"
     }
   },
   "inputs": {
@@ -236,7 +247,6 @@
     "torch": "2.14.1"
   },
   "_open_items": [
-    "MKM 395/590 download, processing and hash",
     "supervisor sign-off on scope (no geometry/regime transfer; J_U and J_R only)",
     "feasibility thresholds in selection_rule",
     "qNEHVI reference point",

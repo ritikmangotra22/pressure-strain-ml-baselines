@@ -8,3 +8,6 @@ __pycache__/
 *.pyc
 .pytest_cache/
 .DS_Store
+# Moser-Kim-Mansour raw files are not redistributed (download chandata.tar.gz; see src/ps3/io_mkm.py)
+data/raw/moser_kim_mansour_1999/*
+!data/raw/moser_kim_mansour_1999/SHA256SUMS.txt
