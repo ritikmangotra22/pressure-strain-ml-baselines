@@ -322,6 +322,16 @@
       "evidence": "on the same 69 trials one proposal took 327 s with the frozen settings and 87 s with the new ones (3.8x; both under CPU contention)",
       "effect": "applies to all 10 qNEHVI jobs; the job started under the frozen settings (qnehvi__armA__seed3001, 69 trials) is rerun from scratch and kept in results/paper3/search_superseded/ as RQ4 overhead evidence only. Other strategies unaffected.",
       "naming": "the acquisition is BoTorch's qLogNoisyExpectedHypervolumeImprovement (qLogNEHVI, Ament et al. 2023), the log-scaled form of qNEHVI; this was already the case under the frozen settings via optuna_integration and is now stated explicitly"
+    },
+    {
+      "id": 2,
+      "date": "2026-10-22",
+      "type": "clarification of under-specified analysis definitions, fixed before any comparison between strategies was made",
+      "what": [
+        "hypervolume: objectives divided by M0's values (f_err 0.06307, f_gen 1.166, f_cost 103278; f_phys Arm A 1.0, Arm B raw), reference point 2 in each normalised dimension (Arm B f_phys 1.0 raw); TPE trials scored on the same four objectives",
+        "selection-rule tie tolerance: 0.0721 = seed SD of M0's f_gen (the frozen 0.0073 is f_err's SD, written before f_gen became a ratio)"
+      ],
+      "code": "scripts/paper3/analyse_search.py"
     }
   ]
 }
