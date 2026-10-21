@@ -185,7 +185,7 @@
       "constraints": "failed fits infeasible"
     },
     "qnehvi": {
-      "implementation": "optuna_integration.BoTorchSampler with qnehvi_candidates_func passed explicitly (Optuna default for 4 objectives is plain EHVI)",
+      "implementation": "src/ps3/qnehvi.py (deviation 1): qLogNEHVI, exact 4-objective box decomposition, 5 restarts, 256 raw samples, maxiter 100",
       "n_startup": 20,
       "startup_sampler": "scrambled Sobol (QMCSampler)",
       "batch": "sequential, q = 1 (changed from q = 4: one trial at a time keeps all strategies on the same evaluation schedule)",
@@ -312,5 +312,16 @@
     "failed_fits": "non-finite training -> trial FAIL, counted in the budget, infeasible",
     "threads": "one torch thread per job; two jobs in parallel on 2 cores"
   },
-  "deviations": []
+  "deviations": [
+    {
+      "id": 1,
+      "date": "2026-10-21",
+      "approved_by": "author (Ritik), 21 Oct 2026",
+      "what": "qNEHVI acquisition-optimisation budget reduced: num_restarts 20->5, raw_samples 1024->256, maxiter 200->100 (src/ps3/qnehvi.py); everything else as optuna_integration 5.0.0 qnehvi_candidates_func",
+      "why": "optimizer overhead per proposal grew from 57 s (trials 21-30) to 219 s (trials 61-70) and was projected to about 20 min by trial 200, adding about a week of compute for 10 jobs",
+      "evidence": "on the same 69 trials one proposal took 327 s with the frozen settings and 87 s with the new ones (3.8x; both under CPU contention)",
+      "effect": "applies to all 10 qNEHVI jobs; the job started under the frozen settings (qnehvi__armA__seed3001, 69 trials) is rerun from scratch and kept in results/paper3/search_superseded/ as RQ4 overhead evidence only. Other strategies unaffected.",
+      "naming": "the acquisition is BoTorch's qLogNoisyExpectedHypervolumeImprovement (qLogNEHVI, Ament et al. 2023), the log-scaled form of qNEHVI; this was already the case under the frozen settings via optuna_integration and is now stated explicitly"
+    }
+  ]
 }

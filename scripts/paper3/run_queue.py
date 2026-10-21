@@ -31,12 +31,12 @@ def jobs():
     return out
 
 
-def worker(wid, deadline, lock_dir):
+def worker(wid, deadline, lock_dir, skip=()):
     while time.time() < deadline - 60:
         job = None
         for s, arm, seed in jobs():
             name = RS.job_name(s, arm, seed)
-            if (OUT / name / "status.json").exists():
+            if s in skip or (OUT / name / "status.json").exists():
                 continue
             lock = lock_dir / f"{name}.lock"
             try:
@@ -63,6 +63,7 @@ def main():
     ap.add_argument("--workers", type=int, default=2)
     ap.add_argument("--session-minutes", type=float, default=100.0)
     ap.add_argument("--list", action="store_true")
+    ap.add_argument("--skip", default="", help="comma-separated strategies to leave for later (order only)")
     a = ap.parse_args()
     if a.list:
         for s, arm, seed in jobs():
@@ -76,7 +77,7 @@ def main():
     for p in lock_dir.glob("*.lock"):          # locks from a killed session
         p.unlink()
     deadline = time.time() + a.session_minutes * 60
-    ps = [mp.Process(target=worker, args=(i, deadline, lock_dir)) for i in range(a.workers)]
+    ps = [mp.Process(target=worker, args=(i, deadline, lock_dir, tuple(x for x in a.skip.split(",") if x))) for i in range(a.workers)]
     for p in ps:
         p.start()
     for p in ps:

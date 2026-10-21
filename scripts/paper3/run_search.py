@@ -69,8 +69,8 @@ def make_sampler(strategy, seed):
         return optuna.samplers.NSGAIISampler(population_size=STRAT["nsga2"]["population"], seed=seed)
     if strategy == "qnehvi":
         from optuna_integration import BoTorchSampler
-        from optuna_integration.botorch.botorch import qnehvi_candidates_func
-        return BoTorchSampler(candidates_func=qnehvi_candidates_func, n_startup_trials=STRAT["qnehvi"]["n_startup"],
+        from ps3.qnehvi import candidates_func      # protocol_v1 deviation 1 (21 Oct 2026)
+        return BoTorchSampler(candidates_func=candidates_func, n_startup_trials=STRAT["qnehvi"]["n_startup"],
                               independent_sampler=optuna.samplers.QMCSampler(qmc_type="sobol", seed=seed, scramble=True),
                               seed=seed)
     raise ValueError(strategy)
