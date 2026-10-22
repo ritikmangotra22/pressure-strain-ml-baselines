@@ -187,7 +187,7 @@
     "qnehvi": {
       "implementation": "src/ps3/qnehvi.py (deviation 1): qLogNEHVI, exact 4-objective box decomposition, 5 restarts, 256 raw samples, maxiter 100",
       "n_startup": 20,
-      "startup_sampler": "scrambled Sobol (QMCSampler)",
+      "startup_sampler": "uniform random with the job seed (deviation 3); the QMCSampler passed in is not used for start-up trials",
       "batch": "sequential, q = 1 (changed from q = 4: one trial at a time keeps all strategies on the same evaluation schedule)",
       "reference_point": "BoTorch/Optuna default inferred from observed data (approved 21 Oct 2026)"
     },
@@ -332,6 +332,14 @@
         "selection-rule tie tolerance: 0.0721 = seed SD of M0's f_gen (the frozen 0.0073 is f_err's SD, written before f_gen became a ratio)"
       ],
       "code": "scripts/paper3/analyse_search.py"
+    },
+    {
+      "id": 3,
+      "date": "2026-10-22",
+      "type": "correction of a stated implementation detail (found after the seed-3001 qNEHVI jobs completed)",
+      "what": "qNEHVI start-up design is NOT scrambled Sobol: optuna_integration's BoTorchSampler draws start-up parameters through independent_sampler.sample_independent, and QMCSampler.sample_independent falls back to RandomSampler(seed). The 20 start-up trials are therefore uniform random with the job's seed, identical to the first 20 trials of the random-search and NSGA-II jobs with the same seed (verified: identical configurations for seed 3001 in both arms).",
+      "decision": "kept for all qNEHVI jobs (consistency with the two completed jobs). Effect: random search, NSGA-II and qNEHVI with the same optimizer seed share a common 20-point initial design; their hypervolumes at 20 evaluations are identical by construction.",
+      "protocol_text_superseded": "strategies.qnehvi.startup_sampler 'scrambled Sobol (QMCSampler)'"
     }
   ]
 }

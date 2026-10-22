@@ -19,7 +19,7 @@ approvals. Any later change is added to its `deviations` list with date and reas
 | Comparability test | Hoyas & Jiménez (previously inspected in Paper 2) |
 | Confirmatory test | Moser, Kim & Mansour Re_τ = 395, 590; hash-frozen; read only by `confirmatory_test.py` (`tests/paper3/test_mkm_guard.py`) |
 | Arms | A: M4 only; B: M1–M4 searched |
-| Strategies | random, single-objective TPE (Arm A), NSGA-II (population 40), qNEHVI (qLogNEHVI, 20 Sobol start-up points; reduced acquisition budget, deviation 1) |
+| Strategies | random, single-objective TPE (Arm A), NSGA-II (population 40), qNEHVI (qLogNEHVI, 20 random start-up points shared with random search and NSGA-II, deviation 3; reduced acquisition budget, deviation 1) |
 | Budget | 200 evaluations per job, 5 optimizer seeds (3001–3005), 35 primary jobs |
 | Objectives | f_err (mean inner E_Π), f_gen (max inner E_Π relative to M0), f_phys (Arm A: return-to-isotropy and coefficient norm vs M0; Arm B: trace + rotated-frame excess), f_cost (FLOPs) |
 | Reference M0 | Paper 2 run-1 M4 (E2 tuning); seed 0 reproduces Paper 2's inner error exactly |
@@ -28,6 +28,9 @@ approvals. Any later change is added to its `deviations` list with date and reas
 ## Deviations
 
 1. 21 Oct 2026 — qNEHVI acquisition-optimisation budget reduced (5 restarts, 256 raw samples, 100 iterations) because its overhead grew to about 219 s per proposal by trial 65 (projected 20 min by trial 200). The started job is rerun; its 69 trials are kept in `results/paper3/search_superseded/` as RQ4 evidence. Details in `protocol_v1.json` → `deviations`.
+
+2. 22 Oct 2026 — hypervolume normalisation and selection tie tolerance defined before any strategy comparison (clarification).
+3. 22 Oct 2026 — qNEHVI start-up trials are uniform random with the job seed, not Sobol as written (an Optuna fallback); kept, so random search, NSGA-II and qNEHVI share a common 20-point initial design.
 
 ## Approvals
 
