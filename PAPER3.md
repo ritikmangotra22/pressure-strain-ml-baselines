@@ -59,7 +59,7 @@ python scripts/paper3/run_queue.py --workers 2 --session-minutes 100   # repeat 
 python scripts/paper3/run_queue.py --list
 python scripts/paper3/analyse_search.py                    # inner objectives only
 python scripts/paper3/classical_refs.py                    # SSG / LRR-IP / LRR-IP+GL, published and refitted
-python scripts/paper3/refit_selected.py --workers 2        # 51 models x 10 seeds on all LM
+python scripts/paper3/refit_selected.py --workers 2        # 56 models (55 jobs + M0) x 10 seeds on all LM
 python scripts/paper3/aposteriori.py --workers 2           # conditioning and frozen solves on LM
 git tag paper3-selection-v1                                # after supervisor approval is recorded
 python scripts/paper3/confirmatory_test.py --check         # preconditions only

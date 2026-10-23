@@ -5,8 +5,8 @@ For each model and LM case:
   * conditioning diagnostic (src/ps3/conditioning.py): first-Newton-step amplification of the a
     priori error on the frozen-k anisotropy problem; all 10 refit seeds;
   * frozen 1D Reynolds-stress solve (src/ps3/rsm1d.py) from the DNS state; refit seeds 0-2
-    (a non-converging solve costs 30-90 s per case, so 10 seeds x 51 models x 5 cases would take
-    about 35 core-hours), at most 200 Newton/pseudo-time iterations (the verified anchored oracle
+    (a non-converging solve costs 30-90 s per case, so 10 seeds x 56 models x 5 cases would take
+    about 40 core-hours), at most 200 Newton/pseudo-time iterations (the verified anchored oracle
     converges in 4-5); outcome class, final residual and, when converged, J_R and per-component
     errors. Failed solves are recorded, never dropped.
 Classical references (published and refitted SSG, LRR-IP, LRR-IP+GL) and the anchored oracle are
