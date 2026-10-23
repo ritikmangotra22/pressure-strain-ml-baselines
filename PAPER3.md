@@ -64,6 +64,7 @@ python scripts/paper3/aposteriori.py --workers 2           # conditioning and fr
 git tag paper3-selection-v1                                # after supervisor approval is recorded
 python scripts/paper3/confirmatory_test.py --check         # preconditions only
 python scripts/paper3/confirmatory_test.py                 # ONCE
+python scripts/paper3/analyse_confirmatory.py              # bootstrap comparisons, consistency rule
 ```
 
 Searches run in sessions of at most 100 minutes; each job resumes from its Optuna SQLite study
