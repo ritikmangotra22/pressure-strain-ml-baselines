@@ -58,6 +58,7 @@ python scripts/paper3/reference_m0.py                      # M0 reference
 python scripts/paper3/run_queue.py --workers 2 --session-minutes 100   # repeat until 35/35 complete
 python scripts/paper3/run_queue.py --list
 python scripts/paper3/analyse_search.py                    # inner objectives only
+python scripts/paper3/figures_search.py                    # hypervolume, selected models, RQ4 cost table
 python scripts/paper3/classical_refs.py                    # SSG / LRR-IP / LRR-IP+GL, published and refitted
 python scripts/paper3/refit_selected.py --workers 2        # 56 models (55 jobs + M0) x 10 seeds on all LM
 python scripts/paper3/aposteriori.py --workers 2           # conditioning and frozen solves on LM
