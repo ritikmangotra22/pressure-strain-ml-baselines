@@ -257,7 +257,10 @@
       "status": "PENDING - to be recorded here with date when obtained",
       "scope_items": [
         "no geometry or flow-regime transfer (proposal Cases C, D)",
-        "CFD-level objectives J_U and J_R only (no J_P, J_sep)"
+        "CFD-level objectives J_U and J_R only (no J_P, J_sep)",
+        "deviation 4: secondary repeat dropped; ablations A2-A4 added",
+        "deviation 5: Stage 2/3 redesign (conditioning objective replaces solver-in-the-loop search)",
+        "deviation 6: Stage 3 implementation details and the confirmatory-test guard"
       ]
     }
   },
@@ -402,6 +405,22 @@
       ],
       "why": "the planned solver objectives cannot be evaluated for most learned closures (non-convergence), while conditioning is cheap (one Jacobian per case), varies by 3-4 orders of magnitude between candidates and is the property that decides a posteriori usability",
       "code": "src/ps3/conditioning.py, src/ps3/search.py (cond=True), scripts/paper3/run_search.py (nsga2_cond), scripts/paper3/run_queue.py"
+    },
+    {
+      "id": 6,
+      "date": "2026-10-23",
+      "approved_by": "author (Ritik), 23 Oct 2026 (start of post-search scripting)",
+      "type": "implementation details of Stage 3, fixed before any selected model was refitted or assessed",
+      "what": [
+        "refit (scripts/paper3/refit_selected.py): selected configuration per job from analyse_search.select; all five LM cases, each case weighted equally; epochs = selected trial's median inner best epoch; seeds 0-9; M0 with Paper 2's 381 epochs (seed 0 reproduces Paper 2's training exactly: identical predictions)",
+        "classical references (scripts/paper3/classical_refs.py): SSG, LRR-IP, LRR-IP+GL, published and refitted on all LM (coefficients equal Paper 1's E2 refit), plus inner leave-one-out f_err and f_gen for the refitted forms",
+        "a posteriori on LM (scripts/paper3/aposteriori.py): amplification for all 10 refit seeds; frozen solve for seeds 0-2 only, at most 200 iterations (a non-converging solve costs 30-90 s per case); chosen from a timing test on M0 seed 0",
+        "interpretation rule: frozen-solve outcomes on a case are interpreted only if the anchored oracle converges on that case; on MKM 180 (not a test case) the oracle does not converge (stalls at residual 0.04 eps): its DNS budgets do not close to 13.6 % of eps in the outer region, against 1.3 % for LM 180. Conditioning (amplification) is reported on every case regardless",
+        "src/ps3/rsm1d.py: second-derivative operator handles grids whose last node lies on the centreline (MKM); LM grids end below the centreline and are unaffected (tests/paper3/test_final.py)",
+        "confirmatory test (scripts/paper3/confirmatory_test.py) refuses to run unless HEAD is tag paper3-selection-v1 with a clean tree, supervisor approval is recorded here, all 510 refits and the classical references exist, it has never been started (RUN_LOCK.json, written before the first evaluation) and the MKM and HJ hashes match"
+      ],
+      "why": "turn the frozen refit/test wording into code before any post-search result exists; keep the single confirmatory run guarded",
+      "code": "scripts/paper3/{final_common,refit_selected,classical_refs,aposteriori,confirmatory_test}.py, tests/paper3/test_final.py"
     }
   ]
 }

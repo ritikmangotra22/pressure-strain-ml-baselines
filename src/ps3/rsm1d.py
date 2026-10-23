@@ -86,6 +86,12 @@ def _diffusion_matrix(y: np.ndarray):
             for col, v in ((i - 1, a), (i, b), (i + 1, c)):
                 if col >= 0:
                     rows.append(i); cols.append(col); ve.append(v); vo.append(v)
+        elif abs(y[j] - CENTRE[0]) <= 1e-9 * CENTRE[0]:
+            # last node ON the centreline (MKM grids): ghost at y_{n-2} mirrored, value R_{n-2} (even)
+            # or -R_{n-2} (odd); LM grids end below the centreline and take the branch below
+            h = y[j] - ym
+            rows += [i, i]; cols += [i - 1, i]
+            ve += [2 / h ** 2, -2 / h ** 2]; vo += [0.0, -2 / h ** 2]
         else:
             # mirror node: centreline at y_c; ghost at y_g = 2 y_c - y_last, value R_last (even) or -R_last (odd)
             hm = y[j] - ym
