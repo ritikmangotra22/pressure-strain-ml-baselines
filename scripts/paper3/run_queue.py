@@ -28,6 +28,10 @@ def jobs():
         for arm, strategies in (("A", J["arm_A"]), ("B", J["arm_B"])):
             for s in strategies:
                 out.append((s, arm, seed))
+    K = RS.PROTO["jobs"].get("conditioning")         # deviation 5: before the ablations
+    if K:
+        for seed in K["seeds"]:
+            out.append((K["strategy"], K["arm"], seed))
     A = RS.PROTO["jobs"].get("ablations")            # deviation 4: run after every primary job
     if A:
         for seed in A["seeds"]:

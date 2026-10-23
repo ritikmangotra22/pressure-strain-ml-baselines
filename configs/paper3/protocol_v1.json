@@ -265,7 +265,7 @@
     "in": [
       "Reynolds-number transfer in plane channel flow (Lee & Moser inner folds; Hoyas & Jimenez comparability; Moser-Kim-Mansour confirmatory)",
       "a priori multi-objective selection (Arms A and B)",
-      "a posteriori 1D RSM channel solve of selected models (Stage 2); solver-in-the-loop NSGA-II (Stage 3) with J_U, J_R"
+      "a posteriori frozen 1D Reynolds-stress solves and conditioning analysis of selected models (Stage 2); conditioning-aware NSGA-II (Stage 3, deviation 5)"
     ],
     "out": [
       "geometry transfer",
@@ -317,6 +317,19 @@
       ],
       "n_eval": 200,
       "total_jobs": 15
+    },
+    "conditioning": {
+      "arm": "A",
+      "strategy": "nsga2_cond",
+      "seeds": [
+        3001,
+        3002,
+        3003,
+        3004,
+        3005
+      ],
+      "n_eval": 200,
+      "total_jobs": 5
     }
   },
   "execution": {
@@ -369,6 +382,26 @@
       ],
       "why": "the secondary repeat mainly gives comparability with Paper 2's numbers, which Hoyas & Jimenez already provides, and all its data were inspected in Paper 2; it cost about 100 core-hours. The ablations test which ingredients of the multi-objective search matter (RQ2, RQ3) for about 50 core-hours.",
       "code": "scripts/paper3/run_search.py (SEARCH_OBJ, wsum), scripts/paper3/run_queue.py"
+    },
+    {
+      "id": 5,
+      "date": "2026-10-23",
+      "approved_by": "author (Ritik), 23 Oct 2026",
+      "type": "Stage 2/3 redesign after a finding on training data only; decided before any conditioning-aware search was run",
+      "finding": [
+        "Stage 2 frozen Reynolds-stress solve (src/ps3/rsm1d.py) verified with an anchored oracle (Pi_DNS - 3.6 eps (b - b_DNS)): converges in 4-5 Newton iterations on all five LM cases, J_R 1.0-3.5 % (DNS budget residual + finite-difference floor)",
+        "with learned and refitted classical closures the frozen solve does not converge: it is ill-conditioned. First-Newton-step amplification of the a priori error (frozen-k anisotropy problem, src/ps3/conditioning.py, LM 550 / 2000): published SSG 2.6 / 2.3, LRR-IP 0.9 / 1.0, LRR-IP+GL 1.2 / 1.3; six searched M4 candidates 8 to 59,000; the most accurate a priori candidate (f_err 0.051) about 15,500 / 19,800",
+        "the protocol's verification gate 'solver reproduces SSG or LRR reference profiles' was ill-posed (no such profiles exist for the frozen problem); replaced by the anchored-oracle gate above"
+      ],
+      "what": [
+        "Stage 3 solver-in-the-loop NSGA-II on J_U and J_R is replaced by nsga2_cond: NSGA-II (population 40), Arm A, seeds 3001-3005, 200 evaluations, objectives f_err, f_gen, f_phys, f_cost and f_cond",
+        "f_cond = mean over the five inner folds of log10(amplification) of the fold model on its held-out LM case (same split as f_err); capped at 8; a failed or non-finite diagnostic scores 8",
+        "selection rule for nsga2_cond: primary feasibility plus amplification <= 10 (f_cond <= 1); if no front member meets it, the front member with lowest f_cond; then lowest f_gen, ties within 0.0721 -> lower f_cost",
+        "for every strategy's selected model (all 50 jobs + M0 + classical references): amplification measured and the frozen solve attempted on each LM case and, once, on the confirmatory cases; outcomes (converged / not converged / diverged / non-realizable) reported, never dropped",
+        "queue order: primary, then nsga2_cond, then ablations"
+      ],
+      "why": "the planned solver objectives cannot be evaluated for most learned closures (non-convergence), while conditioning is cheap (one Jacobian per case), varies by 3-4 orders of magnitude between candidates and is the property that decides a posteriori usability",
+      "code": "src/ps3/conditioning.py, src/ps3/search.py (cond=True), scripts/paper3/run_search.py (nsga2_cond), scripts/paper3/run_queue.py"
     }
   ]
 }

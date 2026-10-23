@@ -209,7 +209,33 @@ def flops_per_point(fitted: PL.Fitted, sp: PL.Split) -> int:
 
 
 # ------------------------------------------------------------------ one candidate
-def evaluate_candidate(c: dict, train_cases: dict[str, PL.Split], seeds=(0, 1)) -> dict:
+COND_CAP = 8.0       # f_cond cap (log10 amplification); a failed conditioning solve scores the cap
+_CHANNEL = {}
+
+
+def _channel_case(name):
+    """Raw Lee & Moser case (wall node included) for the conditioning diagnostic; cached."""
+    if name not in _CHANNEL:
+        from pathlib import Path
+        from ps.io_lm import load_lm_case
+        from . import rsm1d
+        root = Path(__file__).resolve().parents[2] / "data/raw/lee_moser_2015"
+        _CHANNEL[name] = rsm1d.case_from_lm(load_lm_case(root, name.split("_")[-1]))
+    return _CHANNEL[name]
+
+
+def conditioning_log10(fitted, c_t, case_name) -> float:
+    """log10 of the first-Newton-step amplification (ps3.conditioning) on one held-out LM case,
+    capped at COND_CAP; non-finite or failed -> COND_CAP (deviation 5, 23 Oct 2026)."""
+    from . import conditioning, rsm1d
+    try:
+        a = conditioning.amplification(_channel_case(case_name), rsm1d.learned(fitted, c_t))["amplification"]
+        return float(min(np.log10(a), COND_CAP)) if np.isfinite(a) and a > 0 else COND_CAP
+    except Exception:
+        return COND_CAP
+
+
+def evaluate_candidate(c: dict, train_cases: dict[str, PL.Split], seeds=(0, 1), cond=False) -> dict:
     """Inner leave-one-Re_tau-out over the given training cases, `seeds` per inner fold.
     Returns objectives (means over seeds), their seed spread and timing. Any non-finite fit makes
     the candidate infeasible (recorded, never dropped)."""
@@ -219,7 +245,7 @@ def evaluate_candidate(c: dict, train_cases: dict[str, PL.Split], seeds=(0, 1)) 
     status, n_fits, fit_s, epochs = "ok", 0, 0.0, []
     sp_tr = {k: PL.prepare(train_cases[k].df, "durbin", c["c_t"]) for k in names}
     for s in seeds:
-        errs, rti, cn, ft = [], [], [], []
+        errs, rti, cn, ft, cd = [], [], [], [], []
         for vc in names:
             tr = PL.concat([sp_tr[k] for k in names if k != vc])
             va = sp_tr[vc]
@@ -235,12 +261,15 @@ def evaluate_candidate(c: dict, train_cases: dict[str, PL.Split], seeds=(0, 1)) 
             rti.append(r["rti_viol_mean"])
             cn.append(coef_norm(fitted, tr))
             ft.append(frame_and_trace(fitted, va))
+            if cond:                      # held-out inner case, as for f_err
+                cd.append(conditioning_log10(fitted, c["c_t"], vc))
         if status != "ok":
             break
         per_seed.append({"f_err": float(np.mean(errs)), "f_gen": float(np.max(errs)),
                          "inner_errors": errs, "rti": float(np.mean(rti)), "coef_norm": float(np.mean(cn)),
                          "trace_rel_mean": float(np.mean([f["trace_rel_mean"] for f in ft])),
-                         "rot_excess": float(np.mean([f["rot_excess"] for f in ft]))})
+                         "rot_excess": float(np.mean([f["rot_excess"] for f in ft])),
+                         **({"f_cond": float(np.mean(cd)), "cond_folds": cd} if cond else {})})
     out = {**c, "status": status, "n_fits": n_fits, "fit_seconds_total": round(fit_s, 2),
            "wall_seconds": round(time.time() - t0, 2), "median_best_epoch": float(np.median(epochs)) if epochs else None}
     if status != "ok":
@@ -250,6 +279,9 @@ def evaluate_candidate(c: dict, train_cases: dict[str, PL.Split], seeds=(0, 1)) 
         out[k] = float(np.mean(v))
         out[k + "_seed_sd"] = float(np.std(v, ddof=1)) if len(v) > 1 else float("nan")
     out["inner_errors_seed0"] = per_seed[0]["inner_errors"]
+    if cond:
+        out["f_cond"] = float(np.mean([p["f_cond"] for p in per_seed]))
+        out["cond_folds_seed0"] = per_seed[0]["cond_folds"]
     any_case = next(iter(train_cases.values()))
     fitted, _ = fit(c, PL.prepare(any_case.df, "durbin", c["c_t"]), seed=0, epochs=1)
     out["f_cost_flops"] = flops_per_point(fitted, PL.prepare(any_case.df, "durbin", c["c_t"]))
@@ -282,4 +314,7 @@ def objective_vector(r: dict, ref: dict, arm: str) -> dict:
         f_phys = 0.5 * r["rti"] / max(ref["rti_mean"], RTI_FLOOR) + 0.5 * r["coef_norm"] / ref["coef_norm_mean"]
     else:
         f_phys = r["trace_rel_mean"] + r["rot_excess"]
-    return {"f_err": float(np.mean(errs)), "f_gen": f_gen, "f_phys": float(f_phys), "f_cost": float(r["f_cost_flops"])}
+    out = {"f_err": float(np.mean(errs)), "f_gen": f_gen, "f_phys": float(f_phys), "f_cost": float(r["f_cost_flops"])}
+    if "f_cond" in r:
+        out["f_cond"] = r["f_cond"]
+    return out

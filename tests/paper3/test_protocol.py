@@ -22,8 +22,10 @@ def test_runner_reads_frozen_values():
     assert RS.N_EVAL == P["strategies"]["budget_evaluations"] == 200
     assert RS.make_sampler("nsga2", 1)._population_size == P["strategies"]["nsga2"]["population"]
     import run_queue as RQ
-    assert len(RQ.jobs()) == P["jobs"]["primary"]["total_jobs"] + P["jobs"]["ablations"]["total_jobs"] == 50
-    assert [j[0] for j in RQ.jobs()[:35]].count("wsum") == 0          # ablations only after primary jobs
+    J = P["jobs"]
+    assert len(RQ.jobs()) == J["primary"]["total_jobs"] + J["conditioning"]["total_jobs"] + J["ablations"]["total_jobs"] == 55
+    order = [j[0] for j in RQ.jobs()]
+    assert set(order[35:40]) == {"nsga2_cond"} and "wsum" not in order[:40]   # primary, conditioning, ablations
 
 
 def test_suggest_stays_inside_space():
@@ -44,3 +46,8 @@ def test_ablation_objectives():
     assert RS.SEARCH_OBJ["nsga2_nophys"] == ["f_err", "f_gen", "f_cost"]
     m0 = {"f_err": RS.WSUM_SCALE["f_err"], "f_gen": RS.WSUM_SCALE["f_gen"], "f_phys": 1.0, "f_cost": RS.WSUM_SCALE["f_cost"]}
     assert abs(RS.wsum(m0) - 1.0) < 1e-12                                # M0 scores exactly 1
+
+
+def test_conditioning_objective_declared():
+    assert RS.SEARCH_OBJ["nsga2_cond"] == ["f_err", "f_gen", "f_phys", "f_cost", "f_cond"]
+    assert any(d["id"] == 5 for d in P["deviations"])

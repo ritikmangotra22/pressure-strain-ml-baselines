@@ -40,7 +40,8 @@ SPACE = PROTO["search_space"]
 SEARCH_OBJ = {"random": OBJ, "nsga2": OBJ, "qnehvi": OBJ, "tpe": ["f_err"],
               "nsga2_nogen": ["f_err", "f_phys", "f_cost"],      # A2: no generalization objective
               "nsga2_nophys": ["f_err", "f_gen", "f_cost"],      # A4: no physics objective
-              "wsum": ["wsum"]}                                   # A3: weighted sum, TPE
+              "wsum": ["wsum"],                                   # A3: weighted sum, TPE
+              "nsga2_cond": OBJ + ["f_cond"]}                     # deviation 5: conditioning objective
 _C = ["LM_Channel_0180", "LM_Channel_0550", "LM_Channel_1000", "LM_Channel_2000", "LM_Channel_5200"]
 _R = [REF["fold_E_Pi_mean"][c] for c in _C]
 WSUM_SCALE = {"f_err": sum(sum(v.values()) / 5 for v in REF["fold_E_Pi_per_seed"].values()) / 5,
@@ -81,7 +82,7 @@ def make_sampler(strategy, seed):
         return optuna.samplers.TPESampler(seed=seed, n_startup_trials=STRAT["tpe"]["n_startup"])
     if strategy == "random":
         return optuna.samplers.RandomSampler(seed=seed)
-    if strategy in ("nsga2", "nsga2_nogen", "nsga2_nophys"):
+    if strategy in ("nsga2", "nsga2_nogen", "nsga2_nophys", "nsga2_cond"):
         return optuna.samplers.NSGAIISampler(population_size=STRAT["nsga2"]["population"], seed=seed)
     if strategy == "qnehvi":
         from optuna_integration import BoTorchSampler
@@ -137,7 +138,7 @@ def run(strategy, arm, seed, n_eval=N_EVAL, out=ROOT / "results/paper3/search", 
     def objective(trial):
         c = suggest(trial, arm)
         ts = time.time()
-        r = search.evaluate_candidate(c, train, seeds=(0,))
+        r = search.evaluate_candidate(c, train, seeds=(0,), cond=(strategy == "nsga2_cond"))
         f = search.objective_vector(r, REF, arm)
         rec = {"trial": trial.number, "propose_to_done_s": round(time.time() - ts, 1), **r, "objectives": f}
         log.write(json.dumps(rec) + "\n")
