@@ -339,7 +339,8 @@
       "type": "correction of a stated implementation detail (found after the seed-3001 qNEHVI jobs completed)",
       "what": "qNEHVI start-up design is NOT scrambled Sobol: optuna_integration's BoTorchSampler draws start-up parameters through independent_sampler.sample_independent, and QMCSampler.sample_independent falls back to RandomSampler(seed). The 20 start-up trials are therefore uniform random with the job's seed, identical to the first 20 trials of the random-search and NSGA-II jobs with the same seed (verified: identical configurations for seed 3001 in both arms).",
       "decision": "kept for all qNEHVI jobs (consistency with the two completed jobs). Effect: random search, NSGA-II and qNEHVI with the same optimizer seed share a common 20-point initial design; their hypervolumes at 20 evaluations are identical by construction.",
-      "protocol_text_superseded": "strategies.qnehvi.startup_sampler 'scrambled Sobol (QMCSampler)'"
+      "protocol_text_superseded": "strategies.qnehvi.startup_sampler 'scrambled Sobol (QMCSampler)'",
+      "note_2026_10_23": "The shared initial design holds only while a job is not paused within its first 20 trials: a resumed session re-seeds the sampler (execution.resume_seed). In random__armA__seed3003 the first session ended after 14 trials, so its trials 15-20 differ from NSGA-II's and qNEHVI's for that seed (14 of 20 shared). All other completed seeds share all 20. Checked for seeds 3001-3003 in both arms."
     }
   ]
 }
