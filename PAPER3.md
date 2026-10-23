@@ -30,6 +30,7 @@ approvals. Any later change is added to its `deviations` list with date and reas
 1. 21 Oct 2026 — qNEHVI acquisition-optimisation budget reduced (5 restarts, 256 raw samples, 100 iterations) because its overhead grew to about 219 s per proposal by trial 65 (projected 20 min by trial 200). The started job is rerun; its 69 trials are kept in `results/paper3/search_superseded/` as RQ4 evidence. Details in `protocol_v1.json` → `deviations`.
 2. 22 Oct 2026 — hypervolume normalisation and selection tie tolerance defined before any strategy comparison (clarification).
 3. 22 Oct 2026 — qNEHVI start-up trials are uniform random with the job seed, not Sobol as written (an Optuna fallback); kept, so random search, NSGA-II and qNEHVI share a common 20-point initial design.
+4. 23 Oct 2026 — the secondary repeat on Paper 2's interpolation folds is dropped. Three ablations are added on Arm A (5 seeds × 200 evaluations each, run after the primary jobs): NSGA-II without f_gen (A2), NSGA-II without f_phys (A4), and an equal-weight sum of the M0-normalised objectives optimised by TPE (A3).
 
 ## Approvals
 
@@ -67,7 +68,7 @@ Searches run in sessions of at most 100 minutes; each job resumes from its Optun
 |---|---|
 | 0. Setup, pilot, M0, MKM data | done (20–21 Oct 2026) |
 | 1. Primary searches (35 jobs) | running |
-| 2. Secondary E1 folds, ablations A2–A4, classical references | not started |
+| 2. Ablations A2–A4 (15 jobs, queued after Stage 1); classical references | queued |
 | 3. Refit and single confirmatory test | not started |
 | 4. A posteriori 1D RSM solve; solver-in-the-loop NSGA-II | not started |
 

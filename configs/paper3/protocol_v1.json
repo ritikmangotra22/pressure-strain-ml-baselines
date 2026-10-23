@@ -297,12 +297,27 @@
       "total_jobs": 35
     },
     "later_stages": [
-      "secondary E1 interpolation folds (TPE, NSGA-II)",
-      "ablations A2 (no f_gen), A3 (weighted sum), A4 (no f_phys)",
       "R0 classical references",
       "refit and single confirmatory test",
       "Stage 2/3 solver"
-    ]
+    ],
+    "ablations": {
+      "arm": "A",
+      "strategies": [
+        "nsga2_nogen",
+        "nsga2_nophys",
+        "wsum"
+      ],
+      "seeds": [
+        3001,
+        3002,
+        3003,
+        3004,
+        3005
+      ],
+      "n_eval": 200,
+      "total_jobs": 15
+    }
   },
   "execution": {
     "storage": "one Optuna SQLite study per job (results/paper3/search/<job>/study.db)",
@@ -341,6 +356,19 @@
       "decision": "kept for all qNEHVI jobs (consistency with the two completed jobs). Effect: random search, NSGA-II and qNEHVI with the same optimizer seed share a common 20-point initial design; their hypervolumes at 20 evaluations are identical by construction.",
       "protocol_text_superseded": "strategies.qnehvi.startup_sampler 'scrambled Sobol (QMCSampler)'",
       "note_2026_10_23": "The shared initial design holds only while a job is not paused within its first 20 trials: a resumed session re-seeds the sampler (execution.resume_seed). In random__armA__seed3003 the first session ended after 14 trials, so its trials 15-20 differ from NSGA-II's and qNEHVI's for that seed (14 of 20 shared). All other completed seeds share all 20. Checked for seeds 3001-3003 in both arms."
+    },
+    {
+      "id": 4,
+      "date": "2026-10-23",
+      "approved_by": "author (Ritik), 23 Oct 2026",
+      "type": "scope change in later stages, decided before any ablation was run",
+      "what": [
+        "secondary setting (TPE and NSGA-II on Paper 2's E1 interpolation folds) dropped",
+        "ablations defined and scheduled on Arm A, 5 optimizer seeds (3001-3005), 200 evaluations each, run after all primary jobs: A2 nsga2_nogen = NSGA-II (population 40) on f_err, f_phys, f_cost; A4 nsga2_nophys = NSGA-II on f_err, f_gen, f_cost; A3 wsum = TPE (10 start-up trials) on the equal-weight mean of the four objectives each divided by M0's value (f_err 0.06307, f_gen 1.166, f_phys 1.0, f_cost 103278)",
+        "every ablation trial is still scored on all four objectives; selection: A2 and A4 use the primary selection rule (so only the search changes), A3 takes its lowest scalar value (as TPE takes its lowest f_err)"
+      ],
+      "why": "the secondary repeat mainly gives comparability with Paper 2's numbers, which Hoyas & Jimenez already provides, and all its data were inspected in Paper 2; it cost about 100 core-hours. The ablations test which ingredients of the multi-objective search matter (RQ2, RQ3) for about 50 core-hours.",
+      "code": "scripts/paper3/run_search.py (SEARCH_OBJ, wsum), scripts/paper3/run_queue.py"
     }
   ]
 }

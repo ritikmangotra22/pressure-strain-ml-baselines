@@ -35,6 +35,22 @@ STRAT = PROTO["strategies"]
 N_EVAL = STRAT["budget_evaluations"]
 OBJ = ["f_err", "f_gen", "f_phys", "f_cost"]
 SPACE = PROTO["search_space"]
+# Objectives each strategy optimises (deviation 4 adds the ablations; every trial is still scored
+# and logged on all four objectives, and selection uses the same rule as the primary strategies).
+SEARCH_OBJ = {"random": OBJ, "nsga2": OBJ, "qnehvi": OBJ, "tpe": ["f_err"],
+              "nsga2_nogen": ["f_err", "f_phys", "f_cost"],      # A2: no generalization objective
+              "nsga2_nophys": ["f_err", "f_gen", "f_cost"],      # A4: no physics objective
+              "wsum": ["wsum"]}                                   # A3: weighted sum, TPE
+_C = ["LM_Channel_0180", "LM_Channel_0550", "LM_Channel_1000", "LM_Channel_2000", "LM_Channel_5200"]
+_R = [REF["fold_E_Pi_mean"][c] for c in _C]
+WSUM_SCALE = {"f_err": sum(sum(v.values()) / 5 for v in REF["fold_E_Pi_per_seed"].values()) / 5,
+              "f_gen": sum(max(v[c] / r for c, r in zip(_C, _R)) for v in REF["fold_E_Pi_per_seed"].values()) / 5,
+              "f_phys": 1.0, "f_cost": float(REF["f_cost_flops"])}
+
+
+def wsum(f):
+    """A3 scalarisation: equal weights on M0-normalised objectives (declared 23 Oct 2026, before running)."""
+    return sum(f[k] / WSUM_SCALE[k] for k in OBJ) / 4
 
 
 def code_version():
@@ -61,11 +77,11 @@ def suggest(trial, arm):
 
 
 def make_sampler(strategy, seed):
-    if strategy == "tpe":
+    if strategy in ("tpe", "wsum"):
         return optuna.samplers.TPESampler(seed=seed, n_startup_trials=STRAT["tpe"]["n_startup"])
     if strategy == "random":
         return optuna.samplers.RandomSampler(seed=seed)
-    if strategy == "nsga2":
+    if strategy in ("nsga2", "nsga2_nogen", "nsga2_nophys"):
         return optuna.samplers.NSGAIISampler(population_size=STRAT["nsga2"]["population"], seed=seed)
     if strategy == "qnehvi":
         from optuna_integration import BoTorchSampler
@@ -93,7 +109,7 @@ def run(strategy, arm, seed, n_eval=N_EVAL, out=ROOT / "results/paper3/search", 
         return "complete"
     d.mkdir(parents=True, exist_ok=True)
     storage = optuna.storages.RDBStorage(f"sqlite:///{d / 'study.db'}")
-    dirs = ["minimize"] if strategy == "tpe" else ["minimize"] * 4
+    dirs = ["minimize"] * len(SEARCH_OBJ[strategy])
     names = optuna.get_all_study_names(storage)
     if job in names:
         study = optuna.load_study(study_name=job, storage=storage)
@@ -130,9 +146,11 @@ def run(strategy, arm, seed, n_eval=N_EVAL, out=ROOT / "results/paper3/search", 
               f"{'FAIL' if f is None else ' '.join(f'{k}={f[k]:.4g}' for k in OBJ)}", flush=True)
         if f is None:
             raise RuntimeError("non-finite fit")    # trial FAIL: counted in the budget, infeasible
+        f = {**f, "wsum": wsum(f)}
         for k, v in f.items():
             trial.set_user_attr(k, v)
-        return f["f_err"] if strategy == "tpe" else tuple(f[k] for k in OBJ)
+        vals = tuple(f[k] for k in SEARCH_OBJ[strategy])
+        return vals[0] if len(vals) == 1 else vals
 
     def stop_cb(study, trial):
         if len(counted(study)) >= n_eval or (time.time() - t0) / 60 > max_minutes:
@@ -158,7 +176,7 @@ def finish(study, d, job, n_eval):
 
 def main():
     ap = argparse.ArgumentParser()
-    ap.add_argument("--strategy", required=True, choices=["random", "tpe", "nsga2", "qnehvi"])
+    ap.add_argument("--strategy", required=True, choices=list(SEARCH_OBJ))
     ap.add_argument("--arm", required=True, choices=["A", "B"])
     ap.add_argument("--seed", type=int, required=True)
     ap.add_argument("--n-eval", type=int, default=N_EVAL)

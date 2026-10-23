@@ -75,6 +75,9 @@ def select(df, arm, strategy):
     """protocol_v1 selection rule (TPE: lowest f_err, the Paper 2 procedure)."""
     if strategy == "tpe":
         return df.loc[df.f_err.idxmin()]
+    if strategy == "wsum":                                  # A3 (deviation 4): its own scalar
+        w = (df.f_err / F_ERR0 + df.f_gen / F_GEN0 + df.f_phys + df.f_cost / M0["f_cost_flops"]) / 4
+        return df.loc[w.idxmin()]
     P = df[OBJ].to_numpy()
     front = df[nondominated(P)]
     feas = front[(front.f_phys <= (1.0 if arm == "A" else np.inf)) & (front.f_cost <= 2 * M0["f_cost_flops"])]
