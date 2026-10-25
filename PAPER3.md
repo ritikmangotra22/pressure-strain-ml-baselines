@@ -33,6 +33,7 @@ approvals. Any later change is added to its `deviations` list with date and reas
 4. 23 Oct 2026 — the secondary repeat on Paper 2's interpolation folds is dropped. Three ablations are added on Arm A (5 seeds × 200 evaluations each, run after the primary jobs): NSGA-II without f_gen (A2), NSGA-II without f_phys (A4), and an equal-weight sum of the M0-normalised objectives optimised by TPE (A3).
 5. 23 Oct 2026 — Stage 2/3 redesign. The frozen 1D Reynolds-stress solve is verified by an anchored oracle (all five Lee & Moser cases, stresses within 1.0–3.5 % of the DNS), but it is ill-conditioned for learned closures: the first Newton step amplifies the most accurate candidate's a priori error about 15,000-fold, against 1–3 for the published classical closures. Solver-in-the-loop NSGA-II on J_U and J_R is replaced by NSGA-II with a fifth objective, f_cond (log₁₀ amplification on the held-out inner case); a posteriori solves are attempted for every selected model.
 6. 23 Oct 2026 — Stage 3 implementation fixed before any selected model was refitted or assessed: refit and classical-reference scripts; a posteriori solves on refit seeds 0–2 (≤ 200 iterations), amplification on all 10 seeds; frozen-solve outcomes are interpreted on a case only if the anchored oracle converges there (it does not on MKM 180, whose DNS budgets close only to 13.6 % of ε); solver grids ending on the centreline (MKM); guards on the single confirmatory run.
+7. 25 Oct 2026 — execution only: the a posteriori stage on LM moved to the author's MacBook; a cross-machine recheck found one failing solve labelled differently (diverged vs not converged), so the whole stage was rerun on the MacBook alone; the mixed-host file is kept as superseded. Analyses report converged against failed.
 
 ## Approvals
 
@@ -78,10 +79,10 @@ Searches run in sessions of at most 100 minutes; each job resumes from its Optun
 | Stage | Status |
 |---|---|
 | 0. Setup, pilot, M0, MKM data | done (20–21 Oct 2026) |
-| 1. Primary searches (35 jobs) | running |
-| 2. Ablations A2–A4 (15 jobs, queued after Stage 1); classical references | queued |
-| 3. Refit, classical references, a posteriori, single confirmatory test | scripts written and smoke-tested (23 Oct); classical references done; the rest waits for the searches |
-| 4. Stage 2 solver and conditioning diagnostic | done (verified); conditioning-aware NSGA-II (5 jobs) queued after the primary jobs |
+| 1. Primary searches (35 jobs) | done (25 Oct 2026) |
+| 2. Ablations A2–A4 (15 jobs); classical references | done (25 Oct 2026) |
+| 3. Refit, classical references, a posteriori, single confirmatory test | refits (560) and a posteriori on LM done (25 Oct; a posteriori on one machine, deviation 7); confirmatory test waits for supervisor approval and the paper3-selection-v1 tag |
+| 4. Stage 2 solver and conditioning diagnostic | done (verified); conditioning-aware NSGA-II (5 jobs) done |
 
 ## AI-assisted preparation
 
