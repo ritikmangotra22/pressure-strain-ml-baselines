@@ -433,7 +433,12 @@
         "every row written from now on records its host; before the remaining tasks, the MacBook recomputes four finished tasks (anchored_oracle, classical:ssg_published, M0 seed 0 with solves, M0 seed 3 conditioning only) and scripts/paper3/compare_recheck.py requires identical solve outcomes, amplification within 1 % and J_R within 1e-6; a disagreement is reported and the stage is then rerun on one machine"
       ],
       "why": "the stage needs about 5 more core-hours; the MacBook has 10 cores",
-      "code": "scripts/paper3/aposteriori.py (--recheck, host field), scripts/paper3/compare_recheck.py"
+      "code": "scripts/paper3/aposteriori.py (--recheck, host field), scripts/paper3/compare_recheck.py",
+      "outcome_2026_10_25": [
+        "cross-machine recheck: 20 case results compared; amplification identical to 6 significant figures and every converged outcome identical; ONE outcome class differs: M0 seed 0, LM 180, 'diverged' at iteration 142 in the cloud vs 'not_converged' after 200 iterations on the MacBook (residual 0.090 vs 0.097; both failures). compare_recheck.py therefore reported DISAGREE",
+        "the remaining 409 tasks had already been run on the MacBook (9 min) before the disagreement was acted on; following this deviation's rule, the whole stage (567 tasks) is rerun on the MacBook alone; the mixed-host file is kept as results/paper3/final/superseded_mixed_hosts_aposteriori_lm.jsonl and is not used",
+        "interpretation (to be stated in the paper): the outcome class of a failing frozen solve (diverged vs not converged) is sensitive to floating-point differences between machines; converged / not converged and the amplification are not. Analyses therefore report 'converged' against 'failed', with the failure subclass descriptive only"
+      ]
     }
   ]
 }
