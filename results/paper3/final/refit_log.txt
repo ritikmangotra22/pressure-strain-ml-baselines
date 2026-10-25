@@ -1,0 +1,11 @@
+56 models, 560 refits requested
+[      5s] 1/560 M0 seed 0 mean in-sample E_Pi 0.0348
+[      5s] 2/560 M0 seed 1 mean in-sample E_Pi 0.0280
+[      7s] 3/560 M0 seed 2 mean in-sample E_Pi 0.0338
+[      7s] 4/560 M0 seed 3 mean in-sample E_Pi 0.0344
+[      9s] 5/560 M0 seed 5 mean in-sample E_Pi 0.0332
+[     10s] 6/560 M0 seed 4 mean in-sample E_Pi 0.0437
+[     12s] 7/560 M0 seed 6 mean in-sample E_Pi 0.0334
+[     12s] 8/560 M0 seed 7 mean in-sample E_Pi 0.0357
+[     14s] 9/560 M0 seed 8 mean in-sample E_Pi 0.0291
+[     14s] 10/560 M0 seed 9 mean in-sample E_Pi 0.0340

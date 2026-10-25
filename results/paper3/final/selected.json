@@ -1,0 +1,1456 @@
+{
+ "M0": {
+  "config": {
+   "arch": "M4",
+   "n_layers": 4,
+   "width": 128,
+   "activation": "silu",
+   "lr": 0.002878422901396672,
+   "weight_decay": 0.000534768755565388,
+   "dropout": 0.0,
+   "c_t": 6.0,
+   "n_basis": 8,
+   "inv_set": "six"
+  },
+  "epochs": 381,
+  "source": "Paper 2 run-1 M4 (E2)",
+  "strategy": "M0",
+  "arm": "A",
+  "seed": null
+ },
+ "nsga2__armA__seed3001": {
+  "config": {
+   "arch": "M4",
+   "n_layers": 2,
+   "width": 64,
+   "activation": "silu",
+   "lr": 0.002716230776255326,
+   "weight_decay": 5.672532146669751e-06,
+   "dropout": 0.057398202751238,
+   "c_t": 10.0,
+   "n_basis": 8,
+   "inv_set": "four"
+  },
+  "epochs": 1787,
+  "trial": 193,
+  "inner_objectives": {
+   "f_err": 0.05144770171597089,
+   "f_gen": 0.9456934374854247,
+   "f_phys": 0.5248810470937528,
+   "f_cost": 10774.0
+  },
+  "strategy": "nsga2",
+  "arm": "A",
+  "seed": 3001,
+  "source": "search job nsga2__armA__seed3001"
+ },
+ "nsga2__armA__seed3002": {
+  "config": {
+   "arch": "M4",
+   "n_layers": 3,
+   "width": 64,
+   "activation": "silu",
+   "lr": 0.0018056233985351716,
+   "weight_decay": 0.00025784966360899256,
+   "dropout": 0.11182008893068629,
+   "c_t": 10.0,
+   "n_basis": 8,
+   "inv_set": "four"
+  },
+  "epochs": 1333,
+  "trial": 128,
+  "inner_objectives": {
+   "f_err": 0.06170483011892737,
+   "f_gen": 1.039977243740785,
+   "f_phys": 0.476402901551958,
+   "f_cost": 18966.0
+  },
+  "strategy": "nsga2",
+  "arm": "A",
+  "seed": 3002,
+  "source": "search job nsga2__armA__seed3002"
+ },
+ "nsga2__armA__seed3003": {
+  "config": {
+   "arch": "M4",
+   "n_layers": 4,
+   "width": 64,
+   "activation": "silu",
+   "lr": 0.0011458866940334276,
+   "weight_decay": 1.5150690434764604e-06,
+   "dropout": 0.019368529110058288,
+   "c_t": 3.0,
+   "n_basis": 8,
+   "inv_set": "six"
+  },
+  "epochs": 1105,
+  "trial": 114,
+  "inner_objectives": {
+   "f_err": 0.06115696227443741,
+   "f_gen": 1.101326997702158,
+   "f_phys": 0.7618018457239731,
+   "f_cost": 27630.0
+  },
+  "strategy": "nsga2",
+  "arm": "A",
+  "seed": 3003,
+  "source": "search job nsga2__armA__seed3003"
+ },
+ "nsga2__armA__seed3004": {
+  "config": {
+   "arch": "M4",
+   "n_layers": 2,
+   "width": 128,
+   "activation": "silu",
+   "lr": 0.0008862921811993483,
+   "weight_decay": 0.004982584754816967,
+   "dropout": 0.17589814414189064,
+   "c_t": 6.0,
+   "n_basis": 8,
+   "inv_set": "four"
+  },
+  "epochs": 1377,
+  "trial": 158,
+  "inner_objectives": {
+   "f_err": 0.061975773688178915,
+   "f_gen": 1.0757398922005696,
+   "f_phys": 0.48660687123149476,
+   "f_cost": 37014.0
+  },
+  "strategy": "nsga2",
+  "arm": "A",
+  "seed": 3004,
+  "source": "search job nsga2__armA__seed3004"
+ },
+ "nsga2__armA__seed3005": {
+  "config": {
+   "arch": "M4",
+   "n_layers": 4,
+   "width": 64,
+   "activation": "silu",
+   "lr": 0.0012257435537436146,
+   "weight_decay": 4.316708818302363e-06,
+   "dropout": 0.02173952844674587,
+   "c_t": 6.0,
+   "n_basis": 8,
+   "inv_set": "six"
+  },
+  "epochs": 1135,
+  "trial": 164,
+  "inner_objectives": {
+   "f_err": 0.05974637129404716,
+   "f_gen": 1.0707276837619508,
+   "f_phys": 0.949386942052576,
+   "f_cost": 27630.0
+  },
+  "strategy": "nsga2",
+  "arm": "A",
+  "seed": 3005,
+  "source": "search job nsga2__armA__seed3005"
+ },
+ "nsga2__armB__seed3001": {
+  "config": {
+   "arch": "M4",
+   "n_layers": 4,
+   "width": 64,
+   "activation": "silu",
+   "lr": 0.0014715118287366522,
+   "weight_decay": 0.00023339472338993554,
+   "dropout": 0.03741896724847511,
+   "c_t": 6.0,
+   "n_basis": 8,
+   "inv_set": "six"
+  },
+  "epochs": 992,
+  "trial": 130,
+  "inner_objectives": {
+   "f_err": 0.05806562187340051,
+   "f_gen": 1.0506742889871483,
+   "f_phys": 6.211908524822978e-17,
+   "f_cost": 27630.0
+  },
+  "strategy": "nsga2",
+  "arm": "B",
+  "seed": 3001,
+  "source": "search job nsga2__armB__seed3001"
+ },
+ "nsga2__armB__seed3002": {
+  "config": {
+   "arch": "M4",
+   "n_layers": 5,
+   "width": 64,
+   "activation": "silu",
+   "lr": 0.00174968565220869,
+   "weight_decay": 2.6216183613009702e-05,
+   "dropout": 0.08606395836293286,
+   "c_t": 10.0,
+   "n_basis": 8,
+   "inv_set": "six"
+  },
+  "epochs": 1239,
+  "trial": 177,
+  "inner_objectives": {
+   "f_err": 0.05879977365803259,
+   "f_gen": 1.2703368609910748,
+   "f_phys": 7.779905697372147e-17,
+   "f_cost": 35822.0
+  },
+  "strategy": "nsga2",
+  "arm": "B",
+  "seed": 3002,
+  "source": "search job nsga2__armB__seed3002"
+ },
+ "nsga2__armB__seed3003": {
+  "config": {
+   "arch": "M4",
+   "n_layers": 4,
+   "width": 64,
+   "activation": "silu",
+   "lr": 0.0018763297900731312,
+   "weight_decay": 0.000989815505613921,
+   "dropout": 0.07557964034314071,
+   "c_t": 6.0,
+   "n_basis": 8,
+   "inv_set": "six"
+  },
+  "epochs": 794,
+  "trial": 136,
+  "inner_objectives": {
+   "f_err": 0.05983134005501427,
+   "f_gen": 1.0517861584252564,
+   "f_phys": 6.164588692246905e-17,
+   "f_cost": 27630.0
+  },
+  "strategy": "nsga2",
+  "arm": "B",
+  "seed": 3003,
+  "source": "search job nsga2__armB__seed3003"
+ },
+ "nsga2__armB__seed3004": {
+  "config": {
+   "arch": "M4",
+   "n_layers": 4,
+   "width": 64,
+   "activation": "silu",
+   "lr": 0.0027756448198284897,
+   "weight_decay": 0.00011053427531609225,
+   "dropout": 0.041116426938929744,
+   "c_t": 10.0,
+   "n_basis": 8,
+   "inv_set": "six"
+  },
+  "epochs": 601,
+  "trial": 125,
+  "inner_objectives": {
+   "f_err": 0.0589657832344341,
+   "f_gen": 1.0113117232337225,
+   "f_phys": 6.531533622132453e-17,
+   "f_cost": 27630.0
+  },
+  "strategy": "nsga2",
+  "arm": "B",
+  "seed": 3004,
+  "source": "search job nsga2__armB__seed3004"
+ },
+ "nsga2__armB__seed3005": {
+  "config": {
+   "arch": "M4",
+   "n_layers": 3,
+   "width": 64,
+   "activation": "silu",
+   "lr": 0.0011871312621748301,
+   "weight_decay": 0.0015480174901691924,
+   "dropout": 0.030478391223467096,
+   "c_t": 6.0,
+   "n_basis": 8,
+   "inv_set": "five"
+  },
+  "epochs": 1730,
+  "trial": 179,
+  "inner_objectives": {
+   "f_err": 0.056923952263837486,
+   "f_gen": 1.070715620141721,
+   "f_phys": 6.336811485710694e-17,
+   "f_cost": 19202.0
+  },
+  "strategy": "nsga2",
+  "arm": "B",
+  "seed": 3005,
+  "source": "search job nsga2__armB__seed3005"
+ },
+ "nsga2_cond__armA__seed3001": {
+  "config": {
+   "arch": "M4",
+   "n_layers": 2,
+   "width": 32,
+   "activation": "tanh",
+   "lr": 0.00012570665910514381,
+   "weight_decay": 7.229249488131056e-06,
+   "dropout": 0.18392280355874807,
+   "c_t": 10.0,
+   "n_basis": 8,
+   "inv_set": "four"
+  },
+  "epochs": 4820,
+  "trial": 95,
+  "inner_objectives": {
+   "f_err": 0.10334331285186209,
+   "f_gen": 2.5577423958681544,
+   "f_phys": 0.4365085604711718,
+   "f_cost": 3798.0,
+   "f_cond": 0.5503897686413389
+  },
+  "strategy": "nsga2_cond",
+  "arm": "A",
+  "seed": 3001,
+  "source": "search job nsga2_cond__armA__seed3001"
+ },
+ "nsga2_cond__armA__seed3002": {
+  "config": {
+   "arch": "M4",
+   "n_layers": 2,
+   "width": 32,
+   "activation": "tanh",
+   "lr": 0.00012419464747563075,
+   "weight_decay": 6.00071046334024e-05,
+   "dropout": 0.1791225725246432,
+   "c_t": 10.0,
+   "n_basis": 8,
+   "inv_set": "four"
+  },
+  "epochs": 4632,
+  "trial": 165,
+  "inner_objectives": {
+   "f_err": 0.10415977887702188,
+   "f_gen": 2.6326522458436736,
+   "f_phys": 0.4368318593427008,
+   "f_cost": 3798.0,
+   "f_cond": 0.5370815272523686
+  },
+  "strategy": "nsga2_cond",
+  "arm": "A",
+  "seed": 3002,
+  "source": "search job nsga2_cond__armA__seed3002"
+ },
+ "nsga2_cond__armA__seed3003": {
+  "config": {
+   "arch": "M4",
+   "n_layers": 2,
+   "width": 32,
+   "activation": "tanh",
+   "lr": 0.000151895572644783,
+   "weight_decay": 0.0008314240942764332,
+   "dropout": 0.1696783565242465,
+   "c_t": 10.0,
+   "n_basis": 8,
+   "inv_set": "four"
+  },
+  "epochs": 4344,
+  "trial": 37,
+  "inner_objectives": {
+   "f_err": 0.103416429902774,
+   "f_gen": 2.4664025512264454,
+   "f_phys": 0.43844627226443217,
+   "f_cost": 3798.0,
+   "f_cond": 0.6037710761399353
+  },
+  "strategy": "nsga2_cond",
+  "arm": "A",
+  "seed": 3003,
+  "source": "search job nsga2_cond__armA__seed3003"
+ },
+ "nsga2_cond__armA__seed3004": {
+  "config": {
+   "arch": "M4",
+   "n_layers": 2,
+   "width": 128,
+   "activation": "tanh",
+   "lr": 0.00017612517417820844,
+   "weight_decay": 4.474202382428328e-06,
+   "dropout": 0.1468297817392142,
+   "c_t": 10.0,
+   "n_basis": 8,
+   "inv_set": "four"
+  },
+  "epochs": 2454,
+  "trial": 192,
+  "inner_objectives": {
+   "f_err": 0.08682982218730767,
+   "f_gen": 1.819347425855932,
+   "f_phys": 0.4350295517097694,
+   "f_cost": 37014.0,
+   "f_cond": 1.244060744802073
+  },
+  "strategy": "nsga2_cond",
+  "arm": "A",
+  "seed": 3004,
+  "source": "search job nsga2_cond__armA__seed3004"
+ },
+ "nsga2_cond__armA__seed3005": {
+  "config": {
+   "arch": "M4",
+   "n_layers": 2,
+   "width": 32,
+   "activation": "tanh",
+   "lr": 0.00032669459844168487,
+   "weight_decay": 0.0003353841402208832,
+   "dropout": 0.022412862929834534,
+   "c_t": 10.0,
+   "n_basis": 8,
+   "inv_set": "five"
+  },
+  "epochs": 2415,
+  "trial": 158,
+  "inner_objectives": {
+   "f_err": 0.10828894942088851,
+   "f_gen": 2.689782292844017,
+   "f_phys": 0.4543147456129236,
+   "f_cost": 3970.0,
+   "f_cond": 1.1444270415591744
+  },
+  "strategy": "nsga2_cond",
+  "arm": "A",
+  "seed": 3005,
+  "source": "search job nsga2_cond__armA__seed3005"
+ },
+ "nsga2_nogen__armA__seed3001": {
+  "config": {
+   "arch": "M4",
+   "n_layers": 3,
+   "width": 128,
+   "activation": "silu",
+   "lr": 0.002716230776255326,
+   "weight_decay": 0.0018969620941860187,
+   "dropout": 0.08369170239584739,
+   "c_t": 6.0,
+   "n_basis": 8,
+   "inv_set": "five"
+  },
+  "epochs": 238,
+  "trial": 94,
+  "inner_objectives": {
+   "f_err": 0.06139938010101385,
+   "f_gen": 1.0576044205238637,
+   "f_phys": 0.4887192544340854,
+   "f_cost": 70146.0
+  },
+  "strategy": "nsga2_nogen",
+  "arm": "A",
+  "seed": 3001,
+  "source": "search job nsga2_nogen__armA__seed3001"
+ },
+ "nsga2_nogen__armA__seed3002": {
+  "config": {
+   "arch": "M4",
+   "n_layers": 3,
+   "width": 64,
+   "activation": "silu",
+   "lr": 0.0018056233985351716,
+   "weight_decay": 0.00025784966360899256,
+   "dropout": 0.06359847475598837,
+   "c_t": 10.0,
+   "n_basis": 8,
+   "inv_set": "four"
+  },
+  "epochs": 1234,
+  "trial": 34,
+  "inner_objectives": {
+   "f_err": 0.06385969774797384,
+   "f_gen": 1.076784675202659,
+   "f_phys": 0.47693179473209857,
+   "f_cost": 18966.0
+  },
+  "strategy": "nsga2_nogen",
+  "arm": "A",
+  "seed": 3002,
+  "source": "search job nsga2_nogen__armA__seed3002"
+ },
+ "nsga2_nogen__armA__seed3003": {
+  "config": {
+   "arch": "M4",
+   "n_layers": 4,
+   "width": 64,
+   "activation": "tanh",
+   "lr": 0.0029836513297275312,
+   "weight_decay": 1.5150690434764604e-06,
+   "dropout": 0.03539122058326878,
+   "c_t": 3.0,
+   "n_basis": 8,
+   "inv_set": "five"
+  },
+  "epochs": 1322,
+  "trial": 182,
+  "inner_objectives": {
+   "f_err": 0.06225768462876143,
+   "f_gen": 1.079010488908282,
+   "f_phys": 0.5222735933770632,
+   "f_cost": 27394.0
+  },
+  "strategy": "nsga2_nogen",
+  "arm": "A",
+  "seed": 3003,
+  "source": "search job nsga2_nogen__armA__seed3003"
+ },
+ "nsga2_nogen__armA__seed3004": {
+  "config": {
+   "arch": "M4",
+   "n_layers": 2,
+   "width": 64,
+   "activation": "tanh",
+   "lr": 0.0021756968394779134,
+   "weight_decay": 0.009193605913671722,
+   "dropout": 0.09883828892712287,
+   "c_t": 6.0,
+   "n_basis": 8,
+   "inv_set": "six"
+  },
+  "epochs": 2366,
+  "trial": 36,
+  "inner_objectives": {
+   "f_err": 0.05943471113136841,
+   "f_gen": 1.1269889445771804,
+   "f_phys": 0.5663785217033849,
+   "f_cost": 11246.0
+  },
+  "strategy": "nsga2_nogen",
+  "arm": "A",
+  "seed": 3004,
+  "source": "search job nsga2_nogen__armA__seed3004"
+ },
+ "nsga2_nogen__armA__seed3005": {
+  "config": {
+   "arch": "M4",
+   "n_layers": 5,
+   "width": 64,
+   "activation": "silu",
+   "lr": 0.0024965858183601678,
+   "weight_decay": 1.203585858676648e-06,
+   "dropout": 0.08152999198210441,
+   "c_t": 10.0,
+   "n_basis": 8,
+   "inv_set": "four"
+  },
+  "epochs": 1012,
+  "trial": 164,
+  "inner_objectives": {
+   "f_err": 0.061080146608760655,
+   "f_gen": 1.0807916350807407,
+   "f_phys": 0.5045351224904264,
+   "f_cost": 35350.0
+  },
+  "strategy": "nsga2_nogen",
+  "arm": "A",
+  "seed": 3005,
+  "source": "search job nsga2_nogen__armA__seed3005"
+ },
+ "nsga2_nophys__armA__seed3001": {
+  "config": {
+   "arch": "M4",
+   "n_layers": 2,
+   "width": 64,
+   "activation": "silu",
+   "lr": 0.0024591103290309436,
+   "weight_decay": 0.002567407510651195,
+   "dropout": 0.10365003045265411,
+   "c_t": 10.0,
+   "n_basis": 8,
+   "inv_set": "four"
+  },
+  "epochs": 1504,
+  "trial": 189,
+  "inner_objectives": {
+   "f_err": 0.05309012293312437,
+   "f_gen": 0.9550046796258357,
+   "f_phys": 0.5067010162686585,
+   "f_cost": 10774.0
+  },
+  "strategy": "nsga2_nophys",
+  "arm": "A",
+  "seed": 3001,
+  "source": "search job nsga2_nophys__armA__seed3001"
+ },
+ "nsga2_nophys__armA__seed3002": {
+  "config": {
+   "arch": "M4",
+   "n_layers": 2,
+   "width": 64,
+   "activation": "silu",
+   "lr": 0.00243251198887837,
+   "weight_decay": 1.6835923606692438e-06,
+   "dropout": 0.029386966186962085,
+   "c_t": 6.0,
+   "n_basis": 8,
+   "inv_set": "four"
+  },
+  "epochs": 1756,
+  "trial": 78,
+  "inner_objectives": {
+   "f_err": 0.05462052716403798,
+   "f_gen": 1.0104948865162027,
+   "f_phys": 0.5252146647254179,
+   "f_cost": 10774.0
+  },
+  "strategy": "nsga2_nophys",
+  "arm": "A",
+  "seed": 3002,
+  "source": "search job nsga2_nophys__armA__seed3002"
+ },
+ "nsga2_nophys__armA__seed3003": {
+  "config": {
+   "arch": "M4",
+   "n_layers": 3,
+   "width": 64,
+   "activation": "silu",
+   "lr": 0.002365585495654162,
+   "weight_decay": 0.00010615912029180169,
+   "dropout": 0.14744038370073115,
+   "c_t": 3.0,
+   "n_basis": 8,
+   "inv_set": "six"
+  },
+  "epochs": 966,
+  "trial": 167,
+  "inner_objectives": {
+   "f_err": 0.06564845892406432,
+   "f_gen": 1.1019666159101904,
+   "f_phys": 0.519716869967188,
+   "f_cost": 19438.0
+  },
+  "strategy": "nsga2_nophys",
+  "arm": "A",
+  "seed": 3003,
+  "source": "search job nsga2_nophys__armA__seed3003"
+ },
+ "nsga2_nophys__armA__seed3004": {
+  "config": {
+   "arch": "M4",
+   "n_layers": 4,
+   "width": 64,
+   "activation": "silu",
+   "lr": 0.002418588644433897,
+   "weight_decay": 1.892545648682639e-05,
+   "dropout": 0.11873177050245841,
+   "c_t": 6.0,
+   "n_basis": 8,
+   "inv_set": "six"
+  },
+  "epochs": 1345,
+  "trial": 174,
+  "inner_objectives": {
+   "f_err": 0.06137786264571197,
+   "f_gen": 1.084662816654861,
+   "f_phys": 0.6906860951360652,
+   "f_cost": 27630.0
+  },
+  "strategy": "nsga2_nophys",
+  "arm": "A",
+  "seed": 3004,
+  "source": "search job nsga2_nophys__armA__seed3004"
+ },
+ "nsga2_nophys__armA__seed3005": {
+  "config": {
+   "arch": "M4",
+   "n_layers": 3,
+   "width": 64,
+   "activation": "silu",
+   "lr": 0.0023363933365754316,
+   "weight_decay": 4.316708818302363e-06,
+   "dropout": 0.05776259730998532,
+   "c_t": 6.0,
+   "n_basis": 8,
+   "inv_set": "six"
+  },
+  "epochs": 1385,
+  "trial": 150,
+  "inner_objectives": {
+   "f_err": 0.0627474355436006,
+   "f_gen": 1.0927605868321777,
+   "f_phys": 0.5229579038029911,
+   "f_cost": 19438.0
+  },
+  "strategy": "nsga2_nophys",
+  "arm": "A",
+  "seed": 3005,
+  "source": "search job nsga2_nophys__armA__seed3005"
+ },
+ "qnehvi__armA__seed3001": {
+  "config": {
+   "arch": "M4",
+   "n_layers": 2,
+   "width": 32,
+   "activation": "silu",
+   "lr": 0.002999999999999999,
+   "weight_decay": 1.0000000000000004e-06,
+   "dropout": 0.19258650428640692,
+   "c_t": 6.0,
+   "n_basis": 8,
+   "inv_set": "four"
+  },
+  "epochs": 1678,
+  "trial": 45,
+  "inner_objectives": {
+   "f_err": 0.06633714916673254,
+   "f_gen": 1.1701127676981882,
+   "f_phys": 0.6287568250916983,
+   "f_cost": 3798.0
+  },
+  "strategy": "qnehvi",
+  "arm": "A",
+  "seed": 3001,
+  "source": "search job qnehvi__armA__seed3001"
+ },
+ "qnehvi__armA__seed3002": {
+  "config": {
+   "arch": "M4",
+   "n_layers": 2,
+   "width": 32,
+   "activation": "tanh",
+   "lr": 0.002910247477709849,
+   "weight_decay": 1.0000000000000004e-06,
+   "dropout": 0.16439115894775558,
+   "c_t": 6.0,
+   "n_basis": 8,
+   "inv_set": "five"
+  },
+  "epochs": 2071,
+  "trial": 159,
+  "inner_objectives": {
+   "f_err": 0.06477815680659019,
+   "f_gen": 1.2878783924401596,
+   "f_phys": 0.5012724160325241,
+   "f_cost": 3970.0
+  },
+  "strategy": "qnehvi",
+  "arm": "A",
+  "seed": 3002,
+  "source": "search job qnehvi__armA__seed3002"
+ },
+ "qnehvi__armA__seed3003": {
+  "config": {
+   "arch": "M4",
+   "n_layers": 4,
+   "width": 128,
+   "activation": "silu",
+   "lr": 0.0021725495368228502,
+   "weight_decay": 1.0000000000000004e-06,
+   "dropout": 0.0864879424265067,
+   "c_t": 6.0,
+   "n_basis": 8,
+   "inv_set": "five"
+  },
+  "epochs": 569,
+  "trial": 63,
+  "inner_objectives": {
+   "f_err": 0.05719353120628583,
+   "f_gen": 0.9992401916253963,
+   "f_phys": 0.4919902448469305,
+   "f_cost": 102914.0
+  },
+  "strategy": "qnehvi",
+  "arm": "A",
+  "seed": 3003,
+  "source": "search job qnehvi__armA__seed3003"
+ },
+ "qnehvi__armA__seed3004": {
+  "config": {
+   "arch": "M4",
+   "n_layers": 2,
+   "width": 64,
+   "activation": "silu",
+   "lr": 0.002999999999999999,
+   "weight_decay": 0.0009499620216803298,
+   "dropout": 0.12691820976143017,
+   "c_t": 6.0,
+   "n_basis": 8,
+   "inv_set": "four"
+  },
+  "epochs": 1140,
+  "trial": 169,
+  "inner_objectives": {
+   "f_err": 0.052874755160891906,
+   "f_gen": 0.9907117514661843,
+   "f_phys": 0.49377347393887466,
+   "f_cost": 10774.0
+  },
+  "strategy": "qnehvi",
+  "arm": "A",
+  "seed": 3004,
+  "source": "search job qnehvi__armA__seed3004"
+ },
+ "qnehvi__armA__seed3005": {
+  "config": {
+   "arch": "M4",
+   "n_layers": 4,
+   "width": 128,
+   "activation": "silu",
+   "lr": 0.002999999999999999,
+   "weight_decay": 1.0000000000000004e-06,
+   "dropout": 0.09511755564863567,
+   "c_t": 6.0,
+   "n_basis": 8,
+   "inv_set": "five"
+  },
+  "epochs": 522,
+  "trial": 36,
+  "inner_objectives": {
+   "f_err": 0.05796226003171436,
+   "f_gen": 0.9896144076985435,
+   "f_phys": 0.47702491528658414,
+   "f_cost": 102914.0
+  },
+  "strategy": "qnehvi",
+  "arm": "A",
+  "seed": 3005,
+  "source": "search job qnehvi__armA__seed3005"
+ },
+ "qnehvi__armB__seed3001": {
+  "config": {
+   "arch": "M4",
+   "n_layers": 4,
+   "width": 128,
+   "activation": "tanh",
+   "lr": 0.002999999999999999,
+   "weight_decay": 1.4154524174114206e-05,
+   "dropout": 0.11417432120102032,
+   "c_t": 6.0,
+   "n_basis": 8,
+   "inv_set": "six"
+  },
+  "epochs": 1015,
+  "trial": 55,
+  "inner_objectives": {
+   "f_err": 0.05576047434034124,
+   "f_gen": 1.0460151688967843,
+   "f_phys": 7.27666035285622e-17,
+   "f_cost": 103278.0
+  },
+  "strategy": "qnehvi",
+  "arm": "B",
+  "seed": 3001,
+  "source": "search job qnehvi__armB__seed3001"
+ },
+ "qnehvi__armB__seed3002": {
+  "config": {
+   "arch": "M4",
+   "n_layers": 2,
+   "width": 128,
+   "activation": "tanh",
+   "lr": 0.002999999999999999,
+   "weight_decay": 5.281562687112976e-05,
+   "dropout": 0.17604924558825705,
+   "c_t": 6.0,
+   "n_basis": 8,
+   "inv_set": "five"
+  },
+  "epochs": 1901,
+  "trial": 150,
+  "inner_objectives": {
+   "f_err": 0.057141160435936124,
+   "f_gen": 1.085711934267286,
+   "f_phys": 8.332717848978449e-17,
+   "f_cost": 37378.0
+  },
+  "strategy": "qnehvi",
+  "arm": "B",
+  "seed": 3002,
+  "source": "search job qnehvi__armB__seed3002"
+ },
+ "qnehvi__armB__seed3003": {
+  "config": {
+   "arch": "M4",
+   "n_layers": 2,
+   "width": 64,
+   "activation": "silu",
+   "lr": 0.0021451117064231365,
+   "weight_decay": 0.009999999999999998,
+   "dropout": 0.1053141138306102,
+   "c_t": 6.0,
+   "n_basis": 8,
+   "inv_set": "four"
+  },
+  "epochs": 1504,
+  "trial": 52,
+  "inner_objectives": {
+   "f_err": 0.05250769779351068,
+   "f_gen": 0.9836085348552757,
+   "f_phys": 6.923280298636999e-17,
+   "f_cost": 10774.0
+  },
+  "strategy": "qnehvi",
+  "arm": "B",
+  "seed": 3003,
+  "source": "search job qnehvi__armB__seed3003"
+ },
+ "qnehvi__armB__seed3004": {
+  "config": {
+   "arch": "M4",
+   "n_layers": 2,
+   "width": 64,
+   "activation": "tanh",
+   "lr": 0.002999999999999999,
+   "weight_decay": 3.080368743438602e-06,
+   "dropout": 0.19999999999999998,
+   "c_t": 6.0,
+   "n_basis": 8,
+   "inv_set": "six"
+  },
+  "epochs": 1581,
+  "trial": 37,
+  "inner_objectives": {
+   "f_err": 0.060304239675532945,
+   "f_gen": 1.1424786071719701,
+   "f_phys": 8.456534548989518e-17,
+   "f_cost": 11246.0
+  },
+  "strategy": "qnehvi",
+  "arm": "B",
+  "seed": 3004,
+  "source": "search job qnehvi__armB__seed3004"
+ },
+ "qnehvi__armB__seed3005": {
+  "config": {
+   "arch": "M4",
+   "n_layers": 4,
+   "width": 128,
+   "activation": "tanh",
+   "lr": 0.002999999999999999,
+   "weight_decay": 3.002620288949208e-06,
+   "dropout": 0.090965626455631,
+   "c_t": 3.0,
+   "n_basis": 8,
+   "inv_set": "five"
+  },
+  "epochs": 1318,
+  "trial": 141,
+  "inner_objectives": {
+   "f_err": 0.060199174651565525,
+   "f_gen": 1.1577923698131602,
+   "f_phys": 7.562931669117717e-17,
+   "f_cost": 102914.0
+  },
+  "strategy": "qnehvi",
+  "arm": "B",
+  "seed": 3005,
+  "source": "search job qnehvi__armB__seed3005"
+ },
+ "random__armA__seed3001": {
+  "config": {
+   "arch": "M4",
+   "n_layers": 4,
+   "width": 128,
+   "activation": "tanh",
+   "lr": 0.000975871800192888,
+   "weight_decay": 0.0026873391258479128,
+   "dropout": 0.07774160623516209,
+   "c_t": 3.0,
+   "n_basis": 8,
+   "inv_set": "five"
+  },
+  "epochs": 1855,
+  "trial": 47,
+  "inner_objectives": {
+   "f_err": 0.058043165327741564,
+   "f_gen": 1.0945163150423571,
+   "f_phys": 0.551168410096896,
+   "f_cost": 102914.0
+  },
+  "strategy": "random",
+  "arm": "A",
+  "seed": 3001,
+  "source": "search job random__armA__seed3001"
+ },
+ "random__armA__seed3002": {
+  "config": {
+   "arch": "M4",
+   "n_layers": 4,
+   "width": 128,
+   "activation": "silu",
+   "lr": 0.002273046020306147,
+   "weight_decay": 0.0005588678615818654,
+   "dropout": 0.05347691636750429,
+   "c_t": 3.0,
+   "n_basis": 8,
+   "inv_set": "four"
+  },
+  "epochs": 610,
+  "trial": 171,
+  "inner_objectives": {
+   "f_err": 0.061794761404385376,
+   "f_gen": 1.1249374758681825,
+   "f_phys": 0.6655631800406039,
+   "f_cost": 102550.0
+  },
+  "strategy": "random",
+  "arm": "A",
+  "seed": 3002,
+  "source": "search job random__armA__seed3002"
+ },
+ "random__armA__seed3003": {
+  "config": {
+   "arch": "M4",
+   "n_layers": 2,
+   "width": 64,
+   "activation": "silu",
+   "lr": 0.0026907005212472666,
+   "weight_decay": 0.004409840428488528,
+   "dropout": 0.13216171440423322,
+   "c_t": 6.0,
+   "n_basis": 8,
+   "inv_set": "four"
+  },
+  "epochs": 1286,
+  "trial": 28,
+  "inner_objectives": {
+   "f_err": 0.05380211471242977,
+   "f_gen": 0.9986067323462964,
+   "f_phys": 0.4889156717014717,
+   "f_cost": 10774.0
+  },
+  "strategy": "random",
+  "arm": "A",
+  "seed": 3003,
+  "source": "search job random__armA__seed3003"
+ },
+ "random__armA__seed3004": {
+  "config": {
+   "arch": "M4",
+   "n_layers": 4,
+   "width": 64,
+   "activation": "silu",
+   "lr": 0.0016654811425330647,
+   "weight_decay": 4.321474326861642e-05,
+   "dropout": 0.059950030269293714,
+   "c_t": 10.0,
+   "n_basis": 8,
+   "inv_set": "six"
+  },
+  "epochs": 1102,
+  "trial": 132,
+  "inner_objectives": {
+   "f_err": 0.060506533900308,
+   "f_gen": 1.0177363550214915,
+   "f_phys": 0.4889425956361163,
+   "f_cost": 27630.0
+  },
+  "strategy": "random",
+  "arm": "A",
+  "seed": 3004,
+  "source": "search job random__armA__seed3004"
+ },
+ "random__armA__seed3005": {
+  "config": {
+   "arch": "M4",
+   "n_layers": 4,
+   "width": 128,
+   "activation": "silu",
+   "lr": 0.002500438812913837,
+   "weight_decay": 0.00016956526576297502,
+   "dropout": 0.027349192686277626,
+   "c_t": 3.0,
+   "n_basis": 8,
+   "inv_set": "six"
+  },
+  "epochs": 822,
+  "trial": 115,
+  "inner_objectives": {
+   "f_err": 0.06202226547421661,
+   "f_gen": 1.0279593217018133,
+   "f_phys": 0.7042758161526602,
+   "f_cost": 103278.0
+  },
+  "strategy": "random",
+  "arm": "A",
+  "seed": 3005,
+  "source": "search job random__armA__seed3005"
+ },
+ "random__armB__seed3001": {
+  "config": {
+   "arch": "M4",
+   "n_layers": 4,
+   "width": 128,
+   "activation": "tanh",
+   "lr": 0.0016414361638153727,
+   "weight_decay": 0.0005156231944883927,
+   "dropout": 0.08714135764735005,
+   "c_t": 3.0,
+   "n_basis": 8,
+   "inv_set": "four"
+  },
+  "epochs": 1491,
+  "trial": 77,
+  "inner_objectives": {
+   "f_err": 0.05726791951167855,
+   "f_gen": 1.0790267619983123,
+   "f_phys": 8.197025165583481e-17,
+   "f_cost": 102550.0
+  },
+  "strategy": "random",
+  "arm": "B",
+  "seed": 3001,
+  "source": "search job random__armB__seed3001"
+ },
+ "random__armB__seed3002": {
+  "config": {
+   "arch": "M4",
+   "n_layers": 5,
+   "width": 64,
+   "activation": "tanh",
+   "lr": 0.0010890594349025296,
+   "weight_decay": 2.877533217049227e-06,
+   "dropout": 0.08128330877895512,
+   "c_t": 10.0,
+   "n_basis": 8,
+   "inv_set": "six"
+  },
+  "epochs": 1866,
+  "trial": 72,
+  "inner_objectives": {
+   "f_err": 0.061883562736309725,
+   "f_gen": 1.1812563503803164,
+   "f_phys": 6.972304307395475e-17,
+   "f_cost": 35822.0
+  },
+  "strategy": "random",
+  "arm": "B",
+  "seed": 3002,
+  "source": "search job random__armB__seed3002"
+ },
+ "random__armB__seed3003": {
+  "config": {
+   "arch": "M4",
+   "n_layers": 2,
+   "width": 128,
+   "activation": "silu",
+   "lr": 0.0009954977898911147,
+   "weight_decay": 1.6375996033144192e-05,
+   "dropout": 0.17915643953957588,
+   "c_t": 3.0,
+   "n_basis": 8,
+   "inv_set": "four"
+  },
+  "epochs": 1377,
+  "trial": 153,
+  "inner_objectives": {
+   "f_err": 0.06377872504106583,
+   "f_gen": 1.0763712124348217,
+   "f_phys": 5.968809919038293e-17,
+   "f_cost": 37014.0
+  },
+  "strategy": "random",
+  "arm": "B",
+  "seed": 3003,
+  "source": "search job random__armB__seed3003"
+ },
+ "random__armB__seed3004": {
+  "config": {
+   "arch": "M4",
+   "n_layers": 4,
+   "width": 128,
+   "activation": "silu",
+   "lr": 0.000712667821452072,
+   "weight_decay": 0.009427457601708721,
+   "dropout": 0.046241961276763034,
+   "c_t": 10.0,
+   "n_basis": 8,
+   "inv_set": "four"
+  },
+  "epochs": 1438,
+  "trial": 159,
+  "inner_objectives": {
+   "f_err": 0.0615933435396885,
+   "f_gen": 1.0625456806604403,
+   "f_phys": 5.753430952935423e-17,
+   "f_cost": 102550.0
+  },
+  "strategy": "random",
+  "arm": "B",
+  "seed": 3004,
+  "source": "search job random__armB__seed3004"
+ },
+ "random__armB__seed3005": {
+  "config": {
+   "arch": "M4",
+   "n_layers": 4,
+   "width": 32,
+   "activation": "silu",
+   "lr": 0.0016080884917778386,
+   "weight_decay": 0.003604418033156652,
+   "dropout": 0.016288594347371444,
+   "c_t": 6.0,
+   "n_basis": 8,
+   "inv_set": "four"
+  },
+  "epochs": 878,
+  "trial": 85,
+  "inner_objectives": {
+   "f_err": 0.0593076664384518,
+   "f_gen": 1.1203968054336606,
+   "f_phys": 5.786001469044118e-17,
+   "f_cost": 7894.0
+  },
+  "strategy": "random",
+  "arm": "B",
+  "seed": 3005,
+  "source": "search job random__armB__seed3005"
+ },
+ "tpe__armA__seed3001": {
+  "config": {
+   "arch": "M4",
+   "n_layers": 4,
+   "width": 128,
+   "activation": "tanh",
+   "lr": 0.0014964739740894436,
+   "weight_decay": 0.00042758549593267293,
+   "dropout": 0.09205503108174021,
+   "c_t": 6.0,
+   "n_basis": 8,
+   "inv_set": "six"
+  },
+  "epochs": 1508,
+  "trial": 190,
+  "inner_objectives": {
+   "f_err": 0.05397488325953331,
+   "f_gen": 1.060417581068918,
+   "f_phys": 0.5859158828811472,
+   "f_cost": 103278.0
+  },
+  "strategy": "tpe",
+  "arm": "A",
+  "seed": 3001,
+  "source": "search job tpe__armA__seed3001"
+ },
+ "tpe__armA__seed3002": {
+  "config": {
+   "arch": "M4",
+   "n_layers": 5,
+   "width": 64,
+   "activation": "silu",
+   "lr": 0.002687316096344271,
+   "weight_decay": 1.842940608274987e-05,
+   "dropout": 0.06116639284137117,
+   "c_t": 6.0,
+   "n_basis": 8,
+   "inv_set": "six"
+  },
+  "epochs": 1486,
+  "trial": 116,
+  "inner_objectives": {
+   "f_err": 0.05310933131048949,
+   "f_gen": 1.256646261215744,
+   "f_phys": 0.601970913924638,
+   "f_cost": 35822.0
+  },
+  "strategy": "tpe",
+  "arm": "A",
+  "seed": 3002,
+  "source": "search job tpe__armA__seed3002"
+ },
+ "tpe__armA__seed3003": {
+  "config": {
+   "arch": "M4",
+   "n_layers": 4,
+   "width": 64,
+   "activation": "tanh",
+   "lr": 0.002959359354133184,
+   "weight_decay": 0.009872970322135336,
+   "dropout": 0.039809142326813304,
+   "c_t": 6.0,
+   "n_basis": 8,
+   "inv_set": "five"
+  },
+  "epochs": 1556,
+  "trial": 191,
+  "inner_objectives": {
+   "f_err": 0.05370084370372184,
+   "f_gen": 1.0130761292427366,
+   "f_phys": 0.5244490948024115,
+   "f_cost": 27394.0
+  },
+  "strategy": "tpe",
+  "arm": "A",
+  "seed": 3003,
+  "source": "search job tpe__armA__seed3003"
+ },
+ "tpe__armA__seed3004": {
+  "config": {
+   "arch": "M4",
+   "n_layers": 5,
+   "width": 64,
+   "activation": "tanh",
+   "lr": 0.002334637410095263,
+   "weight_decay": 0.00022516459382872542,
+   "dropout": 0.04192830226134375,
+   "c_t": 6.0,
+   "n_basis": 8,
+   "inv_set": "four"
+  },
+  "epochs": 1513,
+  "trial": 129,
+  "inner_objectives": {
+   "f_err": 0.05405000909698303,
+   "f_gen": 1.0141720990931498,
+   "f_phys": 0.5067370308329159,
+   "f_cost": 35350.0
+  },
+  "strategy": "tpe",
+  "arm": "A",
+  "seed": 3004,
+  "source": "search job tpe__armA__seed3004"
+ },
+ "tpe__armA__seed3005": {
+  "config": {
+   "arch": "M4",
+   "n_layers": 4,
+   "width": 128,
+   "activation": "tanh",
+   "lr": 0.002169694459510178,
+   "weight_decay": 1.7842943564312762e-06,
+   "dropout": 0.08908849712453662,
+   "c_t": 6.0,
+   "n_basis": 8,
+   "inv_set": "six"
+  },
+  "epochs": 1314,
+  "trial": 100,
+  "inner_objectives": {
+   "f_err": 0.05403482913734174,
+   "f_gen": 1.0461855195247853,
+   "f_phys": 0.54438948205174,
+   "f_cost": 103278.0
+  },
+  "strategy": "tpe",
+  "arm": "A",
+  "seed": 3005,
+  "source": "search job tpe__armA__seed3005"
+ },
+ "wsum__armA__seed3001": {
+  "config": {
+   "arch": "M4",
+   "n_layers": 2,
+   "width": 64,
+   "activation": "tanh",
+   "lr": 0.0029915041696650427,
+   "weight_decay": 0.0008256426606751146,
+   "dropout": 0.1619211305246186,
+   "c_t": 6.0,
+   "n_basis": 8,
+   "inv_set": "six"
+  },
+  "epochs": 2746,
+  "trial": 86,
+  "inner_objectives": {
+   "f_err": 0.05736723907149349,
+   "f_gen": 1.0692091459677548,
+   "f_phys": 0.5534747266389418,
+   "f_cost": 11246.0
+  },
+  "strategy": "wsum",
+  "arm": "A",
+  "seed": 3001,
+  "source": "search job wsum__armA__seed3001"
+ },
+ "wsum__armA__seed3002": {
+  "config": {
+   "arch": "M4",
+   "n_layers": 4,
+   "width": 64,
+   "activation": "tanh",
+   "lr": 0.002936954246778467,
+   "weight_decay": 1.247404779408742e-06,
+   "dropout": 0.03677452823598986,
+   "c_t": 6.0,
+   "n_basis": 8,
+   "inv_set": "five"
+  },
+  "epochs": 1556,
+  "trial": 67,
+  "inner_objectives": {
+   "f_err": 0.05389425857060406,
+   "f_gen": 1.0086805980868299,
+   "f_phys": 0.5166957846132227,
+   "f_cost": 27394.0
+  },
+  "strategy": "wsum",
+  "arm": "A",
+  "seed": 3002,
+  "source": "search job wsum__armA__seed3002"
+ },
+ "wsum__armA__seed3003": {
+  "config": {
+   "arch": "M4",
+   "n_layers": 4,
+   "width": 64,
+   "activation": "silu",
+   "lr": 0.0013847595255685073,
+   "weight_decay": 3.954054249263086e-06,
+   "dropout": 0.1099310261574947,
+   "c_t": 6.0,
+   "n_basis": 8,
+   "inv_set": "six"
+  },
+  "epochs": 1580,
+  "trial": 148,
+  "inner_objectives": {
+   "f_err": 0.06130701807503673,
+   "f_gen": 1.0579562516757424,
+   "f_phys": 0.5071148130648551,
+   "f_cost": 27630.0
+  },
+  "strategy": "wsum",
+  "arm": "A",
+  "seed": 3003,
+  "source": "search job wsum__armA__seed3003"
+ },
+ "wsum__armA__seed3004": {
+  "config": {
+   "arch": "M4",
+   "n_layers": 2,
+   "width": 64,
+   "activation": "silu",
+   "lr": 0.002818195168566268,
+   "weight_decay": 6.6236183181591475e-06,
+   "dropout": 0.04800559142532283,
+   "c_t": 10.0,
+   "n_basis": 8,
+   "inv_set": "four"
+  },
+  "epochs": 2161,
+  "trial": 152,
+  "inner_objectives": {
+   "f_err": 0.05007153789092326,
+   "f_gen": 0.947944756703143,
+   "f_phys": 0.5313214112966044,
+   "f_cost": 10774.0
+  },
+  "strategy": "wsum",
+  "arm": "A",
+  "seed": 3004,
+  "source": "search job wsum__armA__seed3004"
+ },
+ "wsum__armA__seed3005": {
+  "config": {
+   "arch": "M4",
+   "n_layers": 4,
+   "width": 32,
+   "activation": "tanh",
+   "lr": 0.002250759905074792,
+   "weight_decay": 0.00016938502375694303,
+   "dropout": 0.02579124018869753,
+   "c_t": 10.0,
+   "n_basis": 8,
+   "inv_set": "six"
+  },
+  "epochs": 2059,
+  "trial": 113,
+  "inner_objectives": {
+   "f_err": 0.05773700975617818,
+   "f_gen": 1.050307584861386,
+   "f_phys": 0.4986588147074511,
+   "f_cost": 8238.0
+  },
+  "strategy": "wsum",
+  "arm": "A",
+  "seed": 3005,
+  "source": "search job wsum__armA__seed3005"
+ }
+}
