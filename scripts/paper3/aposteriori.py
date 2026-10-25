@@ -18,6 +18,7 @@ test on M0 seed 0 only, before any selected model was assessed.
 import argparse
 import json
 import multiprocessing as mp
+import platform
 import time
 from pathlib import Path
 
@@ -26,6 +27,7 @@ import final_common as F
 from ps3 import conditioning, rsm1d, search
 
 SOLVE_SEEDS = (0, 1, 2)
+HOST = f"{platform.node()} {platform.system()} {platform.machine()}"   # provenance per row
 MAX_ITER = 200
 
 
@@ -69,7 +71,7 @@ def task(args):
         do_solve = seed in SOLVE_SEEDS
     for case in F.CASES_LM:
         cc = search._channel_case(case)
-        rows.append({"model": mid, "seed": seed, "case": case, **assess(cc, closure_for(cc), do_solve)})
+        rows.append({"model": mid, "seed": seed, "case": case, **assess(cc, closure_for(cc), do_solve), "host": HOST})
     return rows
 
 
@@ -78,6 +80,9 @@ def main():
     ap.add_argument("--workers", type=int, default=2)
     ap.add_argument("--out", type=Path, default=F.FINAL)
     ap.add_argument("--only", nargs="*", default=None)
+    ap.add_argument("--recheck", nargs="*", default=None,
+                    help="recompute these already-finished (model, seed) tasks, given as model:seed, into "
+                         "aposteriori_recheck.jsonl (cross-machine reproducibility check; main file untouched)")
     a = ap.parse_args()
     sel = json.loads((a.out / "selected.json").read_text())
     res_f = a.out / "aposteriori_lm.jsonl"
@@ -87,7 +92,12 @@ def main():
     todo = [("anchored_oracle", -1, a.out)] + [(f"classical:{k}", -1, a.out) for k in classical_closures()]
     todo += [(m, s, a.out) for m in sel if sel[m]["config"] is not None for s in F.REFIT_SEEDS
              if F.ckpt_path(a.out, m, s).exists()]
-    todo = [t for t in todo if (t[0], t[1]) not in done and (a.only is None or t[0] in a.only)]
+    if a.recheck:
+        want = {(m.rsplit(":", 1)[0], int(m.rsplit(":", 1)[1])) for m in a.recheck}
+        todo = [t for t in todo if (t[0], t[1]) in want]
+        res_f = a.out / "aposteriori_recheck.jsonl"
+    else:
+        todo = [t for t in todo if (t[0], t[1]) not in done and (a.only is None or t[0] in a.only)]
     print(f"{len(todo)} (model, seed) tasks", flush=True)
     t0 = time.time()
     with mp.get_context("spawn").Pool(a.workers) as pool:
