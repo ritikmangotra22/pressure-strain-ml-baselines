@@ -254,14 +254,22 @@
     },
     "supervisor": {
       "name": "Sukanta Ghosh",
-      "status": "PENDING - to be recorded here with date when obtained",
+      "status": "APPROVED",
       "scope_items": [
         "no geometry or flow-regime transfer (proposal Cases C, D)",
         "CFD-level objectives J_U and J_R only (no J_P, J_sep)",
         "deviation 4: secondary repeat dropped; ablations A2-A4 added",
         "deviation 5: Stage 2/3 redesign (conditioning objective replaces solver-in-the-loop search)",
         "deviation 6: Stage 3 implementation details and the confirmatory-test guard"
-      ]
+      ],
+      "date": "2026-10-25",
+      "recorded_from": "author's report in the working session on 25 Oct 2026 (\"all confirmed by Dr Ghosh according to your recommendation\"); written confirmation to be filed with the thesis records",
+      "approved_items": [
+        "scope: Reynolds-number transfer in plane channel flow only; no geometry or flow-regime transfer",
+        "solver-level measures narrowed to the frozen-solve Reynolds-stress error J_R and the conditioning amplification; no J_U, pressure or separation measures",
+        "deviations 4, 5, 6 and 7 as recorded in this file"
+      ],
+      "request_document": "https://claude.ai/artifact/7kfLXFkmYWMZp4yFdPzhyT"
     }
   },
   "scope": {
@@ -439,6 +447,18 @@
         "the remaining 409 tasks had already been run on the MacBook (9 min) before the disagreement was acted on; following this deviation's rule, the whole stage (567 tasks) is rerun on the MacBook alone; the mixed-host file is kept as results/paper3/final/superseded_mixed_hosts_aposteriori_lm.jsonl and is not used",
         "interpretation (to be stated in the paper): the outcome class of a failing frozen solve (diverged vs not converged) is sensitive to floating-point differences between machines; converged / not converged and the amplification are not. Analyses therefore report 'converged' against 'failed', with the failure subclass descriptive only"
       ]
+    },
+    {
+      "id": 8,
+      "date": "2026-10-25",
+      "approved_by": "author (Ritik), 25 Oct 2026",
+      "type": "execution only, decided after supervisor approval and before the confirmatory test",
+      "what": [
+        "scripts/paper3/confirmatory_test.py evaluates the (model, refit seed) tasks in parallel (--workers); a dry run gives identical a priori errors and a posteriori outcomes to the serial version; each row records its host; rows are also written incrementally to partial_rows.jsonl; a failing task is recorded as an ERROR row, not raised",
+        "the confirmatory test runs on the author's MacBook, the machine that produced the a posteriori results on LM (deviation 7), because it would take about 9 h in the 2-core cloud container, beyond its 2 h limit for one run, and the test cannot be restarted"
+      ],
+      "why": "the single run must finish in one go; one machine for all a posteriori results",
+      "code": "scripts/paper3/confirmatory_test.py"
     }
   ]
 }

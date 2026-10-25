@@ -34,12 +34,14 @@ approvals. Any later change is added to its `deviations` list with date and reas
 5. 23 Oct 2026 — Stage 2/3 redesign. The frozen 1D Reynolds-stress solve is verified by an anchored oracle (all five Lee & Moser cases, stresses within 1.0–3.5 % of the DNS), but it is ill-conditioned for learned closures: the first Newton step amplifies the most accurate candidate's a priori error about 15,000-fold, against 1–3 for the published classical closures. Solver-in-the-loop NSGA-II on J_U and J_R is replaced by NSGA-II with a fifth objective, f_cond (log₁₀ amplification on the held-out inner case); a posteriori solves are attempted for every selected model.
 6. 23 Oct 2026 — Stage 3 implementation fixed before any selected model was refitted or assessed: refit and classical-reference scripts; a posteriori solves on refit seeds 0–2 (≤ 200 iterations), amplification on all 10 seeds; frozen-solve outcomes are interpreted on a case only if the anchored oracle converges there (it does not on MKM 180, whose DNS budgets close only to 13.6 % of ε); solver grids ending on the centreline (MKM); guards on the single confirmatory run.
 7. 25 Oct 2026 — execution only: the a posteriori stage on LM moved to the author's MacBook; a cross-machine recheck found one failing solve labelled differently (diverged vs not converged), so the whole stage was rerun on the MacBook alone; the mixed-host file is kept as superseded. Analyses report converged against failed.
+8. 25 Oct 2026 — execution only: the confirmatory test runs in parallel on the MacBook (identical results to the serial version in a dry run).
 
 ## Approvals
 
 - Author (Ritik), 21 Oct 2026: all settings, including the scope exclusions, feasibility thresholds,
   qNEHVI reference point and return-to-isotropy floor (10⁻⁴).
-- Supervisor (Sukanta Ghosh): **pending**. To be recorded in `protocol_v1.json` → `approvals.supervisor`
+- Supervisor (Sukanta Ghosh): **approved 25 Oct 2026** (scope, solver-level measures, deviations 4–7), as reported by the author; recorded in `protocol_v1.json`.
+- Previously: pending. To be recorded in `protocol_v1.json` → `approvals.supervisor`
   with the date. Scope items needing sign-off: no geometry or flow-regime transfer; CFD-level objectives
   J_U and J_R only; deviations 4–6.
 

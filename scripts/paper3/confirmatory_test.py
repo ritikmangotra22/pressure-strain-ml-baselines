@@ -16,13 +16,14 @@ The lock file is written before the first model is evaluated, so an interrupted 
 silently repeated; a restart after an interruption must be logged as a deviation.
 
     python scripts/paper3/confirmatory_test.py --check     # preconditions only, reads no test data
-    python scripts/paper3/confirmatory_test.py              # the confirmatory test
+    python scripts/paper3/confirmatory_test.py --workers 8  # the confirmatory test
     python scripts/paper3/confirmatory_test.py --dry-run    # code path on LM 550/2000 stand-ins
 """
 import argparse
 import datetime
 import hashlib
 import json
+import multiprocessing as mp
 import sys
 from pathlib import Path
 
@@ -107,10 +108,41 @@ def predictions_frame(df, P_hat4, model, seed):
     return pr
 
 
+_SETS = {}
+
+
+def learned_task(args):
+    """One refitted model on every test case: a priori metrics and predictions, a posteriori on the
+    raw MKM cases. Errors are recorded as rows, never raised (the run cannot be repeated)."""
+    mid, c_t, s, final, dry = args
+    import torch
+    torch.set_num_threads(1)
+    if "sets" not in _SETS:
+        _SETS["sets"] = test_sets(dry)
+    tab, raw = _SETS["sets"]
+    four = lambda A: np.stack([A[:, 0, 0], A[:, 1, 1], A[:, 2, 2], A[:, 0, 1]], 1)
+    rows, ap_rows, preds = [], [], []
+    try:
+        train = F.lm_split(c_t)
+        fitted, ck = F.load_fitted(F.ckpt_path(Path(final), mid, s), train)
+        for case, df in tab.items():
+            te = PL.prepare(df, "durbin", c_t)
+            met, P_hat = PL.evaluate(fitted, te)
+            rows.append({"model": mid, "seed": s, "case": case, **met, "host": AP.HOST})
+            preds.append(predictions_frame(te.df, four(P_hat), mid, s))
+        for case, cc in raw.items():
+            ap_rows.append({"model": mid, "seed": s, "case": case,
+                            **AP.assess(cc, rsm1d.learned(fitted, c_t), s in AP.SOLVE_SEEDS), "host": AP.HOST})
+    except Exception as e:
+        rows.append({"model": mid, "seed": s, "case": "ERROR", "error": repr(e)[:300], "host": AP.HOST})
+    return rows, ap_rows, preds
+
+
 def main():
     ap = argparse.ArgumentParser()
     ap.add_argument("--check", action="store_true")
     ap.add_argument("--dry-run", action="store_true")
+    ap.add_argument("--workers", type=int, default=1)
     ap.add_argument("--final", type=Path, default=F.FINAL, help="refit directory (dry runs only)")
     a = ap.parse_args()
     if a.dry_run:
@@ -132,28 +164,21 @@ def main():
     tab, raw = test_sets(a.dry_run)
     print("test cases:", sorted(tab), "| a posteriori on", sorted(raw), flush=True)
     rows, ap_rows, preds = [], [], []
-    four = lambda A: np.stack([A[:, 0, 0], A[:, 1, 1], A[:, 2, 2], A[:, 0, 1]], 1)
-    for mid, spec in sel.items():
-        if spec["config"] is None:
-            continue
-        c_t = spec["config"]["c_t"]
-        train = F.lm_split(c_t)
-        splits = {k: PL.prepare(v, "durbin", c_t) for k, v in tab.items()}
-        for s in F.REFIT_SEEDS:
-            if a.dry_run and not F.ckpt_path(a.final, mid, s).exists():
-                continue                      # dry runs use a partial set of refits
-            fitted, ck = F.load_fitted(F.ckpt_path(a.final, mid, s), train)
-            for case, te in splits.items():
-                met, P_hat = PL.evaluate(fitted, te)
-                rows.append({"model": mid, "seed": s, "case": case, **met})
-                preds.append(predictions_frame(te.df, four(P_hat), mid, s))
-            for case, cc in raw.items():
-                ap_rows.append({"model": mid, "seed": s, "case": case,
-                                **AP.assess(cc, rsm1d.learned(fitted, c_t), s in AP.SOLVE_SEEDS)})
-        if not any(r["model"] == mid for r in rows):
-            continue
-        print(f"{mid}: mean E_Pi over seeds", {k: round(float(np.mean([r['E_Pi'] for r in rows if r['model'] == mid and r['case'] == k])), 4)
-                                                for k in splits}, flush=True)
+    tasks = [(mid, spec["config"]["c_t"], s, str(a.final), a.dry_run) for mid, spec in sel.items()
+             if spec["config"] is not None for s in F.REFIT_SEEDS
+             if not (a.dry_run and not F.ckpt_path(a.final, mid, s).exists())]   # dry runs: partial refits
+    print(f"{len(tasks)} (model, refit seed) tasks on {a.workers} workers", flush=True)
+    part = out / "partial_rows.jsonl"                    # incremental copy, so a crash loses nothing
+    with mp.get_context("spawn").Pool(a.workers) as pool, part.open("a") as fh:
+        for i, (r_, a_, p_) in enumerate(pool.imap_unordered(learned_task, tasks), 1):
+            rows += r_
+            ap_rows += a_
+            preds += p_
+            fh.writelines(json.dumps({"a_priori": x}, default=float) + "\n" for x in r_)
+            fh.writelines(json.dumps({"a_posteriori": x}, default=float) + "\n" for x in a_)
+            fh.flush()
+            if i % 20 == 0 or i == len(tasks):
+                print(f"{i}/{len(tasks)} tasks done", flush=True)
     for name, v in json.loads((a.final / "classical.json").read_text()).items():
         cl = C.ClassicalClosure(v["kind"], "published")
         cl.coef_ = np.array(list(v["coefs"].values()), float)
