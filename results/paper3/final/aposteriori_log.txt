@@ -1,0 +1,5 @@
+567 (model, seed) tasks
+[      2s] 1/567 anchored_oracle seed -1 median amplification 0.835 solves ['converged', 'converged', 'converged', 'converged', 'converged']
+[      6s] 2/567 classical:ssg_refit seed -1 median amplification 342 solves ['diverged', 'diverged', 'diverged', 'diverged', 'diverged']
+[      8s] 3/567 classical:ssg_published seed -1 median amplification 2.43 solves ['not_converged', 'not_converged', 'not_converged', 'not_converged', 'diverged']
+[     11s] 4/567 classical:lrr_ip_published seed -1 median amplification 0.945 solves ['diverged', 'diverged', 'not_converged', 'diverged', 'not_converged']
