@@ -1,0 +1,2 @@
+preconditions:  
+  - RUN_LOCK.json exists: the confirmatory test has already been started

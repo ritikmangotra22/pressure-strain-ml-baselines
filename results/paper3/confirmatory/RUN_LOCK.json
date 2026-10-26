@@ -1,0 +1,10 @@
+{
+ "started": "2026-10-25T23:51:25.682063",
+ "head": "01dd4a46a31f97574d1b5e5bfe0583c2ad855ff4",
+ "tag": "paper3-selection-v1",
+ "dry_run": false,
+ "mkm_sha256": "f13dd1d097bc77c47b68e57d50661fe70f1b8ced24bc284cb500718fbb3353d7",
+ "hj_sha256": "dc97f3350f4fe13a4cdbe437e5e1d3bab767826e75892bd8865dfdf9c54f30ed",
+ "n_models": 56,
+ "completed": "2026-10-25T23:54:56.664255"
+}
