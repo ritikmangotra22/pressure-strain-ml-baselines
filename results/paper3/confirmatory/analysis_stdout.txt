@@ -1,0 +1,79 @@
+            case                comparison      rq              a        b    E_a    E_b    diff   ci_lo   ci_hi  opt_range_a  opt_range_b  resolved  beyond_opt_range  same_sign_on_mkm  consistent
+ HJ_Channel_0180             random_A - M0     RQ1       random/A       M0 0.0564 0.0698 -0.0134 -0.0289  0.0002       0.0295       0.0000     False             False              True       False
+ HJ_Channel_0180                tpe_A - M0     RQ1          tpe/A       M0 0.0428 0.0698 -0.0269 -0.0435 -0.0155       0.0130       0.0000      True              True              True       False
+ HJ_Channel_0180           nsga2_A - tpe_A     RQ3        nsga2/A    tpe/A 0.0674 0.0428  0.0246  0.0100  0.0445       0.0345       0.0130      True             False              True       False
+ HJ_Channel_0180          qnehvi_A - tpe_A     RQ3       qnehvi/A    tpe/A 0.0780 0.0428  0.0351  0.0183  0.0586       0.0394       0.0130      True             False              True       False
+ HJ_Channel_0180        nsga2_A - random_A     RQ3        nsga2/A random/A 0.0674 0.0564  0.0110  0.0020  0.0231       0.0345       0.0295      True             False              True       False
+ HJ_Channel_0180       qnehvi_A - random_A     RQ3       qnehvi/A random/A 0.0780 0.0564  0.0216  0.0024  0.0459       0.0394       0.0295      True             False              True       False
+ HJ_Channel_0180        nsga2_B - random_B     RQ3        nsga2/B random/B 0.0680 0.0655  0.0024 -0.0201  0.0235       0.0295       0.0398     False             False              True       False
+ HJ_Channel_0180       qnehvi_B - random_B     RQ3       qnehvi/B random/B 0.0743 0.0655  0.0088 -0.0214  0.0434       0.0540       0.0398     False             False              True       False
+ HJ_Channel_0180         nsga2_B - nsga2_A     RQ3        nsga2/B  nsga2/A 0.0680 0.0674  0.0005 -0.0119  0.0135       0.0295       0.0345     False             False             False       False
+ HJ_Channel_0180  A2 nsga2_nogen - nsga2_A RQ2/RQ3  nsga2_nogen/A  nsga2/A 0.0702 0.0674  0.0028 -0.0189  0.0315       0.0670       0.0345     False             False              True       False
+ HJ_Channel_0180 A4 nsga2_nophys - nsga2_A RQ2/RQ3 nsga2_nophys/A  nsga2/A 0.0608 0.0674 -0.0066 -0.0271  0.0126       0.0404       0.0345     False             False              True       False
+ HJ_Channel_0180           A3 wsum - tpe_A RQ2/RQ3         wsum/A    tpe/A 0.0533 0.0428  0.0105  0.0001  0.0244       0.0368       0.0130      True             False              True       False
+ HJ_Channel_0180      nsga2_cond - nsga2_A     RQ5   nsga2_cond/A  nsga2/A 0.1326 0.0674  0.0651  0.0352  0.0956       0.0212       0.0345      True              True              True       False
+ HJ_Channel_0550             random_A - M0     RQ1       random/A       M0 0.0380 0.0402 -0.0023 -0.0085  0.0037       0.0114       0.0000     False             False              True       False
+ HJ_Channel_0550                tpe_A - M0     RQ1          tpe/A       M0 0.0318 0.0402 -0.0084 -0.0157 -0.0028       0.0044       0.0000      True              True              True       False
+ HJ_Channel_0550           nsga2_A - tpe_A     RQ3        nsga2/A    tpe/A 0.0410 0.0318  0.0092  0.0039  0.0154       0.0083       0.0044      True              True              True       False
+ HJ_Channel_0550          qnehvi_A - tpe_A     RQ3       qnehvi/A    tpe/A 0.0417 0.0318  0.0099  0.0050  0.0150       0.0067       0.0044      True              True              True       False
+ HJ_Channel_0550        nsga2_A - random_A     RQ3        nsga2/A random/A 0.0410 0.0380  0.0030 -0.0001  0.0064       0.0083       0.0114     False             False              True       False
+ HJ_Channel_0550       qnehvi_A - random_A     RQ3       qnehvi/A random/A 0.0417 0.0380  0.0037 -0.0017  0.0102       0.0067       0.0114     False             False              True       False
+ HJ_Channel_0550        nsga2_B - random_B     RQ3        nsga2/B random/B 0.0402 0.0382  0.0020 -0.0039  0.0080       0.0084       0.0161     False             False              True       False
+ HJ_Channel_0550       qnehvi_B - random_B     RQ3       qnehvi/B random/B 0.0375 0.0382 -0.0007 -0.0085  0.0056       0.0085       0.0161     False             False              True       False
+ HJ_Channel_0550         nsga2_B - nsga2_A     RQ3        nsga2/B  nsga2/A 0.0402 0.0410 -0.0008 -0.0042  0.0031       0.0084       0.0083     False             False             False       False
+ HJ_Channel_0550  A2 nsga2_nogen - nsga2_A RQ2/RQ3  nsga2_nogen/A  nsga2/A 0.0379 0.0410 -0.0031 -0.0107  0.0041       0.0144       0.0083     False             False              True       False
+ HJ_Channel_0550 A4 nsga2_nophys - nsga2_A RQ2/RQ3 nsga2_nophys/A  nsga2/A 0.0391 0.0410 -0.0019 -0.0054  0.0015       0.0051       0.0083     False             False              True       False
+ HJ_Channel_0550           A3 wsum - tpe_A RQ2/RQ3         wsum/A    tpe/A 0.0353 0.0318  0.0036 -0.0013  0.0086       0.0124       0.0044     False             False              True       False
+ HJ_Channel_0550      nsga2_cond - nsga2_A     RQ5   nsga2_cond/A  nsga2/A 0.0484 0.0410  0.0073 -0.0048  0.0165       0.0148       0.0083     False             False              True       False
+ HJ_Channel_0950             random_A - M0     RQ1       random/A       M0 0.0274 0.0319 -0.0044 -0.0121  0.0011       0.0106       0.0000     False             False              True       False
+ HJ_Channel_0950                tpe_A - M0     RQ1          tpe/A       M0 0.0228 0.0319 -0.0090 -0.0187 -0.0018       0.0025       0.0000      True              True              True       False
+ HJ_Channel_0950           nsga2_A - tpe_A     RQ3        nsga2/A    tpe/A 0.0316 0.0228  0.0087  0.0025  0.0160       0.0129       0.0025      True             False              True       False
+ HJ_Channel_0950          qnehvi_A - tpe_A     RQ3       qnehvi/A    tpe/A 0.0333 0.0228  0.0105  0.0036  0.0179       0.0086       0.0025      True              True              True       False
+ HJ_Channel_0950        nsga2_A - random_A     RQ3        nsga2/A random/A 0.0316 0.0274  0.0041  0.0011  0.0077       0.0129       0.0106      True             False              True       False
+ HJ_Channel_0950       qnehvi_A - random_A     RQ3       qnehvi/A random/A 0.0333 0.0274  0.0059  0.0003  0.0130       0.0086       0.0106      True             False              True       False
+ HJ_Channel_0950        nsga2_B - random_B     RQ3        nsga2/B random/B 0.0324 0.0297  0.0027 -0.0059  0.0109       0.0114       0.0185     False             False              True       False
+ HJ_Channel_0950       qnehvi_B - random_B     RQ3       qnehvi/B random/B 0.0291 0.0297 -0.0006 -0.0095  0.0087       0.0108       0.0185     False             False              True       False
+ HJ_Channel_0950         nsga2_B - nsga2_A     RQ3        nsga2/B  nsga2/A 0.0324 0.0316  0.0008 -0.0039  0.0066       0.0114       0.0129     False             False             False       False
+ HJ_Channel_0950  A2 nsga2_nogen - nsga2_A RQ2/RQ3  nsga2_nogen/A  nsga2/A 0.0320 0.0316  0.0005 -0.0078  0.0124       0.0232       0.0129     False             False              True       False
+ HJ_Channel_0950 A4 nsga2_nophys - nsga2_A RQ2/RQ3 nsga2_nophys/A  nsga2/A 0.0294 0.0316 -0.0021 -0.0075  0.0029       0.0139       0.0129     False             False              True       False
+ HJ_Channel_0950           A3 wsum - tpe_A RQ2/RQ3         wsum/A    tpe/A 0.0260 0.0228  0.0032 -0.0011  0.0091       0.0097       0.0025     False             False              True       False
+ HJ_Channel_0950      nsga2_cond - nsga2_A     RQ5   nsga2_cond/A  nsga2/A 0.0522 0.0316  0.0207  0.0087  0.0284       0.0179       0.0129      True              True              True       False
+ HJ_Channel_2000             random_A - M0     RQ1       random/A       M0 0.0235 0.0231  0.0004 -0.0043  0.0049       0.0082       0.0000     False             False              True       False
+ HJ_Channel_2000                tpe_A - M0     RQ1          tpe/A       M0 0.0200 0.0231 -0.0031 -0.0074  0.0016       0.0033       0.0000     False             False              True       False
+ HJ_Channel_2000           nsga2_A - tpe_A     RQ3        nsga2/A    tpe/A 0.0253 0.0200  0.0052  0.0017  0.0069       0.0015       0.0033      True              True              True       False
+ HJ_Channel_2000          qnehvi_A - tpe_A     RQ3       qnehvi/A    tpe/A 0.0257 0.0200  0.0057  0.0009  0.0082       0.0061       0.0033      True             False              True       False
+ HJ_Channel_2000        nsga2_A - random_A     RQ3        nsga2/A random/A 0.0253 0.0235  0.0018 -0.0019  0.0044       0.0015       0.0082     False             False              True       False
+ HJ_Channel_2000       qnehvi_A - random_A     RQ3       qnehvi/A random/A 0.0257 0.0235  0.0022 -0.0025  0.0062       0.0061       0.0082     False             False              True       False
+ HJ_Channel_2000        nsga2_B - random_B     RQ3        nsga2/B random/B 0.0251 0.0234  0.0016 -0.0015  0.0042       0.0029       0.0091     False             False              True       False
+ HJ_Channel_2000       qnehvi_B - random_B     RQ3       qnehvi/B random/B 0.0230 0.0234 -0.0004 -0.0032  0.0035       0.0050       0.0091     False             False              True       False
+ HJ_Channel_2000         nsga2_B - nsga2_A     RQ3        nsga2/B  nsga2/A 0.0251 0.0253 -0.0002 -0.0026  0.0015       0.0029       0.0015     False             False             False       False
+ HJ_Channel_2000  A2 nsga2_nogen - nsga2_A RQ2/RQ3  nsga2_nogen/A  nsga2/A 0.0256 0.0253  0.0004 -0.0035  0.0057       0.0143       0.0015     False             False              True       False
+ HJ_Channel_2000 A4 nsga2_nophys - nsga2_A RQ2/RQ3 nsga2_nophys/A  nsga2/A 0.0251 0.0253 -0.0002 -0.0017  0.0022       0.0031       0.0015     False             False              True       False
+ HJ_Channel_2000           A3 wsum - tpe_A RQ2/RQ3         wsum/A    tpe/A 0.0222 0.0200  0.0022 -0.0015  0.0051       0.0068       0.0033     False             False              True       False
+ HJ_Channel_2000      nsga2_cond - nsga2_A     RQ5   nsga2_cond/A  nsga2/A 0.0502 0.0253  0.0249  0.0066  0.0389       0.0208       0.0015      True              True              True       False
+MKM_Channel_0395             random_A - M0     RQ1       random/A       M0 0.0681 0.0685 -0.0005 -0.0050  0.0032       0.0024       0.0000     False             False              True       False
+MKM_Channel_0395                tpe_A - M0     RQ1          tpe/A       M0 0.0674 0.0685 -0.0012 -0.0076  0.0046       0.0058       0.0000     False             False              True       False
+MKM_Channel_0395           nsga2_A - tpe_A     RQ3        nsga2/A    tpe/A 0.0684 0.0674  0.0011 -0.0041  0.0064       0.0034       0.0058     False             False              True       False
+MKM_Channel_0395          qnehvi_A - tpe_A     RQ3       qnehvi/A    tpe/A 0.0699 0.0674  0.0025 -0.0028  0.0085       0.0037       0.0058     False             False              True       False
+MKM_Channel_0395        nsga2_A - random_A     RQ3        nsga2/A random/A 0.0684 0.0681  0.0004 -0.0028  0.0035       0.0034       0.0024     False             False              True       False
+MKM_Channel_0395       qnehvi_A - random_A     RQ3       qnehvi/A random/A 0.0699 0.0681  0.0018 -0.0019  0.0058       0.0037       0.0024     False             False              True       False
+MKM_Channel_0395        nsga2_B - random_B     RQ3        nsga2/B random/B 0.0683 0.0681  0.0001 -0.0031  0.0032       0.0021       0.0039     False             False              True       False
+MKM_Channel_0395       qnehvi_B - random_B     RQ3       qnehvi/B random/B 0.0703 0.0681  0.0021 -0.0018  0.0056       0.0029       0.0039     False             False              True       False
+MKM_Channel_0395         nsga2_B - nsga2_A     RQ3        nsga2/B  nsga2/A 0.0683 0.0684 -0.0001 -0.0022  0.0024       0.0021       0.0034     False             False             False       False
+MKM_Channel_0395  A2 nsga2_nogen - nsga2_A RQ2/RQ3  nsga2_nogen/A  nsga2/A 0.0684 0.0684 -0.0000 -0.0041  0.0039       0.0035       0.0034     False             False              True       False
+MKM_Channel_0395 A4 nsga2_nophys - nsga2_A RQ2/RQ3 nsga2_nophys/A  nsga2/A 0.0684 0.0684 -0.0001 -0.0031  0.0016       0.0027       0.0034     False             False              True       False
+MKM_Channel_0395           A3 wsum - tpe_A RQ2/RQ3         wsum/A    tpe/A 0.0677 0.0674  0.0003 -0.0030  0.0034       0.0070       0.0058     False             False              True       False
+MKM_Channel_0395      nsga2_cond - nsga2_A     RQ5   nsga2_cond/A  nsga2/A 0.0786 0.0684  0.0102 -0.0017  0.0196       0.0150       0.0034     False             False              True       False
+MKM_Channel_0590             random_A - M0     RQ1       random/A       M0 0.0510 0.0534 -0.0024 -0.0068  0.0027       0.0074       0.0000     False             False              True       False
+MKM_Channel_0590                tpe_A - M0     RQ1          tpe/A       M0 0.0465 0.0534 -0.0069 -0.0123 -0.0031       0.0046       0.0000      True              True              True        True
+MKM_Channel_0590           nsga2_A - tpe_A     RQ3        nsga2/A    tpe/A 0.0536 0.0465  0.0071  0.0022  0.0139       0.0078       0.0046      True             False              True       False
+MKM_Channel_0590          qnehvi_A - tpe_A     RQ3       qnehvi/A    tpe/A 0.0550 0.0465  0.0085  0.0029  0.0156       0.0050       0.0046      True              True              True        True
+MKM_Channel_0590        nsga2_A - random_A     RQ3        nsga2/A random/A 0.0536 0.0510  0.0025  0.0002  0.0063       0.0078       0.0074      True             False              True       False
+MKM_Channel_0590       qnehvi_A - random_A     RQ3       qnehvi/A random/A 0.0550 0.0510  0.0039 -0.0002  0.0099       0.0050       0.0074     False             False              True       False
+MKM_Channel_0590        nsga2_B - random_B     RQ3        nsga2/B random/B 0.0536 0.0519  0.0017 -0.0038  0.0065       0.0081       0.0144     False             False              True       False
+MKM_Channel_0590       qnehvi_B - random_B     RQ3       qnehvi/B random/B 0.0525 0.0519  0.0005 -0.0069  0.0073       0.0066       0.0144     False             False              True       False
+MKM_Channel_0590         nsga2_B - nsga2_A     RQ3        nsga2/B  nsga2/A 0.0536 0.0536  0.0001 -0.0037  0.0040       0.0081       0.0078     False             False             False       False
+MKM_Channel_0590  A2 nsga2_nogen - nsga2_A RQ2/RQ3  nsga2_nogen/A  nsga2/A 0.0521 0.0536 -0.0015 -0.0089  0.0054       0.0130       0.0078     False             False              True       False
+MKM_Channel_0590 A4 nsga2_nophys - nsga2_A RQ2/RQ3 nsga2_nophys/A  nsga2/A 0.0519 0.0536 -0.0016 -0.0053  0.0018       0.0071       0.0078     False             False              True       False
+MKM_Channel_0590           A3 wsum - tpe_A RQ2/RQ3         wsum/A    tpe/A 0.0490 0.0465  0.0025 -0.0017  0.0080       0.0108       0.0046     False             False              True       False
+MKM_Channel_0590      nsga2_cond - nsga2_A     RQ5   nsga2_cond/A  nsga2/A 0.0602 0.0536  0.0066 -0.0023  0.0143       0.0105       0.0078     False             False              True       False
