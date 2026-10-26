@@ -1,0 +1,40 @@
+cd data/raw/moser_kim_mansour_1999
+tar xzf chandata.tar.gz README chan180/balances chan180/profiles chan395/balances chan395/profiles chan590/balances chan590/profiles
+shasum -a 256 -c SHA256SUMS.txt | grep -v ": OK$"
+cd ~/pressure-strain-ml-baselines
+(venv) ritik@Mac pressure-strain-ml-baselines % python scripts/paper3/confirmatory_test.py --check
+preconditions: all met
+(venv) ritik@Mac pressure-strain-ml-baselines % export OMP_NUM_THREADS=1
+caffeinate -i python scripts/paper3/confirmatory_test.py --workers 8 2>&1 | tee results/paper3/confirmatory/run_log.txt
+tee: results/paper3/confirmatory/run_log.txt: No such file or directory
+test cases: ['HJ_Channel_0180', 'HJ_Channel_0550', 'HJ_Channel_0950', 'HJ_Channel_2000', 'MKM_Channel_0395', 'MKM_Channel_0590'] | a posteriori on ['MKM_Channel_0395', 'MKM_Channel_0590']
+560 (model, refit seed) tasks on 8 workers
+20/560 tasks done
+40/560 tasks done
+60/560 tasks done
+80/560 tasks done
+100/560 tasks done
+120/560 tasks done
+140/560 tasks done
+160/560 tasks done
+180/560 tasks done
+200/560 tasks done
+220/560 tasks done
+240/560 tasks done
+260/560 tasks done
+280/560 tasks done
+300/560 tasks done
+320/560 tasks done
+340/560 tasks done
+360/560 tasks done
+380/560 tasks done
+400/560 tasks done
+420/560 tasks done
+440/560 tasks done
+460/560 tasks done
+480/560 tasks done
+500/560 tasks done
+520/560 tasks done
+540/560 tasks done
+560/560 tasks done
+done: /Users/ritik/pressure-strain-ml-baselines/results/paper3/confirmatory
